@@ -155,6 +155,10 @@ h2 {
   background-color: var(--redflag-orange);
 }
 
+.button-primary.section-centered-button.form-button {
+  display: none;
+}
+
 .heading {
   text-align: center;
   margin-top: 0;
@@ -743,7 +747,7 @@ h2 {
   font-size: 20px;
   font-weight: 300;
   transition: all .2s;
-  display: none;
+  display: block;
 }
 
 .genbutton.cta-button-main:hover {

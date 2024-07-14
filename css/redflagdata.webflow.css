@@ -26,12 +26,6 @@
   padding-bottom: 56.25%;
 }
 
-.w-backgroundvideo-backgroundvideoplaypausebutton:focus-visible {
-  outline-offset: 2px;
-  border-radius: 50%;
-  outline: 2px solid #3b79c3;
-}
-
 body {
   color: #333;
   font-family: Inter, sans-serif;
@@ -1040,7 +1034,7 @@ h2 {
   background-color: #fff;
   border-bottom: 1px solid #e4ebf3;
   padding: 80px 30px;
-  display: none;
+  display: block;
   position: relative;
 }
 

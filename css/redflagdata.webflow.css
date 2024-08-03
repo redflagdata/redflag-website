@@ -100,7 +100,7 @@ h2 {
 
 .shadow-two {
   border-radius: 26px;
-  box-shadow: 0 4px 30px 6px rgba(62, 62, 62, .15);
+  box-shadow: 0 4px 30px 6px #3e3e3e26;
 }
 
 .margin-bottom-24px {
@@ -173,15 +173,12 @@ h2 {
   z-index: 999;
   background-color: #363636;
   position: fixed;
-  top: 0%;
-  bottom: auto;
-  left: 0%;
-  right: 0%;
+  inset: 0% 0% auto;
 }
 
 .navbar-logo-left-container {
   z-index: 5;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #0000;
   width: 1030px;
   max-width: 100%;
   margin-left: auto;
@@ -233,7 +230,7 @@ h2 {
 }
 
 .nav-link:hover {
-  color: rgba(26, 27, 31, .75);
+  color: #1a1b1fbf;
 }
 
 .nav-link:focus-visible {
@@ -263,7 +260,7 @@ h2 {
 }
 
 .nav-dropdown-toggle:hover {
-  color: rgba(26, 27, 31, .75);
+  color: #1a1b1fbf;
 }
 
 .nav-dropdown-toggle:focus-visible {
@@ -335,7 +332,7 @@ h2 {
 }
 
 .nav-link-accent:hover {
-  color: rgba(26, 27, 31, .75);
+  color: #1a1b1fbf;
 }
 
 .button-primary-2 {
@@ -399,7 +396,7 @@ h2 {
 }
 
 .footer-link-two:hover {
-  color: rgba(26, 27, 31, .75);
+  color: #1a1b1fbf;
 }
 
 .footer-form {
@@ -433,7 +430,7 @@ h2 {
 }
 
 .footer-form-field::placeholder {
-  color: rgba(26, 27, 31, .8);
+  color: #1a1b1fcc;
   font-size: 14px;
   line-height: 22px;
 }
@@ -542,7 +539,7 @@ h2 {
 }
 
 .footer-link:hover {
-  color: rgba(26, 27, 31, .75);
+  color: #1a1b1fbf;
 }
 
 .footer-social-block {
@@ -573,7 +570,7 @@ h2 {
 }
 
 .text-field.main-text-field {
-  background-color: rgba(255, 255, 255, .2);
+  background-color: #fff3;
   border-style: none none solid;
   flex: 1 0 300px;
   height: 50px;
@@ -621,10 +618,7 @@ h2 {
   padding: 65px;
   display: none;
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
 }
 
 .modal-wrapper.early-access {
@@ -672,7 +666,7 @@ h2 {
 .modal-close-button {
   color: #333;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #0000;
   padding-top: 20px;
   padding-right: 25px;
   font-family: Lato, sans-serif;
@@ -756,12 +750,9 @@ h2 {
 
 .modal-closer {
   z-index: 5;
-  background-color: rgba(0, 0, 0, .69);
+  background-color: #000000b0;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
 }
 
 .modal-close-button-wrapper {
@@ -864,7 +855,7 @@ h2 {
 }
 
 .email-hero-big {
-  box-shadow: 0 4px 24px rgba(150, 163, 181, .08);
+  box-shadow: 0 4px 24px #96a3b514;
 }
 
 .split-header {
@@ -996,7 +987,7 @@ h2 {
 
 .quote-highlight-wrapper {
   color: #333;
-  background-color: rgba(255, 112, 2, .15);
+  background-color: #ff700226;
   width: 100%;
   padding: 24px;
   display: none;
@@ -1260,7 +1251,7 @@ h2 {
   color: #5d019a;
 }
 
-.section-security-summary {
+.section-demo-video {
   background-color: #fff;
   padding: 40px 30px;
   display: block;
@@ -1477,7 +1468,7 @@ h2 {
   }
 
   .nav-menu-wrapper {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #0000;
   }
 
   .nav-menu-two {
@@ -1489,7 +1480,7 @@ h2 {
     margin-top: 10px;
     padding: 20px;
     display: flex;
-    box-shadow: 0 8px 50px rgba(0, 0, 0, .05);
+    box-shadow: 0 8px 50px #0000000d;
   }
 
   .nav-link {
@@ -1717,7 +1708,7 @@ h2 {
   }
 
   .nav-dropdown-list.shadow-three {
-    box-shadow: 0 8px 50px rgba(0, 0, 0, .05);
+    box-shadow: 0 8px 50px #0000000d;
   }
 
   .nav-dropdown-list.shadow-three.w--open {
@@ -1791,7 +1782,7 @@ h2 {
   }
 
   .footer-link:hover {
-    color: rgba(26, 27, 31, .75);
+    color: #1a1b1fbf;
   }
 
   .footer-social-block {
@@ -1861,7 +1852,7 @@ h2 {
     line-height: 26px;
   }
 
-  .section-security-summary, .title-section-validate-page {
+  .section-demo-video, .title-section-validate-page {
     padding: 60px 40px;
   }
 
@@ -1980,7 +1971,7 @@ h2 {
   }
 
   .text-field.main-text-field {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: #fff0;
     flex-basis: 200px;
   }
 
@@ -1995,10 +1986,7 @@ h2 {
   .modal-form-body {
     padding: 0;
     position: absolute;
-    top: 0%;
-    bottom: 0%;
-    left: 0%;
-    right: 0%;
+    inset: 0%;
   }
 
   .modal-form-body.modal-body {
@@ -2303,7 +2291,7 @@ h2 {
     line-height: 30px;
   }
 
-  .section-security-summary {
+  .section-demo-video {
     border-bottom-style: none;
     padding-top: 0;
     padding-left: 0;

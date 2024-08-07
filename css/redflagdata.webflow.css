@@ -2,12 +2,12 @@
   --base-black: #1a1b1f;
   --medium-aquamarine: #02c9a7;
   --redflag-orange: #fa6136;
+  --redflag-red: #f8481d;
   --base-blue: #252e9e;
   --lavender: #9179bc;
   --dodger-blue: #009efa;
   --mist: #adc5cf;
   --snow-white: #eef3f6;
-  --redflag-red: #f8481d;
 }
 
 .w-embed-youtubevideo {
@@ -165,6 +165,7 @@ h2 {
 }
 
 .heading.heading-title {
+  color: var(--redflag-red);
   font-size: 80px;
   line-height: 80px;
 }
@@ -2012,7 +2013,7 @@ h2 {
 
   .heading-2 {
     margin-bottom: 10px;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 32px;
   }
 

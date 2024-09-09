@@ -3337,6 +3337,10 @@ h2 {
     padding-right: 0;
   }
 
+  .feat-card-img.feature-img-a-mobile {
+    display: inline-flex;
+  }
+
   .feat-card-img.feat-card-img-wide {
     display: none;
   }

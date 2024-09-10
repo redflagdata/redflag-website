@@ -185,6 +185,14 @@ h2 {
   background-color: var(--secondary-4);
 }
 
+.button-primary.btn-primary-shadow.btn-primary-inverse:hover {
+  background-color: var(--primary-2);
+}
+
+.button-primary.btn-primary-shadow.btn-primary-inverse:active {
+  background-color: var(--primary-1);
+}
+
 .heading {
   text-align: center;
   margin-top: 0;

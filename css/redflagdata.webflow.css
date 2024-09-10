@@ -530,7 +530,7 @@ h2 {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
+  display: none;
 }
 
 .footer-brand-2 {
@@ -1322,7 +1322,7 @@ h2 {
 
 .section-demo-video {
   background-color: #fff;
-  padding: 40px 30px;
+  padding: 40px 30px 0;
   display: block;
   position: relative;
 }
@@ -2110,6 +2110,13 @@ h2 {
   position: relative;
 }
 
+.section-demo-vide-v1 {
+  background-color: #fff;
+  padding: 40px 30px;
+  display: block;
+  position: relative;
+}
+
 @media screen and (max-width: 991px) {
   .container {
     max-width: 728px;
@@ -2655,7 +2662,7 @@ h2 {
   }
 
   .section-demo-video {
-    padding: 60px 0;
+    padding: 30px 0 0;
   }
 
   .title-section-validate-page {
@@ -2804,6 +2811,10 @@ h2 {
 
   .hero-grid-content-wrapper.hero-grid-height-min {
     margin-bottom: 0;
+  }
+
+  .section-demo-vide-v1 {
+    padding: 60px 0;
   }
 }
 
@@ -3255,7 +3266,9 @@ h2 {
 
   .section-demo-video {
     border-bottom-style: none;
-    padding: 0 0 30px;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .title-section-validate-page {
@@ -3579,6 +3592,11 @@ h2 {
     grid-row-gap: 0vh;
     background-size: cover;
     min-height: 300px;
+  }
+
+  .section-demo-vide-v1 {
+    border-bottom-style: none;
+    padding: 0 0 30px;
   }
 }
 

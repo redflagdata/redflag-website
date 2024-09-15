@@ -826,7 +826,7 @@ h2 {
 
 .title-container {
   width: 100%;
-  max-width: 940px;
+  max-width: 950px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1859,9 +1859,8 @@ h2 {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   grid-template: "Area"
-  / minmax(200px, 500px) minmax(200px, 500px) minmax(200px, 500px);
+  / minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr);
   grid-auto-columns: 1fr;
-  justify-content: center;
   min-height: 500px;
   padding-top: 5vh;
   padding-bottom: 5vh;
@@ -1879,6 +1878,8 @@ h2 {
   justify-content: flex-start;
   align-items: center;
   padding-top: 10%;
+  padding-left: 10px;
+  padding-right: 10px;
   display: flex;
 }
 

@@ -48,6 +48,10 @@
   padding-bottom: 56.25%;
 }
 
+.w-form-formrecaptcha {
+  margin-bottom: 8px;
+}
+
 body {
   font-family: var(--primary-font);
   color: var(--neutral-2);
@@ -615,8 +619,14 @@ h2 {
 }
 
 .text-field.main-text-field.field-email, .text-field.main-text-field.field-name {
-  font-size: 18px;
+  font-family: var(--primary-font);
+  font-size: var(--font-size-subheader2);
   display: inline-flex;
+}
+
+.text-field.main-text-field.field-role {
+  font-family: var(--primary-font);
+  font-size: var(--font-size-subheader2);
 }
 
 .text-field.main-text-field {
@@ -637,8 +647,8 @@ h2 {
 }
 
 .feature-text.form-intro-text {
-  padding-bottom: 20px;
-  font-family: Lato, sans-serif;
+  font-family: var(--primary-font);
+  font-size: var(--font-height-body);
   font-weight: 700;
   line-height: 32px;
   display: block;
@@ -654,10 +664,6 @@ h2 {
   display: none;
   position: fixed;
   inset: 0;
-}
-
-.modal-wrapper.early-access {
-  display: none;
 }
 
 .form-block {
@@ -1491,6 +1497,7 @@ h2 {
   border-bottom-style: solid;
   height: 50px;
   font-size: 20px;
+  font-weight: 300;
 }
 
 .utility-page-wrap {
@@ -2216,6 +2223,10 @@ h2 {
     font-size: 16px;
   }
 
+  .text-field.main-text-field.field-email, .text-field.main-text-field.field-email::placeholder, .text-field.main-text-field.field-name::placeholder, .text-field.main-text-field.field-role, .text-field.main-text-field.field-role::placeholder {
+    font-size: var(--font-size-subheader2);
+  }
+
   .form {
     grid-row-gap: 20px;
   }
@@ -2571,8 +2582,8 @@ h2 {
   }
 
   .feature-text.form-intro-text {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: var(--font-height-body);
+    line-height: var(--font-height-body);
   }
 
   .modal-close-button {

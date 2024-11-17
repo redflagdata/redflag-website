@@ -48,10 +48,6 @@
   padding-bottom: 56.25%;
 }
 
-.w-form-formrecaptcha {
-  margin-bottom: 8px;
-}
-
 body {
   font-family: var(--primary-font);
   color: var(--neutral-2);
@@ -664,6 +660,10 @@ h2 {
   display: none;
   position: fixed;
   inset: 0;
+}
+
+.modal-wrapper.early-access {
+  display: none;
 }
 
 .form-block {
@@ -2122,6 +2122,10 @@ h2 {
   padding: 40px 30px;
   display: block;
   position: relative;
+}
+
+.div-block-3 {
+  display: none;
 }
 
 @media screen and (max-width: 991px) {

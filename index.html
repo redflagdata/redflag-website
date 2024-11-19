@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun Nov 17 2024 20:54:50 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Nov 19 2024 00:04:48 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="66d74ce7c646298b3a59d828" data-wf-site="665b6b7e03dc3fb4c9de25d7">
 <head>
   <meta charset="utf-8">
@@ -335,8 +335,8 @@
       const $submit = $('[type=submit]', $form); // Submit button of form
       const buttonText = $submit.val(); // Original button text
       const buttonWaitingText = $submit.attr('data-wait'); // Waiting button text value
-      const formMethod = $form.attr('method'); // Form method (where it submits to)
-      const formAction = $form.attr('action'); // Form action (GET/POST)
+      const formMethod = $form.attr('method'); // Form method (GET/POST)
+      const formAction = $form.attr('action'); // Form action (where it submits to)
       const formRedirect = $form.attr('data-redirect'); // Form redirect location
       // Check reCAPTCHA
       const recaptchaResponse = grecaptcha.getResponse();
@@ -349,7 +349,14 @@
       if (buttonWaitingText) {
         $submit.val(buttonWaitingText); 
       }
+  		// Basic Auth credentials
+  		const username = 'BT0PdhySImxd0DoABMIkTMtE';
+  		const password = 'kvQGZm8JBs3GSKPw2LNLmdFpMrZtVVf7D7';
+  		// Encode the credentials in Base64
+  		const auth = btoa(`${username}:${password}`);
       $.ajax(formAction, {
+      	headers: {'Authorization': `Basic ${auth}`, // Add Basic Auth header
+    		},
         data: formData,
         method: formMethod
       })

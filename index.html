@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Nov 19 2024 00:04:48 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Wed Nov 20 2024 01:22:24 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="66d74ce7c646298b3a59d828" data-wf-site="665b6b7e03dc3fb4c9de25d7">
 <head>
   <meta charset="utf-8">
@@ -326,36 +326,31 @@
   <script>
   var Webflow = Webflow || [];
   Webflow.push(function() {  
-    // unbind webflow form handling (keep this if you only want to affect specific forms)
+    // unbind webflow form handling
     $(document).off('submit');
-    /* Any form on the page */
     $('form').submit(function(e) {
       e.preventDefault();
-      const $form = $(this); // The submitted form
+      const $form = $(this);
       const $submit = $('[type=submit]', $form); // Submit button of form
-      const buttonText = $submit.val(); // Original button text
-      const buttonWaitingText = $submit.attr('data-wait'); // Waiting button text value
-      const formMethod = $form.attr('method'); // Form method (GET/POST)
-      const formAction = $form.attr('action'); // Form action (where it submits to)
-      const formRedirect = $form.attr('data-redirect'); // Form redirect location
-      // Check reCAPTCHA
+      const buttonText = $submit.val();
+      const buttonWaitingText = $submit.attr('data-wait');
+      const formMethod = $form.attr('method');
+      const formAction = $form.attr('action');
+      const formRedirect = $form.attr('data-redirect');
       const recaptchaResponse = grecaptcha.getResponse();
       if (!recaptchaResponse) {
         alert('Please complete the reCAPTCHA challenge.');
-        return; // Stop form submission
+        return;
       }
       const formData = $form.serialize() + `&g-recaptcha-response=${recaptchaResponse}`; // Include reCAPTCHA response in serialized data; // Form data
-      // Set waiting text
       if (buttonWaitingText) {
         $submit.val(buttonWaitingText); 
       }
-  		// Basic Auth credentials
   		const username = 'BT0PdhySImxd0DoABMIkTMtE';
   		const password = 'kvQGZm8JBs3GSKPw2LNLmdFpMrZtVVf7D7';
-  		// Encode the credentials in Base64
   		const auth = btoa(`${username}:${password}`);
       $.ajax(formAction, {
-      	headers: {'Authorization': `Basic ${auth}`, // Add Basic Auth header
+      	headers: {'Authorization': `Basic ${auth}`,
     		},
         data: formData,
         method: formMethod
@@ -364,14 +359,14 @@
         // If form redirect setting set, then use this and prevent any other actions
         if (formRedirect) { window.location = formRedirect; return; }
         $form
-          .hide() // optional hiding of form
-          .siblings('.w-form-done').show() // Show success
-          .siblings('.w-form-fail').hide(); // Hide failure
+          .hide()
+          .siblings('.w-form-done').show()
+          .siblings('.w-form-fail').hide();
       })
       .fail((res) => {
         $form
-          .siblings('.w-form-done').hide() // Hide success
-          .siblings('.w-form-fail').show(); // show failure
+          .siblings('.w-form-done').hide()
+          .siblings('.w-form-fail').show();
       })
       .always(() => {
         // Reset text

@@ -32,22 +32,6 @@
   --neutral-4: #ccc8c7;
 }
 
-.w-embed-youtubevideo {
-  background-image: url('https://d3e54v103j8qbb.cloudfront.net/static/youtube-placeholder.2b05e7d68d.svg');
-  background-position: 50%;
-  background-size: cover;
-  width: 100%;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  position: relative;
-}
-
-.w-embed-youtubevideo:empty {
-  min-height: 75px;
-  padding-bottom: 56.25%;
-}
-
 body {
   font-family: var(--primary-font);
   color: var(--neutral-2);
@@ -3825,52 +3809,7 @@ h2 {
   }
 }
 
-#w-node-_8a5989ea-a58c-6549-64c8-c7000a21da60-c9de25d4 {
-  grid-area: Area;
-}
-
-#w-node-_8a5989ea-a58c-6549-64c8-c7000a21da62-c9de25d4 {
-  grid-area: span 1 / span 1 / span 1 / span 1;
-  align-self: center;
-}
-
-#w-node-e89e00a0-71ad-0c88-85d1-8325f0515288-c9de25d4 {
-  grid-area: span 1 / span 1 / span 1 / span 1;
-}
-
-#w-node-e89e00a0-71ad-0c88-85d1-8325f051528b-c9de25d4 {
-  grid-area: Area;
-  align-self: center;
-}
-
-#w-node-_5ec07d3c-5185-e67c-04d4-5007e5203992-c9de25d4 {
-  grid-area: Area;
-}
-
-#w-node-_5ec07d3c-5185-e67c-04d4-5007e5203994-c9de25d4 {
-  grid-area: span 1 / span 1 / span 1 / span 1;
-  align-self: center;
-}
-
-#w-node-_95cc61d5-d194-5107-4122-807640ca755f-c9de25d4 {
-  grid-area: span 1 / span 1 / span 1 / span 1;
-}
-
-#w-node-_95cc61d5-d194-5107-4122-807640ca756b-c9de25d4 {
-  grid-area: Area;
-  align-self: center;
-}
-
-#w-node-_516f57c4-8fec-5978-b3f5-25e6d3f01f93-c9de25d4 {
-  grid-area: span 1 / span 1 / span 1 / span 1;
-}
-
-#w-node-_516f57c4-8fec-5978-b3f5-25e6d3f01f95-c9de25d4 {
-  grid-area: Area;
-  align-self: center;
-}
-
-#w-node-a074267c-5b7d-148c-d8ff-06e653d5a510-c9de25d4, #w-node-a074267c-5b7d-148c-d8ff-06e653d5a519-c9de25d4, #w-node-a074267c-5b7d-148c-d8ff-06e653d5a524-c9de25d4, #w-node-_8141dba7-9569-decd-8fe9-eb6bad11ab80-3a59d828, #w-node-_15b24a81-d50f-3434-fe89-e34970776a8e-3a59d828, #w-node-_8ebd2cd0-8491-c79f-3f9a-55d196f1a009-3a59d828, #w-node-e89e00a0-71ad-0c88-85d1-8325f0515288-3a59d828 {
+#w-node-_8141dba7-9569-decd-8fe9-eb6bad11ab80-3a59d828, #w-node-_15b24a81-d50f-3434-fe89-e34970776a8e-3a59d828, #w-node-_8ebd2cd0-8491-c79f-3f9a-55d196f1a009-3a59d828, #w-node-e89e00a0-71ad-0c88-85d1-8325f0515288-3a59d828 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
@@ -3964,13 +3903,6 @@ h2 {
 @media screen and (max-width: 767px) {
   #w-node-a27c6b85-db0c-41ea-9188-f83dbd13a621-3a59d828, #w-node-af4d7f65-97b9-2a49-84e0-0051bc410079-3a59d828, #w-node-_4613b15d-f218-2173-c2c6-8958f89562e4-3a59d828, #w-node-_4613b15d-f218-2173-c2c6-8958f89562f6-3a59d828, #w-node-a27c6b85-db0c-41ea-9188-f83dbd13a621-26731262, #w-node-af4d7f65-97b9-2a49-84e0-0051bc410079-26731262 {
     grid-area: span 1 / span 3 / span 1 / span 3;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  #w-node-_95cc61d5-d194-5107-4122-807640ca756b-c9de25d4, #w-node-_516f57c4-8fec-5978-b3f5-25e6d3f01f95-c9de25d4 {
-    grid-area: Area;
-    align-self: center;
   }
 }
 

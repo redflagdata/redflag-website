@@ -258,14 +258,7 @@ h2 {
   color: #1a1b1fbf;
 }
 
-.nav-link:focus-visible {
-  outline-offset: 0px;
-  color: #0050bd;
-  border-radius: 4px;
-  outline: 2px solid #0050bd;
-}
-
-.nav-link[data-wf-focus-visible] {
+.nav-link:focus-visible, .nav-link[data-wf-focus-visible] {
   outline-offset: 0px;
   color: #0050bd;
   border-radius: 4px;
@@ -288,14 +281,7 @@ h2 {
   color: #1a1b1fbf;
 }
 
-.nav-dropdown-toggle:focus-visible {
-  outline-offset: 0px;
-  color: #0050bd;
-  border-radius: 5px;
-  outline: 2px solid #0050bd;
-}
-
-.nav-dropdown-toggle[data-wf-focus-visible] {
+.nav-dropdown-toggle:focus-visible, .nav-dropdown-toggle[data-wf-focus-visible] {
   outline-offset: 0px;
   color: #0050bd;
   border-radius: 5px;
@@ -322,14 +308,7 @@ h2 {
   font-size: 14px;
 }
 
-.nav-dropdown-link:focus-visible {
-  outline-offset: 0px;
-  color: #0050bd;
-  border-radius: 5px;
-  outline: 2px solid #0050bd;
-}
-
-.nav-dropdown-link[data-wf-focus-visible] {
+.nav-dropdown-link:focus-visible, .nav-dropdown-link[data-wf-focus-visible] {
   outline-offset: 0px;
   color: #0050bd;
   border-radius: 5px;

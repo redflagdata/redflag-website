@@ -2049,6 +2049,7 @@ h2 {
 .header-button.header-button-secondary {
   background-color: var(--neutral-5);
   color: var(--primary-2);
+  display: none;
 }
 
 .header-button.header-button-secondary:hover {

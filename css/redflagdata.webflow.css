@@ -1811,6 +1811,10 @@ h2 {
   display: flex;
 }
 
+.list-item-wrapper.list-item-invisible {
+  display: none;
+}
+
 .image-3 {
   height: var(--font-size-body);
   align-self: flex-start;

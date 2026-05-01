@@ -23,12 +23,12 @@
   --secondary-3: #575fd0;
   --medium-aquamarine: #02c9a7;
   --mist: #adc5cf;
+  --snow-white: #eef3f6;
   --neutral-1: black;
   --light-neutral-2: #efebeb;
   --color: white;
   --lavender: #9179bc;
   --dodger-blue: #009efa;
-  --snow-white: #eef3f6;
   --light-neutral-1: #d9d9d9;
   --neutral-4: #ccc8c7;
 }
@@ -1804,7 +1804,12 @@ strong {
 }
 
 .feat-card-img.feat-card-img-wide.feat-card-img-tall {
+  box-shadow: 0 4px 20px 4px var(--drop-shadow-primary);
+  outline-color: var(--neutral-5);
+  outline-offset: 0px;
   border-radius: 10px;
+  outline-width: 1.5px;
+  outline-style: solid;
 }
 
 .feat-card-img-wrapper {
@@ -2376,6 +2381,20 @@ strong {
   margin-left: auto;
   margin-right: auto;
   position: relative;
+}
+
+.image-6 {
+  border: 1.5px solid var(--neutral-5);
+  box-shadow: 0 2px 15px 0 var(--neutral-3);
+  outline-offset: 0px;
+  border-radius: 10px;
+  outline: 0 #352e2c;
+}
+
+.card-outline {
+  border: 1px solid var(--neutral-5);
+  box-shadow: 0 2px 15px 0 var(--neutral-3);
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 991px) {
@@ -3840,7 +3859,12 @@ strong {
   }
 
   .feat-card-img.feature-img-a-mobile.feature-card-img-mobile-tall {
+    box-shadow: 0 2px 15px 0 var(--neutral-3);
+    outline-color: var(--snow-white);
+    outline-offset: 0px;
     border-radius: 16px;
+    outline-width: 1.5px;
+    outline-style: solid;
   }
 
   .feat-card-img.feat-card-img-wide {

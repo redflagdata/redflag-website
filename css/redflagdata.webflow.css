@@ -1774,6 +1774,10 @@ strong {
   align-items: flex-start;
 }
 
+.feat-card-wrapper.feat-card-wrap-reverse.feat-card-wrapper-hidden {
+  display: none;
+}
+
 .split-header-feat {
   color: var(--secondary-2);
   font-size: var(--font-size-subheader);

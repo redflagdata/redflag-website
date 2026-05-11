@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Sun May 10 2026 20:51:04 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon May 11 2026 05:22:55 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="66d74ce7c646298b3a59d828" data-wf-site="665b6b7e03dc3fb4c9de25d7">
 <head>
   <meta charset="utf-8">
@@ -102,7 +102,7 @@
                 <a href="developer.html" class="header-button header-button-secondary w-button">Redflag for Developers</a>
               </li>
               <li class="mobile-margin-top-10">
-                <a data-w-id="fcb49fc2-277c-de4d-1a1a-e497f7481e06" href="#" class="header-button w-button">get started</a>
+                <a data-w-id="fcb49fc2-277c-de4d-1a1a-e497f7481e06" href="#" class="header-button w-button">see a demo</a>
               </li>
             </ul>
           </nav>
@@ -399,11 +399,21 @@
       <div class="modal-form-wrapper">
         <h1 class="feature-text form-intro-text">Ready to connect?</h1>
         <div class="feature-text">Book a live demo:</div>
-        <a id="demo-schedule" href="https://redflagdata.chilipiper.com/personal-page/chase-vansteenburg/me/meeting-with-chase-01" target="_blank" class="demo-button w-button">Schedule a Demo</a>
+        <div data-cal-config="{&amp;quot;layout&amp;quot;:&amp;quot;month_view&amp;quot;,&amp;quot;useSlotsViewOnSmallScreen&amp;quot;:&amp;quot;true&amp;quot;,&amp;quot;theme&amp;quot;:&amp;quot;light&amp;quot;}" data-cal-link="chase-vansteenburg/redflag-demo" data-cal-namespace="redflag-demo">
+          <a id="demo-schedule" href="#" class="demo-button w-button">Schedule a Demo</a>
+          <div class="w-embed w-script"><!--  Cal element-click embed code begins  -->
+            <script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "redflag-demo", {origin:"https://app.cal.com"});
+  Cal.ns["redflag-demo"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#f8481d"},"dark":{"cal-brand":"#f8481d"}},"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+            <!--  Cal element-click embed code ends  -->
+          </div>
+        </div>
         <div class="form-block signup-block w-form">
           <form id="wf-form-Presale-Form" name="wf-form-Presale-Form" data-name="Presale Form" action="https://cloud.activepieces.com/api/v1/webhooks/0T29YLfJ8ekF5s4ywNNRx/sync" method="post" class="form" data-wf-page-id="66d74ce7c646298b3a59d828" data-wf-element-id="286b3f32-1480-90ae-2b96-2cd7d3748b88">
             <div class="div-block-4">
-              <div class="feature-text feature-text-neg-margin">Or get in touch: </div>
+              <div class="feature-text feature-text-neg-margin">Or get in touch by email: </div>
             </div><input class="text-field main-text-field field-name w-input" autofocus="true" maxlength="256" name="Name" data-name="Name" placeholder="NAME" type="text" id="Name" required=""><input class="text-field main-text-field field-email w-input" maxlength="256" name="Email" data-name="Email" placeholder="EMAIL" type="email" id="Email-3" required=""><input class="text-field main-text-field field-role w-input" maxlength="256" name="Company" data-name="Company" placeholder="Company (or &quot;none&quot;)" type="text" id="Company" required=""><select id="role" name="Your-role" data-name="Your role" required="" class="select-field w-select">
               <option value="none selected">Your Role</option>
               <option value="Architect">Architect</option>

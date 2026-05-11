@@ -655,7 +655,6 @@ strong {
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr;
   grid-auto-columns: 1fr;
-  display: none;
 }
 
 .form-block {
@@ -2447,6 +2446,7 @@ strong {
   padding: 12px 25px;
   font-weight: 500;
   transition: all .2s;
+  display: block;
 }
 
 .demo-button:hover {

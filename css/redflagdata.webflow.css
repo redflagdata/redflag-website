@@ -2119,7 +2119,8 @@ strong {
 .header-button.header-button-secondary {
   background-color: var(--neutral-5);
   color: var(--primary-2);
-  display: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .header-button.header-button-secondary:hover {
@@ -4273,5 +4274,4 @@ strong {
     grid-area: span 1 / span 3 / span 1 / span 3;
   }
 }
-
 

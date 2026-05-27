@@ -181,15 +181,6 @@
       line-height: 1.45;
     }
 
-    .team-list {
-      margin: 8px 0 0;
-      padding-left: 18px;
-      display: grid;
-      gap: 10px;
-      color: rgba(25, 25, 25, 0.86);
-      line-height: 1.55;
-    }
-
     .team-links {
       margin-top: auto;
       display: flex;
@@ -201,33 +192,31 @@
     .team-link {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      gap: 8px;
       min-height: 44px;
-      padding: 0 16px;
+      padding: 0 14px 0 10px;
       border-radius: 999px;
-      border: 1px solid rgba(248, 72, 29, 0.24);
-      background: rgba(248, 72, 29, 0.08);
-      color: #f8481d;
-      font-weight: 700;
+      border: 1px solid rgba(25, 25, 25, 0.12);
+      background: rgba(255, 255, 255, 0.9);
+      color: #191919;
+      font-size: 15px;
+      font-weight: 600;
       text-decoration: none;
+      white-space: nowrap;
       transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease;
     }
 
     .team-link:hover {
       transform: translateY(-1px);
-      background: rgba(248, 72, 29, 0.14);
-      border-color: rgba(248, 72, 29, 0.34);
-    }
-
-    .team-link-secondary {
-      border-color: rgba(25, 25, 25, 0.14);
-      background: rgba(255, 255, 255, 0.84);
-      color: #191919;
-    }
-
-    .team-link-secondary:hover {
       background: rgba(25, 25, 25, 0.04);
       border-color: rgba(25, 25, 25, 0.2);
+    }
+
+    .team-link img {
+      width: 20px;
+      height: 20px;
+      display: block;
     }
 
     @media screen and (max-width: 991px) {
@@ -299,9 +288,6 @@
                 <a href="index.html" class="header-button header-button-secondary w-button">Redflag for AEC Industry</a>
               </li>
               <li class="mobile-margin-top-10">
-                <a href="about-us.html" aria-current="page" class="header-button header-button-secondary w-button">About Us</a>
-              </li>
-              <li class="mobile-margin-top-10">
                 <a data-w-id="fcb49fc2-277c-de4d-1a1a-e497f7481e06" href="#" class="header-button w-button">see a demo</a>
               </li>
             </ul>
@@ -332,18 +318,11 @@
             </div>
             <div class="team-body">
               <h2 class="team-name">Chase VanSteenburg</h2>
-              <p class="team-role">CEO</p>
-              <p class="team-subtitle">Real Estate Development, Proptech</p>
-              <p class="team-subtitle">Chicago Booth - MBA, Backend Developer</p>
-              <ul class="team-list">
-                <li>7 yrs in commercial real estate (6 w/ Max)</li>
-                <li>Founded a prior proptech co w/ Max</li>
-                <li>Founding team Coco Robotics - built Rev team</li>
-                <li>Postmates emp #30 - built city expansion func.</li>
-                <li>Self-taught software developer (<a href="https://github.com/cvansteenburg" target="_blank" rel="noopener noreferrer">github</a>)</li>
-              </ul>
               <div class="team-links">
-                <a class="team-link" href="https://www.linkedin.com/in/cvansteenburg" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="team-link" href="https://www.linkedin.com/in/cvansteenburg" target="_blank" rel="noopener noreferrer" aria-label="Chase VanSteenburg LinkedIn">
+                  <img src="images/team/linkedin-in-bug.png" loading="lazy" alt="LinkedIn logo">
+                  <span>LinkedIn</span>
+                </a>
               </div>
             </div>
           </article>
@@ -353,16 +332,11 @@
             </div>
             <div class="team-body">
               <h2 class="team-name">Jordan Tritell</h2>
-              <p class="team-role">CTO</p>
-              <p class="team-subtitle">AI &amp; Geospatial Mapping Specialist</p>
-              <p class="team-subtitle">Indiana University - Computer Science</p>
-              <ul class="team-list">
-                <li>Engineer at Oculus</li>
-                <li>Staff Eng at Niantic (joined Oculus and Niantic at series B)</li>
-                <li>Engineer #2 at Enflux (YC W16)</li>
-              </ul>
               <div class="team-links">
-                <a class="team-link" href="https://www.linkedin.com/in/jordan-tritell-41160761/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="team-link" href="https://www.linkedin.com/in/jordan-tritell-41160761/" target="_blank" rel="noopener noreferrer" aria-label="Jordan Tritell LinkedIn">
+                  <img src="images/team/linkedin-in-bug.png" loading="lazy" alt="LinkedIn logo">
+                  <span>LinkedIn</span>
+                </a>
               </div>
             </div>
           </article>
@@ -372,17 +346,11 @@
             </div>
             <div class="team-body">
               <h2 class="team-name">Max Wong</h2>
-              <p class="team-role">CPO (Product)</p>
-              <p class="team-subtitle">Commercial and Industrial Architecture</p>
-              <p class="team-subtitle">Harvard GSD - Masters in Architecture</p>
-              <ul class="team-list">
-                <li>10 yrs in commercial RE (6 w/ Chase)</li>
-                <li>Founded a prior proptech co w/ Chase</li>
-                <li>Led RE product development &amp; software procurement function at Rivian</li>
-                <li>Managed RE development teams at WeWork</li>
-              </ul>
               <div class="team-links">
-                <a class="team-link" href="https://www.linkedin.com/in/max-wong/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="team-link" href="https://www.linkedin.com/in/max-wong/" target="_blank" rel="noopener noreferrer" aria-label="Max Wong LinkedIn">
+                  <img src="images/team/linkedin-in-bug.png" loading="lazy" alt="LinkedIn logo">
+                  <span>LinkedIn</span>
+                </a>
               </div>
             </div>
           </article>

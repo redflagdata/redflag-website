@@ -614,6 +614,22 @@ strong {
   font-size: var(--font-size-subheader2);
 }
 
+.text-field.main-text-field.field-role.form-field-addition {
+  opacity: 0;
+  pointer-events: none;
+  border-width: 0;
+  flex: 0 0 1px;
+  width: 1px;
+  min-width: 0;
+  height: 1px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: -9999px;
+  overflow: hidden;
+}
+
 .text-field.main-text-field {
   border-style: none none solid;
   flex: 1 0 280px;
@@ -660,6 +676,7 @@ strong {
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr;
   grid-auto-columns: 1fr;
+  display: none;
 }
 
 .form-block {

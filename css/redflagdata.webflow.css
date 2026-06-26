@@ -3273,6 +3273,10 @@ strong {
   box-shadow: 0 24px 80px #0f172a1f;
 }
 
+.image-10 {
+  display: none;
+}
+
 @media screen and (max-width: 991px) {
   .width-wrapper {
     padding-left: 10px;
@@ -5340,6 +5344,10 @@ strong {
     display: block;
   }
 
+  .image-8 {
+    display: none;
+  }
+
   .take-away-card-wrapper-copy {
     justify-self: center;
     align-items: center;
@@ -5390,6 +5398,10 @@ strong {
 
   .rf-product-frame {
     border-radius: 20px;
+  }
+
+  .image-10 {
+    display: block;
   }
 }
 

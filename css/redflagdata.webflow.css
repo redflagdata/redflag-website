@@ -618,7 +618,7 @@ strong {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  display: none;
 }
 
 .footer-brand-2 {
@@ -682,6 +682,7 @@ strong {
   height: 1px;
   margin-top: 0;
   margin-bottom: 15px;
+  display: none;
 }
 
 .footer-copyright-center {
@@ -2342,7 +2343,6 @@ strong {
 .header-button.header-button-secondary {
   background-color: var(--neutral-5);
   color: var(--primary-2);
-  display: block;
 }
 
 .header-button.header-button-secondary:hover {

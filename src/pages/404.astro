@@ -1,0 +1,6 @@
+---
+import Layout from '../layouts/Layout.astro';
+import OriginalSection from '../components/OriginalSection.astro';
+import content from '../content/original/404.json';
+---
+<Layout page={content}>{content.sections.map(markup => <OriginalSection markup={markup} />)}</Layout>

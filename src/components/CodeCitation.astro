@@ -1,0 +1,7 @@
+---
+import { codes, docs, citationHref } from '../content/citations';
+const { code, label } = Astro.props as { code: keyof typeof docs; label: string };
+const citation = codes[code];
+const doc = docs[code];
+---
+<span class="citation"><button type="button" class="code" popovertarget={`citation-${code}`} aria-label={`Read citation: ${label}`}>{label}</button><span class="citation-pop" id={`citation-${code}`} popover="auto" role="dialog" aria-label={citation.t}><span class="ph"><b>{citation.t}</b><button type="button" popovertarget={`citation-${code}`} popovertargetaction="hide" aria-label="Close citation">×</button></span><span class="src">Hemet Municipal Code · {doc.name} · p. {doc.page}</span><span class="excerpt" role="blockquote" set:html={citation.q} /><a class="btn btn-primary" href={citationHref(code)} target="_blank" rel="noopener">Open cited page ↗</a></span></span>

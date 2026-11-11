@@ -1,0 +1,4 @@
+---
+const { content, markup } = Astro.props;
+---
+{markup ? <Fragment set:html={markup} /> : <section class="split-section-learn-more rf-section full-width" id="demo"><div class="learn-more-color-block"><div class="container"><div class="learn-more-wrapper"><div class="learn-more-content-width-wrapper"><h2 class="learn-more-header">{content.title}</h2><p class="government-cta-copy">{content.text}</p></div><div class="button-centering-wrapper btn-right-wrapper"><a href="#" data-w-id="112034a9-5177-ccdf-b1b2-fe638c985c72" class="rf-button rf-button--primary w-button">{content.button}</a></div></div></div></div></section>}

@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import SplitSection from '../components/SplitSection.astro';
+import CTA from '../components/CTA.astro';
+import { cre as content } from '../content/cre';
+---
+<Layout page={content}><main class={content.mainClass}><Hero markup={content.sections[0]} /><SplitSection markup={content.sections[1]} /><FeatureGrid markup={content.sections[2]} /><SplitSection markup={content.sections[3]} /><SplitSection markup={content.sections[4]} /><FeatureGrid markup={content.sections[5]} /><SplitSection markup={content.sections[6]} /><FeatureGrid markup={content.sections[7]} /><CTA markup={content.sections[8]} /></main></Layout>

@@ -1,0 +1,13 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import DemoModal from '../components/DemoModal.astro';
+import original from '../content/original/index.json';
+const { audience = 'cre', page = original, title, description } = Astro.props;
+let head = page.head;
+if (title) head = head.replace(/<title>.*?<\/title>/s, `<title>${title}</title>`);
+if (description) head = head.replace(/<meta content="[^"]*" name="description"\/>/, `<meta content="${description}" name="description"/>`);
+if (audience === 'government' && title) head = head.replace(/(<meta content=")[^"]*(" (?:property="og:title"|name="twitter:title")\/>)/g, `$1${title}$2`);
+if (audience === 'government') head = head.replace('href="https://www.redflagdata.com" rel="canonical"', 'href="https://www.redflagdata.com/government" rel="canonical"');
+---
+<!doctype html><html lang="en" data-wf-page={page.pageId} data-wf-site={page.siteId}><head><Fragment set:html={head} /><link rel="stylesheet" href="/css/audience.css" />{audience === 'government' && <link rel="stylesheet" href="/css/government.css" />}</head><body class={page.bodyClass || 'body'}><Nav markup={page.nav} audience={audience} /><slot /><Footer markup={page.footer} /><DemoModal markup={page.modal} /><Fragment set:html={page.scripts} /></body></html>

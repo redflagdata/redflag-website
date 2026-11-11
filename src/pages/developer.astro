@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import SplitSection from '../components/SplitSection.astro';
+import CTA from '../components/CTA.astro';
+import { developer as content } from '../content/developer';
+---
+<Layout page={content}><main class={content.mainClass}><Hero markup={content.sections[0]} /><FeatureGrid markup={content.sections[1]} /><SplitSection markup={content.sections[2]} /><SplitSection markup={content.sections[3]} /><FeatureGrid markup={content.sections[4]} /><FeatureGrid markup={content.sections[5]} /><CTA markup={content.sections[6]} /></main></Layout>

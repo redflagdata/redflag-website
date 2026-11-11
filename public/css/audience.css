@@ -1,0 +1,9 @@
+/* The original CRE styles are unchanged. Only the audience control is new. */
+:root{color-scheme:light}
+.audience-switch{display:flex;gap:2px;border:1px solid var(--rf-border-soft,#e8eef6);background:var(--rf-surface-50,#f8fafc);border-radius:999px;padding:3px;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--font-display,Inter,sans-serif);font-size:12px;line-height:20px}
+.audience-switch a{padding:5px 13px;color:var(--rf-ink-600,#4b5563);text-decoration:none;border-radius:999px}
+.audience-switch a[aria-current]{background:var(--rf-ink-900,#111827);color:white}
+.audience-switch a:hover{box-shadow:inset 0 0 0 1px var(--rf-border-soft,#e8eef6)}
+.audience-switch a:focus-visible{outline:2px solid var(--rf-red-600,#e9361f);outline-offset:3px}
+@media(max-width:600px){.audience-switch{font-size:10px;left:auto;right:59px;transform:none;padding:2px}.audience-switch a{padding:4px 7px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}

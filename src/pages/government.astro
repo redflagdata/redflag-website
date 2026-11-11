@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import Steps from '../components/Steps.astro';
+import Stats from '../components/Stats.astro';
+import CTA from '../components/CTA.astro';
+import WorkspaceMock from '../components/WorkspaceMock.astro';
+import GovernmentExamples from '../components/GovernmentExamples.astro';
+import { government as content } from '../content/government';
+---
+<Layout title={content.title} description={content.description} audience="government"><main class="main government-page"><Hero content={content.hero}><WorkspaceMock /></Hero><FeatureGrid content={content.features} id="features" alt /><Steps content={content.steps} /><GovernmentExamples /><Stats content={content.stats} /><CTA content={content.cta} audience="government" /></main></Layout>

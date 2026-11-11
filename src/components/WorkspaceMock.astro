@@ -1,0 +1,41 @@
+<div aria-label="Illustrative city workspace with ArcGIS search" class="mock">
+<div class="mock-top">redflag <span>City administration</span></div>
+<div class="mock-body">
+<h3>City of Hemet</h3>
+<div class="sub">City administration · ca/hemet</div>
+<div class="tabs">Find ArcGIS Services</div>
+<form class="searchrow" id="gis-search">
+<label class="sr" for="gis-q" hidden="">Keywords</label>
+<input aria-label="Search ArcGIS Online" id="gis-q" value="Hemet zoning"/>
+<button class="btn btn-primary" type="submit">Search</button>
+</form>
+<div aria-live="polite" class="results" id="gis-results"><div class="row"><div>Zoning<div class="meta">City of Hemet · Planning/Zoning/FeatureServer/0 · Polygon</div></div></div><div class="row"><div>Overlays<div class="meta">City of Hemet · Planning/Overlays/FeatureServer/0 · Polygon</div></div></div><div class="row"><div>Parcels<div class="meta">Riverside County · Parcels/FeatureServer/0 · Polygon</div></div></div></div>
+<p class="demo-note">Sample results from a demo workspace. Live search runs against ArcGIS Online.</p>
+</div>
+</div>
+<script>
+const sample: {t:string;m:string;added?:boolean}[]=[
+  {t:"Zoning",m:"City of Hemet · Planning/Zoning/FeatureServer/0 · Polygon",added:true},
+  {t:"Overlays",m:"City of Hemet · Planning/Overlays/FeatureServer/0 · Polygon"},
+  {t:"FEMA Floodplains",m:"FEMA NFHL · MapServer/28 · Flood Hazard Zones"},
+  {t:"Parcels",m:"Riverside County · Parcels/FeatureServer/0 · Polygon"},
+  {t:"General Plan Land Use",m:"City of Hemet · Planning/GeneralPlan/FeatureServer/0 · Polygon"},
+  {t:"Fire Hazard Severity Zones",m:"CAL FIRE · FHSZ/FeatureServer/0 · Polygon"},
+];
+const box=document.getElementById('gis-results')!;
+function render(q: string){
+  const term=q.trim().toLowerCase().split(/\s+/).filter(w=>w&&w!=='hemet');
+  const rows=sample.filter(r=>!term.length||term.some(w=>(r.t+r.m).toLowerCase().includes(w)));
+  box.innerHTML='';
+  (rows.length?rows:sample).forEach(r=>{
+    const d=document.createElement('div');d.className='row';
+    d.innerHTML=`<div><div>${r.t}</div><div class="meta">${r.m}</div></div>`;
+    const b=document.createElement('button');b.type='button';
+    const set=()=>{b.className='pill '+(r.added?'pill-added':'pill-add');b.textContent=r.added?'Added':'Add to region';};
+    b.onclick=()=>{if(!r.added){r.added=true;set();}};set();d.appendChild(b);box.appendChild(d);
+  });
+}
+document.getElementById('gis-search')!.addEventListener('submit',e=>{e.preventDefault();render((document.getElementById('gis-q') as HTMLInputElement).value)});
+render('');
+
+</script>

@@ -1,0 +1,11 @@
+---
+import { imageDimensions } from "../content/imageDimensions";
+const { content, alt = false, reverse = false } = Astro.props;
+
+const { markup } = Astro.props;
+---
+{markup ? <Fragment set:html={markup} /> : <>
+
+<section class:list={['band', { alt }]}><div class:list={['wrap', 'split', { reverse }]}><div class="split-copy"><p class="eyebrow">{content.eyebrow}</p><h2>{content.title}</h2>{content.text && <p>{content.text}</p>}{content.items?.map((item: any) => <div class="split-item"><h3>{item.title}</h3><p>{item.text}</p></div>)}<slot /></div>{content.image && <img class="product-image" src={content.image} alt={content.alt} loading="lazy" {...imageDimensions[content.image]} />}</div></section>
+
+</>}

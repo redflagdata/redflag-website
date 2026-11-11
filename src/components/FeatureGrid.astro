@@ -1,0 +1,11 @@
+---
+import { imageDimensions } from "../content/imageDimensions";
+const { content, id, alt = false } = Astro.props;
+
+const { markup } = Astro.props;
+---
+{markup ? <Fragment set:html={markup} /> : <>
+
+<section class:list={['band', { alt }]} id={id}><div class="wrap"><div class="sec-head"><p class="eyebrow">{content.eyebrow}</p><h2>{content.title}</h2>{content.text && <p>{content.text}</p>}</div><div class="grid3">{content.items.map((item: any) => <article class="feat">{item.image && <img class:list={['feature-image', { 'small-icon': item.small }]} src={item.image} alt={item.alt || ''} loading="lazy" {...(imageDimensions[item.image] || { width: 48, height: 48 })} />}{item.icon && <div class="ic" aria-hidden="true">{item.icon}</div>}<h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
+
+</>}

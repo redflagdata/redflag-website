@@ -1,0 +1,11 @@
+---
+const { audience = 'cre', markup = '' } = Astro.props;
+const toggle = `<nav class="audience-switch" aria-label="Audience"><a href="/" data-audience="cre" ${audience === 'cre' ? 'aria-current="page"' : ''}>For CRE</a><a href="/government" data-audience="government" ${audience === 'government' ? 'aria-current="page"' : ''}>For Government</a></nav>`;
+const nav = markup.replace(/(<div class="navbar-wrapper">)/, `$1${toggle}`);
+---
+<Fragment set:html={nav} />
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('[data-audience]').forEach(link => {
+    link.addEventListener('click', () => { try { localStorage.setItem('redflag-audience', link.dataset.audience!); } catch {} });
+  });
+</script>

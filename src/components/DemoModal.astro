@@ -1,0 +1,5 @@
+---
+import { site } from '../content/site';
+const { markup = '' } = Astro.props;
+---
+<Fragment set:html={markup.replace(/action="[^"]+"/, `action="${site.formEndpoint}"`)} />

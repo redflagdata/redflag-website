@@ -1,0 +1,15 @@
+---
+import { imageDimensions } from "../content/imageDimensions";
+const { content } = Astro.props;
+
+const { markup } = Astro.props;
+---
+{markup ? <Fragment set:html={markup} /> : <>
+
+<section class="hero"><div class="wrap"><div>
+  <p class="eyebrow">{content.eyebrow}</p><h1>{content.title}</h1><p class="lede">{content.text}</p>
+  <div class="ctas"><a class="btn btn-primary" href="#demo">{content.cta}<span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href={content.secondaryHref}>{content.secondary}</a></div>
+  <div class="proof">{content.proof?.map((proof: string) => <span><span class="check" aria-hidden="true">✓</span> {proof}</span>)}</div>
+</div><div class="hero-product">{content.image ? <img src={content.image} alt={content.alt} {...imageDimensions[content.image]} fetchpriority="high" /> : <slot />}</div></div></section>
+
+</>}

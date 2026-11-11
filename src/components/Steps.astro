@@ -1,0 +1,10 @@
+---
+const { content } = Astro.props;
+
+const { markup } = Astro.props;
+---
+{markup ? <Fragment set:html={markup} /> : <>
+
+<section class="band" id="how"><div class="wrap"><div class="sec-head"><p class="eyebrow">{content.eyebrow}</p><h2>{content.title}</h2></div><div class="steps">{content.items.map((item: any, i: number) => <article class="step"><b>Step {i + 1}</b><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
+
+</>}

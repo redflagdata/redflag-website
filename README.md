@@ -51,3 +51,9 @@ The staging build rewrites literal root-relative asset and navigation URLs and
 adds `noindex, nofollow` to its HTML. It is a public preview, and forms continue
 to use the configured live services. Keep the deployment workflow and
 `scripts/prepare-staging.mjs` in both branches when merging future changes.
+
+Successful deployments notify the shared Discord deployments channel through the
+repository secret `DISCORD_WEBHOOK_URL` (use the same webhook as `rag-app`).
+Messages identify the staging or production website based on the triggering
+branch and include the commit subject, site URL, and Actions run link. Mentions
+are disabled. A notification failure does not change the deployment result.

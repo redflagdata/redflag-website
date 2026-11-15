@@ -62,3 +62,41 @@ jobs:
         uses: actions/deploy-pages@v4
       - name: Link preview
         run: echo 'Staging preview — https://www.redflagdata.com/stg/' >> "$GITHUB_STEP_SUMMARY"
+      - name: Notify deployments channel
+        continue-on-error: true
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DEPLOY_ENVIRONMENT: ${{ github.ref_name == 'stg' && 'staging website' || 'production website' }}
+          DEPLOY_URL: ${{ github.ref_name == 'stg' && 'https://www.redflagdata.com/stg/' || 'https://www.redflagdata.com/' }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          COMMIT_SHA: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        shell: python
+        run: |
+          import json
+          import os
+          import urllib.request
+
+          webhook = os.environ.get("DISCORD_WEBHOOK_URL")
+          if not webhook:
+              print("::warning::Set DISCORD_WEBHOOK_URL to enable deployment notifications.")
+              raise SystemExit(0)
+          subject = os.environ["COMMIT_MESSAGE"].splitlines()
+          subject = subject[0][:250] if subject else os.environ["COMMIT_SHA"][:7]
+          content = (
+              f"Deployed {os.environ['DEPLOY_ENVIRONMENT']} : {subject}\n"
+              f"{os.environ['DEPLOY_URL']}\n"
+              f"Deployment: {os.environ['RUN_URL']}"
+          )
+          payload = json.dumps({"content": content, "allowed_mentions": {"parse": []}}).encode()
+          request = urllib.request.Request(
+              webhook, data=payload,
+              headers={"Content-Type": "application/json", "User-Agent": "Redflag-Deployments"},
+              method="POST",
+          )
+          try:
+              with urllib.request.urlopen(request, timeout=20) as response:
+                  print(f"Deployment notification sent ({response.status}).")
+          except Exception:
+              print("::error::Discord deployment notification failed.")
+              raise SystemExit(1)

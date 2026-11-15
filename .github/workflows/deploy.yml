@@ -12,12 +12,20 @@ concurrency:
   cancel-in-progress: false
 jobs:
   build:
+    outputs:
+      commit_subject: ${{ steps.commit.outputs.subject }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out deployment tools
         uses: actions/checkout@v4
         with:
           path: tools
+      - name: Read commit description
+        id: commit
+        shell: bash
+        run: |
+          subject="$(git -C tools log -1 --format=%s)"
+          printf 'subject=%s\n' "$subject" >> "$GITHUB_OUTPUT"
       - name: Check out production
         uses: actions/checkout@v4
         with:
@@ -66,11 +74,9 @@ jobs:
         continue-on-error: true
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          DEPLOY_ENVIRONMENT: ${{ github.ref_name == 'stg' && 'staging website' || 'production website' }}
-          DEPLOY_URL: ${{ github.ref_name == 'stg' && 'https://www.redflagdata.com/stg/' || 'https://www.redflagdata.com/' }}
-          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          DEPLOY_ENVIRONMENT: ${{ github.ref_name == 'stg' && 'web-stg' || 'web-prod' }}
+          COMMIT_MESSAGE: ${{ needs.build.outputs.commit_subject }}
           COMMIT_SHA: ${{ github.sha }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         shell: python
         run: |
           import json
@@ -84,9 +90,8 @@ jobs:
           subject = os.environ["COMMIT_MESSAGE"].splitlines()
           subject = subject[0][:250] if subject else os.environ["COMMIT_SHA"][:7]
           content = (
-              f"Deployed {os.environ['DEPLOY_ENVIRONMENT']} : {subject}\n"
-              f"{os.environ['DEPLOY_URL']}\n"
-              f"Deployment: {os.environ['RUN_URL']}"
+              f"{os.environ['DEPLOY_ENVIRONMENT']} | "
+              f"{os.environ['COMMIT_SHA'][:7]} | {subject}"
           )
           payload = json.dumps({"content": content, "allowed_mentions": {"parse": []}}).encode()
           request = urllib.request.Request(

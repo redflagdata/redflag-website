@@ -54,6 +54,6 @@ to use the configured live services. Keep the deployment workflow and
 
 Successful deployments notify the shared Discord deployments channel through the
 repository secret `DISCORD_WEBHOOK_URL` (use the same webhook as `rag-app`).
-Messages identify the staging or production website based on the triggering
-branch and include the commit subject, site URL, and Actions run link. Mentions
+Messages contain only the updated environment (`web-stg` or `web-prod`),
+short commit ID, and commit description. Mentions
 are disabled. A notification failure does not change the deployment result.

@@ -1,7 +1,7 @@
-name: Deploy Astro to GitHub Pages
+name: Deploy production and staging to GitHub Pages
 on:
   push:
-    branches: [main]
+    branches: [main, stg]
   workflow_dispatch:
 permissions:
   contents: read
@@ -14,17 +14,40 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out deployment tools
+        uses: actions/checkout@v4
+      - name: Check out production
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: production
+      - name: Check out staging
+        uses: actions/checkout@v4
+        with:
+          ref: stg
+          path: staging
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
-      - run: npm ci
-      - run: npm run build
+          cache-dependency-path: |
+            production/package-lock.json
+            staging/package-lock.json
+      - name: Build production
+        working-directory: production
+        run: npm ci && npm run build
+      - name: Build staging
+        working-directory: staging
+        run: npm ci && npm run build
+      - name: Assemble both sites
+        run: |
+          node scripts/prepare-staging.mjs staging/dist
+          mkdir -p production/dist/stg
+          cp -a staging/dist/. production/dist/stg/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: production/dist
   deploy:
     environment:
       name: github-pages
@@ -35,3 +58,5 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Link preview
+        run: echo 'Staging preview — https://www.redflagdata.com/stg/' >> "$GITHUB_STEP_SUMMARY"

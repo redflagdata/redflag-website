@@ -39,3 +39,15 @@ See `docs/webflow-assets.md` for external Webflow-hosted references still presen
 `.github/workflows/deploy.yml` builds/uploads `dist/` and deploys with `actions/deploy-pages`. A repository administrator must select **Settings → Pages → Build and deployment → Source: GitHub Actions** if still branch-based. Keep the custom domain and DNS unchanged. No workflow has run and no repository settings were changed.
 
 All changes remain uncommitted. No pushes, PRs, merges, main changes, DNS changes, database changes, or release metadata changes were made.
+
+## Staging preview
+
+Push site changes to `stg` to update <https://www.redflagdata.com/stg/>.
+Push to `main` to update production. The deployment workflow builds both branches
+and publishes them together, keeping production at `/` and staging at `/stg/`.
+The `github-pages` environment must permit both branches to deploy.
+
+The staging build rewrites literal root-relative asset and navigation URLs and
+adds `noindex, nofollow` to its HTML. It is a public preview, and forms continue
+to use the configured live services. Keep the deployment workflow and
+`scripts/prepare-staging.mjs` in both branches when merging future changes.

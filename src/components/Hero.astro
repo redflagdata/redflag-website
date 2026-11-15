@@ -3,13 +3,17 @@ import { imageDimensions } from "../content/imageDimensions";
 const { content } = Astro.props;
 
 const { markup } = Astro.props;
+const proofAfterProduct = content?.proofPlacement === 'after-product';
 ---
 {markup ? <Fragment set:html={markup} /> : <>
 
-<section class="hero"><div class="wrap"><div>
+<section class="hero"><div class="wrap"><div class="hero-copy">
   <p class="eyebrow">{content.eyebrow}</p><h1>{content.title}</h1><p class="lede">{content.text}</p>
-  <div class="ctas"><a class="btn btn-primary" href="#demo">{content.cta}<span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href={content.secondaryHref}>{content.secondary}</a></div>
-  <div class="proof">{content.proof?.map((proof: string) => <span><span class="check" aria-hidden="true">✓</span> {proof}</span>)}</div>
-</div><div class="hero-product">{content.image ? <img src={content.image} alt={content.alt} {...imageDimensions[content.image]} fetchpriority="high" /> : <slot />}</div></div></section>
+  {(content.cta || content.secondary) && <div class="ctas">
+    {content.cta && <a class="btn btn-primary" href="#demo">{content.cta}<span aria-hidden="true">↗</span></a>}
+    {content.secondary && <a class="btn btn-ghost" href={content.secondaryHref}>{content.secondary}</a>}
+  </div>}
+  {!proofAfterProduct && content.proof?.length > 0 && <ul class="proof">{content.proof.map((proof: string) => <li><span class="check" aria-hidden="true">✓</span><span>{proof}</span></li>)}</ul>}
+</div><div class="hero-product">{content.image ? <img src={content.image} alt={content.alt} {...imageDimensions[content.image]} fetchpriority="high" /> : <slot />}</div>{proofAfterProduct && content.proof?.length > 0 && <ul class="proof proof-after-product">{content.proof.map((proof: string) => <li><span class="check" aria-hidden="true">✓</span><span>{proof}</span></li>)}</ul>}</div></section>
 
 </>}

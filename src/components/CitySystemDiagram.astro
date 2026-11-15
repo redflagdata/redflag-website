@@ -1,0 +1,106 @@
+---
+const leftSources = [
+  { icon: '§', label: 'Adopted rules + policy', detail: 'Code, amendments, plans, and adopted guidance' },
+  { icon: '⌖', label: 'GIS + site context', detail: 'Parcels, zoning, overlays, utilities, and constraints' },
+  { icon: '▤', label: 'Project files + requirements', detail: 'Applications, plans, forms, fees, and checklists' },
+  { icon: '✦', label: 'City knowledge', detail: 'Staff guidance, contacts, and prior interpretations' }
+];
+
+const rightSources = [
+  { icon: '✉', label: 'Questions + correspondence', detail: 'Email, portal messages, calls, and meetings' },
+  { icon: '↗', label: 'Team coordination', detail: 'Assignments, routing, reviews, and next steps' },
+  { icon: '▤', label: 'Cited response drafts', detail: 'Source-linked answers and reviewer comments' },
+  { icon: '✓', label: 'Approved guidance', detail: 'Final answers, decision history, and public updates' }
+];
+---
+
+<figure class="city-system-diagram" aria-label="Illustrative Redflag city workspace connecting city information and context to team collaboration and responses">
+  <div class="city-system-topbar">
+    <div class="city-system-brand"><span>redflag</span><i aria-hidden="true"></i><b>City review workbench</b></div>
+  </div>
+
+  <div class="city-system-stage">
+    <div class="city-system-source-column city-system-source-column-left">
+      <p class="city-system-side-label"><span>Information + context</span>What informs the review</p>
+      {leftSources.map((source) => (
+        <article class="city-system-source">
+          <span class="city-system-source-icon" aria-hidden="true">{source.icon}</span>
+          <div><b>{source.label}</b><span>{source.detail}</span></div>
+        </article>
+      ))}
+    </div>
+
+    <section class="city-system-hub" aria-label="Redflag city workspace">
+      <div class="city-system-hub-top">
+        <div><b>Redflag city workbench</b><span>Connect source context to a coordinated response</span></div>
+        <em><i aria-hidden="true"></i> Staff controlled</em>
+      </div>
+      <div class="city-system-hub-body">
+        <aside class="city-system-hub-rail" aria-hidden="true">
+          <span class="is-active">⌂</span><span>▤</span><span>⌖</span><span>◫</span><span>◌</span>
+        </aside>
+        <div class="city-system-hub-main">
+          <div class="city-system-hub-summary"><span>CONNECTED REVIEW CONTEXT</span></div>
+          <div class="city-system-workbench-map" role="img" aria-label="Diagrammatic city map with a selected parcel">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <pattern id="city-system-grid" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M 22 0 L 0 0 0 22" fill="none" /></pattern>
+              </defs>
+              <rect class="city-system-map-base" width="320" height="168" />
+              <rect class="city-system-map-grid" width="320" height="168" fill="url(#city-system-grid)" />
+              <g class="city-system-map-blocks">
+                <rect x="19" y="19" width="72" height="43" /><rect x="111" y="18" width="87" height="42" /><rect x="218" y="22" width="76" height="43" />
+                <rect x="18" y="93" width="65" height="47" /><rect x="104" y="101" width="95" height="49" /><rect x="228" y="98" width="69" height="42" />
+              </g>
+              <path class="city-system-map-road" d="M-10 76 C64 61 112 89 173 75 S265 61 332 83" />
+              <path class="city-system-map-road city-system-map-road-secondary" d="M208 -8 C191 48 205 93 190 176" />
+              <path class="city-system-map-boundary" d="M67 35 L171 28 L249 67 L230 130 L128 147 L57 111 Z" />
+              <rect class="city-system-map-parcel" x="141" y="79" width="43" height="35" rx="1" transform="rotate(-7 162.5 96.5)" />
+              <circle class="city-system-map-marker" cx="163" cy="97" r="12" /><path class="city-system-map-marker-plus" d="M163 91v12M157 97h12" />
+            </svg>
+          </div>
+          <div class="city-system-hub-cards"><span>Current sources</span><span>Shared team context</span><span>Decision history</span></div>
+        </div>
+        <aside class="city-system-review-panel">
+          <p>Response workspace</p>
+          <div class="city-system-citation"><small>Linked authority</small><a href="#review-system">Title 18 - Development Code ↗</a><mark>Conditional use standards</mark></div>
+          <span class="city-system-response-button">Send reply <span aria-hidden="true">↗</span></span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="city-system-source-column city-system-source-column-right">
+      <p class="city-system-side-label"><span>Collaboration + response</span>How teams coordinate and answer</p>
+      {rightSources.map((source) => (
+        <article class="city-system-source">
+          <span class="city-system-source-icon" aria-hidden="true">{source.icon}</span>
+          <div><b>{source.label}</b><span>{source.detail}</span></div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <figcaption><div><b>One city review workbench</b><span>Information, collaboration, and every response stay linked - ready for staff to review, approve, and reuse.</span></div></figcaption>
+</figure>
+
+<script>
+  const citySystemStage = document.querySelector('.city-system-stage');
+
+  if (citySystemStage) {
+    const sourceTileRange = window.matchMedia('(min-width: 701px) and (max-width: 880px)');
+    const syncSourceTileHeight = () => {
+      citySystemStage.style.removeProperty('--source-tile-row');
+      if (!sourceTileRange.matches) return;
+
+      const cards = Array.from(citySystemStage.querySelectorAll('.city-system-source'));
+      const tallest = Math.ceil(Math.max(...cards.map((card) => card.getBoundingClientRect().height)));
+      citySystemStage.style.setProperty('--source-tile-row', `${tallest}px`);
+    };
+    const scheduleSourceTileSync = () => requestAnimationFrame(syncSourceTileHeight);
+
+    window.addEventListener('resize', scheduleSourceTileSync);
+    sourceTileRange.addEventListener?.('change', scheduleSourceTileSync);
+    document.fonts?.ready.then(scheduleSourceTileSync);
+    scheduleSourceTileSync();
+  }
+</script>

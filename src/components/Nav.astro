@@ -1,7 +1,11 @@
 ---
 const { audience = 'cre', markup = '' } = Astro.props;
-const toggle = `<nav class="audience-switch" aria-label="Audience"><a href="/" data-audience="cre" ${audience === 'cre' ? 'aria-current="page"' : ''}>For CRE</a><a href="/government" data-audience="government" ${audience === 'government' ? 'aria-current="page"' : ''}>For Government</a></nav>`;
-const nav = markup.replace(/(<div class="navbar-wrapper">)/, `$1${toggle}`);
+const toggle = `<nav class="audience-switch" aria-label="Audience"><a href="/" data-audience="cre" ${audience === 'cre' ? 'aria-current="page"' : ''}>For CRE &amp; AEC</a><a href="/government" data-audience="government" ${audience === 'government' ? 'aria-current="page"' : ''}>For Cities</a></nav>`;
+const mark = '<img class="navbar-mark" src="/images/webclip.png" width="32" height="32" alt="Redflag" />';
+const nav = markup
+  .replace(/(<div class="navbar-wrapper">)/, `$1${toggle}`)
+  .replace(/(<a class="navbar-brand w-nav-brand"[^>]*>)/, `$1${mark}`)
+  .replace(/>see a demo</g, '>book a demo<');
 ---
 <Fragment set:html={nav} />
 <script>

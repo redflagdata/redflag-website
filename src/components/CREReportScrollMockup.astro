@@ -1,0 +1,155 @@
+---
+const modules = [
+  'Address & Jurisdiction',
+  'Planning & Zoning',
+  'Building Code & Design',
+  'Environmental',
+  'Site & Utilities',
+  'Permitting & Approvals',
+  'Timelines & Fees',
+  'AHJ Contacts',
+];
+
+const sections = [
+  ['Address & Jurisdiction', ['Site address', 'Jurisdiction record', 'Applicable agencies']],
+  ['Planning & Zoning', ['Zoning classification', 'Permitted use', 'Dimensional standards']],
+  ['Building Code & Design', ['Occupancy & construction', 'Accessibility review', 'Fire protection']],
+  ['Environmental', ['Floodplain & wetlands', 'Site conditions']],
+  ['Site & Utilities', ['Water & sewer capacity', 'Power and franchise utilities', 'Easements']],
+  ['Permitting & Approvals', ['Review path', 'Required submittals', 'Agency coordination']],
+  ['Timelines & Fees', ['Review milestones', 'Application and impact fees', 'Outside-agency dependencies']],
+  ['AHJ Contacts', ['Planning & zoning contact', 'Building official', 'Utility coordination']],
+];
+---
+
+<figure class="cre-report-laptop" data-report-scroll-demo aria-labelledby="cre-report-mockup-caption">
+  <img class="cre-report-laptop__frame" src="/images/Hero_2.png" alt="" aria-hidden="true" width="2400" height="1476" />
+  <div class="cre-report-laptop__screen" aria-hidden="true">
+    <header class="cre-report-laptop__appbar">
+      <div class="cre-report-laptop__brand">
+        <img src="/images/favicon.png" alt="" />
+        <span>redflag</span>
+      </div>
+      <div class="cre-report-laptop__actions">
+        <span class="cre-report-laptop__action cre-report-laptop__action--share"><span>Share</span></span>
+        <span class="cre-report-laptop__action cre-report-laptop__action--close"><span>×</span></span>
+        <span class="cre-report-laptop__action cre-report-laptop__action--presence" aria-hidden="true"></span>
+      </div>
+    </header>
+    <div class="cre-report-laptop__clip">
+      <div class="cre-report-laptop__track">
+        <section class="cre-report-generator">
+          <div class="cre-report-generator__panel">
+            <h2>redflag report<br />generator</h2>
+            <div class="cre-report-demo__field">
+              <span>Address</span>
+              <i class="cre-report-demo__hotdog cre-report-demo__hotdog--long"></i>
+              <b class="cre-report-demo__field-icon">
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="2.75"></circle><path d="M8 1.5v2M8 12.5v2M1.5 8h2M12.5 8h2"></path></svg>
+              </b>
+            </div>
+            <div class="cre-report-demo__field">
+              <span>Project template</span>
+              <i class="cre-report-demo__hotdog"></i>
+              <b class="cre-report-demo__field-icon">
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4.25 6.25 3.75 3.75 3.75-3.75"></path></svg>
+              </b>
+            </div>
+            <div class="cre-report-demo__button">Generate report <b class="cre-report-demo__button-icon"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 12.5v-9M4.5 7 8 3.5 11.5 7"></path></svg></b></div>
+          </div>
+          <div class="cre-report-demo__map" aria-hidden="true">
+            <div class="cre-report-demo__map-tabs"><span class="is-active">Map</span><span>Satellite</span></div>
+            <div class="cre-report-demo__map-canvas">
+              <svg viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice" role="presentation">
+                <defs>
+                  <filter id="cre-report-parcel-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#c54c36" flood-opacity=".2" /></filter>
+                </defs>
+                <rect width="320" height="220" fill="#f1f4f7" />
+                <rect x="8" y="8" width="304" height="204" rx="8" fill="#e7edf2" />
+                <path d="M8 184h304v28H8Z" fill="#dbeadf" />
+                <path d="M8 184h304" fill="none" stroke="#9cc9b0" stroke-width="2" />
+
+                <g fill="#aebfd1">
+                  <rect x="66" y="8" width="32" height="176" />
+                  <rect x="8" y="92" width="304" height="30" />
+                  <rect x="210" y="8" width="28" height="176" />
+                  <rect x="8" y="152" width="304" height="22" />
+                </g>
+
+                <g fill="#dce3ec" stroke="#c3cfdd" stroke-width="1.5">
+                  <rect x="18" y="20" width="35" height="28" rx="2" />
+                  <rect x="18" y="60" width="36" height="20" rx="2" />
+                  <rect x="112" y="20" width="34" height="29" rx="2" />
+                  <path d="M158 20h35v30h-16v13h-19Z" />
+                  <rect x="250" y="20" width="48" height="29" rx="2" />
+                  <rect x="251" y="61" width="35" height="20" rx="2" />
+                  <rect x="18" y="133" width="36" height="15" rx="2" />
+                  <rect x="111" y="132" width="23" height="16" rx="2" />
+                  <rect x="197" y="132" width="8" height="16" rx="2" />
+                  <rect x="250" y="132" width="20" height="16" rx="2" />
+                  <rect x="279" y="132" width="19" height="16" rx="2" />
+                </g>
+
+                <g filter="url(#cre-report-parcel-shadow)">
+                  <rect x="143" y="128" width="48" height="25" rx="2" fill="#f97860" fill-opacity=".24" stroke="#dd553e" stroke-dasharray="4 3" stroke-width="2.5" />
+                  <rect x="155" y="134" width="24" height="13" rx="1.5" fill="#f16049" stroke="#ffe9e3" stroke-width="1.8" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="cre-report-document">
+          <aside class="cre-report-document__nav">
+            <span class="cre-report-document__nav-label">Table of contents</span>
+            {modules.map((module) => <span class="cre-report-document__nav-item"><i></i>{module}</span>)}
+          </aside>
+          <div class="cre-report-document__body">
+            <div class="cre-report-document__heading">
+              <div><span>Due diligence report</span><h2>Project overview</h2></div>
+            </div>
+            <div class="cre-report-document__sections">
+              {sections.map(([title, rows]) => (
+                <section class="cre-report-document__section">
+                  <h3>{title}<span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4.25 6.25 3.75 3.75 3.75-3.75"></path></svg></span></h3>
+                  {rows.map((row, rowIndex) => <div class="cre-report-document__row"><b>{row}</b><i class:list={{ 'is-short': rowIndex === rows.length - 1 }}></i></div>)}
+                </section>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <span class="cre-report-laptop__scrollbar"><i></i></span>
+  </div>
+  <figcaption id="cre-report-mockup-caption" class="cre-report-laptop__caption">A light-mode Redflag report generator that moves into a report as the page scrolls.</figcaption>
+</figure>
+
+<script>
+  const mockups = document.querySelectorAll<HTMLElement>('[data-report-scroll-demo]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let pending = false;
+
+  const updateMockups = () => {
+    pending = false;
+    mockups.forEach(mockup => {
+      const bounds = mockup.getBoundingClientRect();
+      const travel = Math.max(bounds.height * 0.9, 220);
+      const scrollStart = window.innerHeight * 0.2;
+      const progress = Math.min(1, Math.max(0, (scrollStart - bounds.top) / travel));
+      mockup.style.setProperty('--report-scroll-progress', reducedMotion.matches ? '0' : progress.toFixed(3));
+    });
+  };
+
+  const requestUpdate = () => {
+    if (!pending) {
+      pending = true;
+      requestAnimationFrame(updateMockups);
+    }
+  };
+
+  requestUpdate();
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate, { passive: true });
+  reducedMotion.addEventListener?.('change', requestUpdate);
+</script>

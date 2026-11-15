@@ -2,4 +2,116 @@
 import { site } from '../content/site';
 const { markup = '' } = Astro.props;
 ---
-<Fragment set:html={markup.replace(/action="[^"]+"/, `action="${site.formEndpoint}"`)} />
+<Fragment set:html={markup
+  .replace(/action="[^"]+"/, `action="${site.formEndpoint}"`)
+  .replace(/(<input[^>]*\bid="Company"[^>]*\bplaceholder=)(?:"[^"]*"|'[^']*')/, '$1"COMPANY"')
+  .replace(/<a class="button-primary hero-button-center button-primary-v1 section-centered-button form-button rf-button rf-button--primary w-button"[^>]*>submit<\/a>/, '')
+  .replace(/(<a class="modal-close-button w-button" href="#">)x(<\/a>)/, '$1<span aria-hidden="true">×</span>$2')} />
+<script>
+  const closeSelect = (select: HTMLElement) => {
+    select.classList.remove('is-open');
+    select.querySelector<HTMLButtonElement>('.rf-select__trigger')?.setAttribute('aria-expanded', 'false');
+  };
+
+  document.querySelectorAll<HTMLSelectElement>('.modal-wrapper.early-access .select-field').forEach(nativeSelect => {
+    if (nativeSelect.dataset.enhanced === 'true') return;
+    nativeSelect.dataset.enhanced = 'true';
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'rf-select';
+    nativeSelect.before(wrapper);
+    wrapper.append(nativeSelect);
+    nativeSelect.setAttribute('aria-hidden', 'true');
+    nativeSelect.tabIndex = -1;
+
+    const trigger = document.createElement('button');
+    trigger.className = 'rf-select__trigger';
+    trigger.type = 'button';
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-haspopup', 'listbox');
+    trigger.setAttribute('aria-label', nativeSelect.dataset.name || nativeSelect.name);
+
+    const label = document.createElement('span');
+    label.className = 'rf-select__value';
+    trigger.append(label);
+
+    const menu = document.createElement('div');
+    menu.className = 'rf-select__menu';
+    menu.setAttribute('role', 'listbox');
+    menu.setAttribute('aria-label', nativeSelect.dataset.name || nativeSelect.name);
+
+    const sync = () => {
+      const selected = nativeSelect.selectedOptions[0];
+      label.textContent = selected?.textContent?.trim() || '';
+      const isPlaceholder = nativeSelect.selectedIndex === 0;
+      wrapper.classList.toggle('has-selection', !isPlaceholder);
+      menu.querySelectorAll<HTMLButtonElement>('.rf-select__option').forEach(option => {
+        const isSelected = option.dataset.value === nativeSelect.value;
+        option.setAttribute('aria-selected', String(isSelected));
+        option.classList.toggle('is-selected', isSelected);
+      });
+    };
+
+    Array.from(nativeSelect.options).forEach((option, index) => {
+      const choice = document.createElement('button');
+      choice.className = 'rf-select__option';
+      choice.type = 'button';
+      choice.dataset.value = option.value;
+      choice.setAttribute('role', 'option');
+      choice.textContent = option.textContent?.trim() || '';
+      if (index === 0) choice.classList.add('is-placeholder');
+      choice.addEventListener('click', () => {
+        nativeSelect.value = option.value;
+        nativeSelect.dispatchEvent(new Event('input', { bubbles: true }));
+        nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+        sync();
+        closeSelect(wrapper);
+        trigger.focus();
+      });
+      menu.append(choice);
+    });
+
+    trigger.addEventListener('click', () => {
+      const willOpen = !wrapper.classList.contains('is-open');
+      document.querySelectorAll<HTMLElement>('.rf-select.is-open').forEach(closeSelect);
+      if (willOpen) {
+        wrapper.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    trigger.addEventListener('keydown', event => {
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (!wrapper.classList.contains('is-open')) trigger.click();
+        const choices = Array.from(menu.querySelectorAll<HTMLButtonElement>('.rf-select__option:not(.is-placeholder)'));
+        const selectedIndex = choices.findIndex(choice => choice.dataset.value === nativeSelect.value);
+        choices[Math.max(0, selectedIndex + (event.key === 'ArrowDown' ? 1 : -1))]?.focus();
+      }
+      if (event.key === 'Escape') closeSelect(wrapper);
+    });
+
+    menu.addEventListener('keydown', event => {
+      const choices = Array.from(menu.querySelectorAll<HTMLButtonElement>('.rf-select__option:not(.is-placeholder)'));
+      const current = choices.indexOf(document.activeElement as HTMLButtonElement);
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        choices[Math.max(0, Math.min(choices.length - 1, current + (event.key === 'ArrowDown' ? 1 : -1)))]?.focus();
+      }
+      if (event.key === 'Escape') {
+        closeSelect(wrapper);
+        trigger.focus();
+      }
+    });
+
+    wrapper.append(trigger, menu);
+    nativeSelect.addEventListener('change', sync);
+    sync();
+  });
+
+  document.addEventListener('pointerdown', event => {
+    document.querySelectorAll<HTMLElement>('.rf-select.is-open').forEach(select => {
+      if (!select.contains(event.target as Node)) closeSelect(select);
+    });
+  });
+</script>

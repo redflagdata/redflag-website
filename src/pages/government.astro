@@ -1,12 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import FeatureGrid from '../components/FeatureGrid.astro';
 import Steps from '../components/Steps.astro';
-import Stats from '../components/Stats.astro';
 import CTA from '../components/CTA.astro';
-import WorkspaceMock from '../components/WorkspaceMock.astro';
+import CitySystemDiagram from '../components/CitySystemDiagram.astro';
 import GovernmentExamples from '../components/GovernmentExamples.astro';
+import GovernmentVision from '../components/GovernmentVision.astro';
+import CityResourceFlow from '../components/CityResourceFlow.astro';
+import GovernmentCapabilities from '../components/GovernmentCapabilities.astro';
+import GovernmentAudiences from '../components/GovernmentAudiences.astro';
 import { government as content } from '../content/government';
 ---
-<Layout title={content.title} description={content.description} audience="government"><main class="main government-page"><Hero content={content.hero}><WorkspaceMock /></Hero><FeatureGrid content={content.features} id="features" alt /><Steps content={content.steps} /><GovernmentExamples /><Stats content={content.stats} /><CTA content={content.cta} audience="government" /></main></Layout>
+<Layout title={content.title} description={content.description} audience="government">
+  <main class="main government-page">
+    <Hero content={content.hero}><CitySystemDiagram /></Hero>
+    <GovernmentVision content={content.vision} />
+    <CityResourceFlow content={content.resource} />
+    <GovernmentCapabilities content={content.capabilities} />
+    <Steps content={content.workflow} id="review-system" />
+    <GovernmentExamples />
+    <section class="government-trust">
+      <div class="wrap">
+        <p class="eyebrow">Governed by the city</p>
+        <h2>Accelerate the work. Keep judgment where it belongs.</h2>
+        <p>Redflag surfaces the relevant city sources, organizes the review, and preserves its rationale. It does not issue official determinations. City staff retain final authority over every interpretation and decision.</p>
+      </div>
+    </section>
+    <GovernmentAudiences content={content.audiences} />
+    <CTA content={content.cta} audience="government" />
+  </main>
+</Layout>

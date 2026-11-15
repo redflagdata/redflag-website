@@ -1,0 +1,318 @@
+---
+const records = [
+  {
+    id: 'citywide',
+    type: 'Citywide code',
+    scope: 'Whole city',
+    source: 'Title 18 - Development Code',
+    title: 'Commercial use standards',
+    reference: 'Use Table 18.34.040',
+    text: 'The selected parcel is in the B-3 Commercial Business District. Drive-through uses require a conditional use review before a final determination.',
+    tags: ['B-3 district', 'Conditional use'],
+    color: 'coral',
+    documentTitle: 'Commercial Business District',
+    documentSection: 'Section 18.34.040 - Conditional uses',
+    documentLead: 'The B-3 Commercial Business District accommodates retail, dining, service, and vehicle-oriented commercial activity along major corridors.',
+    documentHighlight: 'A drive-through facility may be permitted only with conditional use approval and a finding that circulation, access, and site design standards are met.',
+    documentNext: 'Required findings',
+    documentTail: 'The reviewing authority shall consider pedestrian access, stacking and queuing, driveway placement, and compatibility with adjacent uses.',
+    page: '4 of 12',
+  },
+  {
+    id: 'plan',
+    type: 'Comprehensive plan',
+    scope: 'Planning area',
+    source: 'General Plan 2045',
+    title: 'Future land use framework',
+    reference: 'Land Use Map LU-2',
+    text: 'The parcel falls within the Urban Center planning area. This record provides the policy context for mixed commercial and employment uses.',
+    tags: ['Urban Center', 'Land use policy'],
+    color: 'violet',
+    documentTitle: 'Land Use Element',
+    documentSection: 'Policy LU-2.4 - Urban Center framework',
+    documentLead: 'Urban Center areas are planned for a concentrated mix of employment, commercial services, housing, and public amenities near major transit and street networks.',
+    documentHighlight: 'New development should reinforce connected streets, active ground-floor edges, and safe pedestrian movement between daily destinations.',
+    documentNext: 'Implementation direction',
+    documentTail: 'Specific plans and the development code provide the parcel-level standards used to implement this policy direction.',
+    page: '23 of 86',
+  },
+  {
+    id: 'specific',
+    type: 'Specific plan',
+    scope: 'District boundary',
+    source: 'Midtown Specific Plan',
+    title: 'Corridor frontage and site design',
+    reference: 'District 3 - Section 4.3',
+    text: 'The parcel is inside the Midtown Specific Plan. Ground-floor frontage, pedestrian access, and site circulation are reviewed against district standards.',
+    tags: ['District 3', 'Frontage standards'],
+    color: 'green',
+    documentTitle: 'District 3 Development Standards',
+    documentSection: 'Section 4.3 - Frontage and access',
+    documentLead: 'The Midtown Specific Plan applies district standards that coordinate building placement, ground-floor activity, frontage treatment, and circulation.',
+    documentHighlight: 'Primary street frontages shall provide a clear pedestrian connection from the public sidewalk to the principal customer entrance.',
+    documentNext: 'Driveway placement',
+    documentTail: 'New curb cuts should be consolidated where feasible and located to limit conflicts with primary pedestrian frontage.',
+    page: '18 of 42',
+  },
+  {
+    id: 'flood',
+    type: 'Overlay regulation',
+    scope: 'Partial parcel area',
+    source: 'Flood Resilience Overlay',
+    title: 'Drainage and floodplain screening',
+    reference: 'Section 16.82',
+    text: 'The south edge of the parcel intersects the drainage corridor. Site work in the overlap area requires early stormwater and flood-resilience screening.',
+    tags: ['Drainage corridor', 'Early screening'],
+    color: 'blue',
+    documentTitle: 'Drainage Corridor Protection',
+    documentSection: 'Section 16.82 - Flood resilience overlay',
+    documentLead: 'The flood resilience overlay applies to mapped drainage corridors and associated areas where flood storage, conveyance, and site design must be evaluated early.',
+    documentHighlight: 'Grading, impervious surface, and utility work within the mapped overlay require drainage review before the site plan is finalized.',
+    documentNext: 'Submittal coordination',
+    documentTail: 'The applicant shall identify the proposed work area, existing drainage features, and stormwater approach for review with the responsible department.',
+    page: '7 of 19',
+  },
+];
+---
+
+<div class="city-source-viewer" data-city-source-viewer data-active-source="citywide">
+  <div class="viewer-topbar">
+    <div class="viewer-brand"><b>redflag</b><span>Connected GIS layers, city records, and parcel context</span></div>
+  </div>
+  <div class="viewer-body">
+    <aside class="viewer-sources" aria-label="Linked city source layers">
+      <div class="viewer-sources-header viewer-documents-heading">
+        <div><span>Cited city records</span><b>4 records</b></div>
+      </div>
+      <div class="viewer-sources-content">
+        <p>Select a source to see its regulation and mapped extent.</p>
+        <div class="viewer-layer-list">
+          {records.map((record, index) => (
+            <button class={`viewer-layer${index === 0 ? ' is-active' : ''}`} type="button" data-source-target={record.id} aria-pressed={index === 0 ? 'true' : 'false'}>
+              <span><b>{record.source}</b><small>{record.type}</small><em>{record.scope}</em></span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </aside>
+
+    <section class="viewer-map" aria-label="Illustrative city GIS map">
+      <div class="viewer-map-header"><div><span>GIS context</span><b data-active-source-name>Title 18 - Development Code</b></div><p><i></i>Parcel view</p></div>
+      <svg viewBox="0 0 760 530" role="img" aria-label="Illustrative city map with a selected parcel and regulatory boundaries" preserveAspectRatio="xMidYMid slice">
+        <rect width="760" height="530" fill="#edf2f3" />
+        <path d="M0 419C121 380 211 389 316 415S524 473 760 427V530H0Z" fill="#dcecf1" />
+        <path d="M0 420C121 381 211 390 316 416S524 474 760 428" fill="none" stroke="#8ab7c8" stroke-width="5" stroke-linecap="round" />
+        <g fill="#f8faf9" stroke="#d5dde1" stroke-width="2"><path d="M44 55H232V152H44z" /><path d="M259 52H456V138H259z" /><path d="M492 50H703V165H492z" /><path d="M45 203H190V331H45z" /><path d="M240 190H440V317H240z" /><path d="M494 222H701V348H494z" /><path d="M60 384H243V411H60z" /><path d="M290 368H470V408H290z" /><path d="M518 386H692V421H518z" /></g>
+        <g class="viewer-overlay is-active" data-map-overlay="citywide"><path d="M68 78L207 43L385 65L567 48L684 119L716 242L682 355L611 463L446 490L262 465L112 430L54 304Z" fill="#ef553a" fill-opacity=".06" stroke="#ef553a" stroke-dasharray="7 6" stroke-width="3" /><text x="91" y="88" fill="#d73d25" font-size="14" font-weight="700">CITY LIMITS</text></g>
+        <g class="viewer-overlay" data-map-overlay="plan"><path d="M126 106L286 77L456 88L606 143L649 253L593 322L468 365L296 350L175 295L104 212Z" fill="#4f6fff" fill-opacity=".18" stroke="#3157f6" stroke-width="4" /><text x="421" y="122" fill="#1d3ea8" font-size="14" font-weight="700">URBAN CENTER</text></g>
+        <g class="viewer-overlay" data-map-overlay="specific"><path d="M278 149L467 147L508 207L485 304L434 345L306 328L249 269L245 210Z" fill="#13c8bd" fill-opacity=".18" stroke="#13c8bd" stroke-width="4" /><text x="328" y="208" fill="#078d84" font-size="14" font-weight="700">MIDTOWN PLAN</text></g>
+        <g class="viewer-overlay" data-map-overlay="flood"><path d="M-20 382C103 345 210 350 316 379S530 440 786 389L786 475C589 522 455 486 322 454S111 427-20 468Z" fill="#fff4f1" fill-opacity=".58" stroke="#fd793e" stroke-width="4" /><text x="495" y="463" fill="#b91f13" font-size="14" font-weight="700">DRAINAGE CORRIDOR</text></g>
+        <g class="viewer-parcel"><path d="M350 254H420V318H350Z" fill="#ff5a36" fill-opacity=".25" stroke="#ef4325" stroke-width="5" /><circle cx="385" cy="286" r="15" fill="#ef4325" stroke="#fff" stroke-width="5" /><path d="M379 286h12M385 280v12" stroke="#fff" stroke-width="2" stroke-linecap="round" /></g>
+        <g fill="#75828b" font-size="12" font-weight="600"><text x="88" y="186">PALM AVE</text><text x="542" y="214">CENTRAL BLVD</text><text x="67" y="351">7TH STREET</text><text x="359" y="389">CREEK CORRIDOR</text></g>
+      </svg>
+      <div class="viewer-parcel-card"><span>Selected parcel</span><b>Parcel 092-174-210</b><small>10.4 ac - B-3 Commercial</small></div>
+    </section>
+
+    <section class="viewer-documents" aria-label="Selected regulation document viewer">
+      <div class="viewer-documents-heading"><div><span>Document viewer</span><b>Selected source</b></div></div>
+      <div class="viewer-document-scroll" aria-live="polite">
+        {records.map((record, index) => (
+          <article class={`viewer-document${index === 0 ? ' is-active' : ''}`} data-source-record={record.id} tabindex="0">
+            <div class="viewer-document-type">{record.type}<span>{record.scope}</span></div>
+            <h3>{record.source}</h3>
+            <div class="viewer-pdf-frame" aria-label={`Illustrative document viewer for ${record.source}`}>
+              <div class="viewer-pdf-toolbar"><span>{record.page}</span><div aria-hidden="true"><i>⌕</i><i>↑</i><i>↓</i><i>↗</i></div></div>
+              <div class="viewer-pdf-window" tabindex="0" aria-label={`${record.source} document excerpt`}>
+                <article class="viewer-pdf-page">
+                  <p class="viewer-pdf-kicker">Illustrative regulation excerpt</p>
+                  <h4>{record.documentTitle}</h4>
+                  <p class="viewer-pdf-section">{record.documentSection}</p>
+                  <p>{record.documentLead}</p>
+                  <p class="viewer-pdf-highlight">{record.documentHighlight}</p>
+                  <h5>{record.documentNext}</h5>
+                  <p>{record.documentTail}</p>
+                  <p>Staff can keep this source, the linked boundary, and the project record together when preparing a response.</p>
+                </article>
+                <article class="viewer-pdf-page viewer-pdf-page-continuation">
+                  <p class="viewer-pdf-kicker">Continued</p>
+                  <h4>Review notes and cross-references</h4>
+                  <p>This illustrative page represents the surrounding context a reviewer can inspect without leaving the project workspace.</p>
+                  <p class="viewer-pdf-highlight">Mapped extent is shown alongside the selected parcel so staff can distinguish citywide standards from plan areas and partial overlays.</p>
+                  <p>Related records, prior interpretations, and final correspondence remain attached to the reviewed source.</p>
+                </article>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+  const viewer = document.querySelector<HTMLElement>('[data-city-source-viewer]');
+  if (viewer) {
+    const records = [...viewer.querySelectorAll<HTMLElement>('[data-source-record]')];
+    const controls = [...viewer.querySelectorAll<HTMLButtonElement>('[data-source-target]')];
+    const overlays = [...viewer.querySelectorAll<HTMLElement>('[data-map-overlay]')];
+    const sourceName = viewer.querySelector<HTMLElement>('[data-active-source-name]');
+
+    const setActive = (sourceId: string) => {
+      const record = records.find((item) => item.dataset.sourceRecord === sourceId);
+      if (!record) return;
+      viewer.dataset.activeSource = sourceId;
+      records.forEach((item) => item.classList.toggle('is-active', item === record));
+      controls.forEach((item) => {
+        const isActive = item.dataset.sourceTarget === sourceId;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-pressed', String(isActive));
+      });
+      overlays.forEach((item) => item.classList.toggle('is-active', item.dataset.mapOverlay === sourceId));
+      if (sourceName) sourceName.textContent = record.querySelector('h3')?.textContent || '';
+    };
+
+    controls.forEach((control) => control.addEventListener('click', () => {
+      const sourceId = control.dataset.sourceTarget;
+      if (sourceId) setActive(sourceId);
+    }));
+    records.forEach((record) => {
+      record.addEventListener('click', () => setActive(record.dataset.sourceRecord || ''));
+      record.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setActive(record.dataset.sourceRecord || ''); }
+      });
+    });
+  }
+</script>
+
+<style>
+  .city-source-viewer{background:#fff;border:1px solid #dce4e8;border-radius:22px;box-shadow:0 20px 60px rgba(27,37,46,.1);margin-top:42px;overflow:hidden}.viewer-topbar{align-items:center;background:#fff;border-bottom:1px solid #e3e9ec;display:grid;gap:18px;grid-template-columns:1fr auto 1fr;min-height:66px;padding:12px 18px}.viewer-brand{align-items:center;color:#172030;display:flex;gap:10px;min-width:0}.viewer-brand>div{display:grid;gap:1px}.viewer-brand b{font-family:var(--font-display);font-size:17px;letter-spacing:-.04em;line-height:1}.viewer-brand span:not(.viewer-mark){color:#7a8790;font-family:var(--primary-font);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}.viewer-mark{align-items:center;background:var(--red);border-radius:8px;color:#fff;display:flex;font-family:var(--font-display);font-size:20px;font-weight:800;height:33px;justify-content:center;line-height:1;width:33px}.viewer-project{display:grid;gap:2px;text-align:center}.viewer-project span,.viewer-status{color:#7a8790;font-family:var(--primary-font);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}.viewer-project b{color:#172030;font-family:var(--primary-font);font-size:13px}.viewer-status{align-items:center;display:flex;gap:7px;justify-self:end;letter-spacing:0;text-transform:none}.viewer-status>i{background:#24a775;border-radius:50%;box-shadow:0 0 0 3px #e5f6ef;height:7px;width:7px}
+  .viewer-body{display:grid;grid-template-columns:220px minmax(0,1fr) 330px;height:570px}.viewer-sources{background:#f7f9fa;border-right:1px solid #e3e9ec;display:flex;flex-direction:column;min-width:0;padding:20px 14px}.viewer-source-heading{align-items:center;display:flex;justify-content:space-between;padding:0 6px}.viewer-source-heading span,.viewer-documents-heading span{color:#77848d;font-family:var(--primary-font);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.viewer-source-heading b{color:#77848d;font-family:var(--primary-font);font-size:10px}.viewer-sources>p{color:#72808a;font-family:var(--primary-font);font-size:12px;line-height:1.45;margin:9px 6px 13px}.viewer-layer-list{display:grid;gap:5px}.viewer-layer{align-items:start;background:transparent;border:1px solid transparent;border-radius:10px;color:#1b2631;cursor:pointer;display:grid;gap:8px;grid-template-columns:9px minmax(0,1fr);padding:10px 8px;text-align:left;transition:background .18s,border-color .18s}.viewer-layer:hover,.viewer-layer.is-active{background:#fff;border-color:#dce4e8;box-shadow:0 3px 10px rgba(37,53,62,.04)}.viewer-layer>span{display:grid;gap:3px;min-width:0}.viewer-layer b{font-family:var(--primary-font);font-size:12px;line-height:1.25}.viewer-layer small{color:#7a8790;font-family:var(--primary-font);font-size:10px;line-height:1.25}.viewer-layer em{color:#87939b;font-family:var(--primary-font);font-size:9px;font-style:normal;line-height:1.2}.viewer-layer>i,.viewer-document-type>i{border-radius:50%;height:8px;margin-top:3px;width:8px}.coral{background:#ef553a}.violet{background:#7967d8}.green{background:#07826f}.blue{background:#3d85bd}.viewer-source-note{align-items:flex-start;border-top:1px solid #e0e7ea;color:#75818a;display:flex;font-family:var(--primary-font);font-size:11px;gap:8px;line-height:1.45;margin:18px 6px 0;padding-top:15px}.viewer-source-note>span{align-items:center;background:#e9eff1;border-radius:5px;color:#67757e;display:flex;font-size:10px;font-weight:700;height:18px;justify-content:center;line-height:1;width:18px}
+  .viewer-map{background:#edf2f3;min-width:0;overflow:hidden;position:relative}.viewer-map-header{align-items:center;background:rgba(255,255,255,.92);border-bottom:1px solid #dce4e8;display:flex;justify-content:space-between;left:0;padding:12px 15px;position:absolute;right:0;top:0;z-index:2}.viewer-map-header>div{display:grid;gap:2px}.viewer-map-header span{color:#7e8a92;font-family:var(--primary-font);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.viewer-map-header b{color:#1a2631;font-family:var(--primary-font);font-size:12px}.viewer-map-header p{align-items:center;color:#7e8a92;display:flex;font-family:var(--primary-font);font-size:10px;gap:6px;margin:0}.viewer-map-header p>i{background:#ef553a;border-radius:50%;height:7px;width:7px}.viewer-map svg{display:block;height:100%;width:100%}.viewer-overlay{opacity:.13;transform-origin:center;transition:opacity .28s,transform .28s}.viewer-overlay.is-active{opacity:1;transform:scale(1.015)}.viewer-parcel{filter:drop-shadow(0 5px 6px rgba(186,52,31,.26))}.viewer-parcel-card{background:#fff;border:1px solid #dbe4e7;border-radius:10px;bottom:42px;box-shadow:0 8px 20px rgba(31,47,57,.1);display:grid;gap:3px;left:18px;padding:11px 13px;position:absolute}.viewer-parcel-card span{color:#74818a;font-family:var(--primary-font);font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.viewer-parcel-card b{color:#1c2630;font-family:var(--primary-font);font-size:12px}.viewer-parcel-card small{color:#7b8790;font-family:var(--primary-font);font-size:10px}.viewer-map-legend{align-items:center;background:rgba(255,255,255,.92);border-top:1px solid #dce4e8;bottom:0;color:#73808a;display:flex;flex-wrap:wrap;font-family:var(--primary-font);font-size:10px;gap:6px;left:0;padding:10px 15px;position:absolute;right:0;z-index:2}.viewer-map-legend>i{background:#ef553a;border-radius:50%;height:7px;width:7px}.viewer-map-legend span:nth-of-type(1){color:#53616a}
+  .viewer-documents{background:#fff;display:grid;grid-template-rows:auto minmax(0,1fr);min-width:0}.viewer-documents-heading{align-items:center;border-bottom:1px solid #e3e9ec;display:flex;justify-content:space-between;padding:16px 16px 13px}.viewer-documents-heading>div{display:grid;gap:3px}.viewer-documents-heading b{color:#1d2832;font-family:var(--primary-font);font-size:13px}.viewer-documents-heading>em{border:1px solid #dce4e8;border-radius:999px;color:#68757e;font-family:var(--primary-font);font-size:9px;font-style:normal;padding:4px 7px}.viewer-document-scroll{display:grid;gap:12px;overflow-y:auto;padding:14px 14px 18px;scroll-behavior:smooth}.viewer-document{border:1px solid #dce4e8;border-left:3px solid #dce4e8;border-radius:11px;cursor:pointer;display:grid;gap:10px;outline:none;padding:15px 14px;transition:border-color .2s,box-shadow .2s}.viewer-document:hover{border-color:#bfcbd0}.viewer-document:focus-visible{box-shadow:0 0 0 3px rgba(239,85,58,.22)}.viewer-document.is-active{border-color:#ef553a;box-shadow:0 5px 15px rgba(44,55,62,.08)}.viewer-document-type{align-items:center;color:#6f7b84;display:flex;font-family:var(--primary-font);font-size:10px;font-weight:700;gap:6px;letter-spacing:.04em;text-transform:uppercase}.viewer-document-type>i{margin-top:0}.viewer-document-type>span{color:#8a969d;font-size:9px;font-weight:600;letter-spacing:0;margin-left:auto;text-transform:none}.viewer-document h3{color:#18232e;font-family:var(--primary-font);font-size:16px;line-height:1.2}.viewer-document-title{color:#33414a;font-family:var(--primary-font);font-size:13px;font-weight:600;line-height:1.35;margin:0}.viewer-document-reference{align-items:center;background:#f5f7f8;border-radius:7px;color:#697780;display:flex;font-family:var(--primary-font);font-size:11px;gap:6px;padding:7px 8px}.viewer-document-reference span{color:#ef553a;font-size:14px;font-weight:700}.viewer-document-text{color:#65727b;font-family:var(--primary-font);font-size:12px;line-height:1.5;margin:0}.viewer-document-tags{display:flex;flex-wrap:wrap;gap:5px}.viewer-document-tags span{background:#f1f4f5;border-radius:999px;color:#65727b;font-family:var(--primary-font);font-size:10px;padding:4px 7px}
+  .viewer-footer{align-items:center;background:#fbfcfc;border-top:1px solid #e3e9ec;color:#68757e;display:flex;font-family:var(--primary-font);font-size:12px;gap:9px;line-height:1.4;padding:12px 18px}.viewer-footer>i{background:#ef553a;border-radius:50%;box-shadow:0 0 0 4px rgba(239,85,58,.12);height:7px;width:7px}
+  @media(max-width:991px){.viewer-body{grid-template-columns:190px minmax(0,1fr);grid-template-rows:360px 330px;height:auto}.viewer-sources{grid-row:1 / span 2}.viewer-map{min-height:360px}.viewer-documents{border-top:1px solid #e3e9ec}.viewer-status{display:none}.viewer-document-scroll{grid-template-columns:repeat(2,minmax(0,1fr));overflow-y:auto}.viewer-document{align-content:start}.viewer-document-text{display:none}}
+  @media(max-width:700px){.city-source-viewer{border-radius:16px;margin-top:30px}.viewer-topbar{grid-template-columns:1fr auto;padding:12px 14px}.viewer-project{display:none}.viewer-body{display:flex;flex-direction:column}.viewer-sources{border-bottom:1px solid #e3e9ec;border-right:0;display:block;overflow:hidden;padding:15px 14px}.viewer-sources>p,.viewer-source-note{display:none}.viewer-layer-list{display:flex;margin-top:12px;overflow-x:auto;padding-bottom:2px}.viewer-layer{flex:0 0 148px;min-height:76px}.viewer-map{min-height:400px}.viewer-documents{border-top:1px solid #e3e9ec;min-height:375px}.viewer-document-scroll{display:block}.viewer-document{margin-bottom:12px}.viewer-document-text{display:block}.viewer-map-header{padding:10px 12px}.viewer-map-header b{font-size:11px}.viewer-parcel-card{bottom:39px;left:12px}.viewer-map-legend{font-size:9px;padding:9px 12px}.viewer-footer{font-size:11px;padding:12px 14px}}
+
+  /* Report-inspired light workspace treatment. */
+  .city-source-viewer{background:#1d1d20;border-color:#d8d8db;box-shadow:0 22px 65px rgba(21,21,24,.16);padding:0}
+  .viewer-topbar{background:#1d1d20;border:0;display:flex;justify-content:space-between;min-height:54px;padding:10px 18px}.viewer-brand{gap:10px}.viewer-brand b{color:#f7f7f8;font-family:var(--font-display);font-size:27px;font-weight:750;letter-spacing:-.055em}.viewer-brand span{border-left:1px solid #5a5a5f;color:#b8b8bd;font-family:var(--primary-font);font-size:10px;font-weight:600;letter-spacing:.07em;margin-left:2px;padding-left:11px;text-transform:uppercase}.viewer-tools{align-items:center;color:#d2d2d5;display:flex;font-family:var(--primary-font);font-size:15px;gap:16px}.viewer-tools>i{background:#6c6c71;height:18px;width:1px}.viewer-tools>b{background:#f4512c;border-radius:5px;color:#fff;font-family:var(--primary-font);font-size:11px;letter-spacing:.01em;padding:8px 13px}.viewer-tools>em{align-items:center;background:#5d54b7;border-radius:50%;color:#fff;display:flex;font-family:var(--primary-font);font-size:10px;font-style:normal;font-weight:700;height:27px;justify-content:center;width:27px}
+  .viewer-canvas{background:#eeedef;padding:18px 18px 0}.viewer-titlebar{align-items:center;background:#807777;border-radius:11px 11px 0 0;color:#fff;display:flex;justify-content:space-between;padding:13px 16px}.viewer-titlebar>div:first-child{display:grid;gap:3px}.viewer-titlebar span{color:#eee9e8;font-family:var(--primary-font);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.viewer-titlebar b{font-family:var(--primary-font);font-size:16px;line-height:1.2}.viewer-titlebar-meta{align-items:flex-end;display:grid;gap:3px;text-align:right}.viewer-titlebar-meta span:last-child{color:#e7dedc;font-size:9px;font-weight:600;letter-spacing:0;text-transform:none}
+  .viewer-body{background:#fff;border:1px solid #d9d7d8;border-top:0;grid-template-columns:225px minmax(0,1fr) 310px;height:560px}.viewer-sources{background:#f5f4f5;border-right:1px solid #dad9dc;padding:17px 12px}.viewer-source-heading{padding:0 7px}.viewer-source-heading span,.viewer-documents-heading span{color:#625c5d;font-size:10px}.viewer-source-heading b{color:#8b8180}.viewer-sources>p{color:#797274;font-size:11px;margin-bottom:12px}.viewer-layer-list{gap:8px}.viewer-layer{background:#fff;border-color:#dedbdd;border-left:4px solid #ddd6d3;border-radius:8px;gap:7px;padding:10px 8px}.viewer-layer:hover,.viewer-layer.is-active{background:#fff;border-color:#bba8a2;border-left-color:#7b4231;box-shadow:0 2px 6px rgba(49,42,41,.08)}.viewer-layer b{color:#373133;font-size:12px}.viewer-layer small{color:#837a7b}.viewer-layer em{color:#a19595}.viewer-source-note{border-color:#d9d6d7;color:#746c6e;font-size:10px;margin-top:15px}.viewer-source-note>span{background:#e2dedd;color:#6c6465}
+  .viewer-map{background:#ecefee}.viewer-map-header{background:rgba(250,250,250,.97);border-color:#d7dadb;padding:11px 14px}.viewer-map-header span{color:#786f71}.viewer-map-header b{color:#383133;font-size:12px}.viewer-map-header p{color:#857b7c}.viewer-map-header p>i{background:#f4512c}.viewer-parcel-card{border-color:#d7d3d2;border-radius:7px;box-shadow:0 6px 16px rgba(41,34,33,.13)}.viewer-parcel-card span{color:#786f71}.viewer-parcel-card b{color:#342e2f}.viewer-map-legend{background:rgba(249,249,249,.96);border-color:#d7dadb;color:#81787a}.viewer-map-legend>i{background:#f4512c}.viewer-map-legend span:nth-of-type(1){color:#5b5153}.viewer-overlay.is-active{filter:drop-shadow(0 3px 4px rgba(37,34,35,.12))}
+  .viewer-documents{background:#f5f4f5;border-left:1px solid #dad9dc}.viewer-documents-heading{background:#f5f4f5;border-color:#dad9dc;padding:14px 14px 12px}.viewer-documents-heading b{color:#3f3839}.viewer-documents-heading>em{background:#fff;border-color:#d8d4d4;color:#73696a}.viewer-document-scroll{background:#eeedef;gap:10px;padding:12px}.viewer-document{background:#fff;border-color:#dad6d6;border-left:4px solid #d9d2cf;border-radius:8px;gap:8px;padding:13px 12px}.viewer-document:hover{border-color:#baaaa5}.viewer-document.is-active{border-color:#a65a41;box-shadow:0 4px 10px rgba(55,43,41,.12)}.viewer-document-type{color:#746b6c;font-size:9px}.viewer-document-type>span{color:#93898a}.viewer-document h3{color:#363031;font-size:15px}.viewer-document-title{color:#4b4344;font-size:12px}.viewer-document-reference{background:#f0edec;border-radius:5px;color:#786d6d;font-size:10px;padding:6px 7px}.viewer-document-reference span{color:#9a553e}.viewer-document-text{color:#6b6263;font-size:11px;line-height:1.48}.viewer-document-tags span{background:#f0edec;color:#706667;font-size:9px}.viewer-footer{background:#eeedef;border:0;color:#71696b;padding:13px 18px}.viewer-footer>i{background:#f4512c}
+  @media(max-width:991px){.viewer-canvas{padding:15px 15px 0}.viewer-body{grid-template-columns:190px minmax(0,1fr);grid-template-rows:360px 330px}.viewer-sources{grid-row:1 / span 2}.viewer-documents{border-left:0;border-top:1px solid #dad9dc}.viewer-map{min-height:360px}.viewer-document-scroll{grid-template-columns:repeat(2,minmax(0,1fr))}.viewer-document-text{display:none}}
+  @media(max-width:700px){.city-source-viewer{border-radius:16px}.viewer-topbar{padding:10px 13px}.viewer-brand b{font-size:24px}.viewer-brand span{display:none}.viewer-tools{gap:11px}.viewer-tools>span:nth-of-type(-n+2),.viewer-tools>i{display:none}.viewer-tools>b{padding:7px 10px}.viewer-canvas{padding:11px 11px 0}.viewer-titlebar{padding:12px}.viewer-titlebar b{font-size:14px}.viewer-titlebar-meta{display:none}.viewer-body{display:flex;flex-direction:column}.viewer-sources{border-bottom:1px solid #dad9dc;border-right:0;padding:14px 12px}.viewer-sources>p,.viewer-source-note{display:none}.viewer-layer-list{display:flex;margin-top:10px;overflow-x:auto}.viewer-layer{flex:0 0 148px;min-height:72px}.viewer-map{min-height:400px}.viewer-documents{border-top:1px solid #dad9dc;min-height:375px}.viewer-document-scroll{display:block}.viewer-document{margin-bottom:10px}.viewer-document-text{display:block}.viewer-footer{padding:12px 14px}}
+  .viewer-document-scroll{align-items:stretch;display:flex;overflow:hidden;padding:12px}.viewer-document{display:none;margin:0;width:100%}.viewer-document.is-active{display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;height:100%;min-height:0}.viewer-document h3{font-size:14px;margin:0}.viewer-pdf-frame{background:#e5e4e5;border:1px solid #d2ced0;display:grid;grid-template-rows:31px minmax(0,1fr);height:282px;min-height:0;overflow:hidden}.viewer-pdf-toolbar{align-items:center;background:#fafafa;border-bottom:1px solid #d8d4d6;color:#797173;display:flex;font-family:var(--primary-font);font-size:9px;justify-content:space-between;padding:0 9px}.viewer-pdf-toolbar>div{align-items:center;display:flex;gap:10px}.viewer-pdf-toolbar i{color:#5e5658;font-size:12px;font-style:normal}.viewer-pdf-window{background:#e7e5e6;height:100%;overflow-y:auto;overscroll-behavior-y:auto;padding:11px}.viewer-pdf-window::-webkit-scrollbar{width:var(--rf-canvas-scrollbar-size)}.viewer-pdf-window::-webkit-scrollbar-track{background:transparent;margin:var(--rf-canvas-scrollbar-inset) 0}.viewer-pdf-window::-webkit-scrollbar-thumb{background:var(--rf-canvas-scrollbar-thumb);background-clip:padding-box;border:1px solid transparent;border-radius:99px}.viewer-pdf-page{background:#fff;box-shadow:0 2px 7px rgba(45,38,39,.15);color:#554e4f;display:grid;gap:11px;min-height:360px;padding:20px 18px}.viewer-pdf-page+.viewer-pdf-page{margin-top:13px}.viewer-pdf-kicker{color:#9a7670;font-family:var(--primary-font);font-size:8px;font-weight:700;letter-spacing:.1em;margin:0;text-transform:uppercase}.viewer-pdf-page h4{color:#3d3536;font-family:Georgia,serif;font-size:18px;font-weight:700;line-height:1.15;margin:0}.viewer-pdf-section{border-bottom:1px solid #ded8d7;color:#837879;font-family:Georgia,serif;font-size:10px;margin:0;padding-bottom:10px}.viewer-pdf-page p:not(.viewer-pdf-kicker):not(.viewer-pdf-section){font-family:Georgia,serif;font-size:11px;line-height:1.55;margin:0}.viewer-pdf-highlight{background:var(--highlight,#dce8ff);box-decoration-break:clone;box-shadow:5px 0 0 var(--highlight,#dce8ff),-5px 0 0 var(--highlight,#dce8ff);color:var(--highlight-ink,#1d417f);padding:1px 0}.viewer-pdf-page h5{color:#3d3536;font-family:Georgia,serif;font-size:12px;margin:2px 0 0}.viewer-document-tags{margin-top:auto}
+  .viewer-layer{grid-template-columns:minmax(0,1fr);padding-left:12px}.viewer-document-type{gap:0}.viewer-map-legend span:nth-of-type(1){color:#5b5153}
+  @media(max-width:700px){.viewer-documents{min-height:450px}.viewer-pdf-frame{height:310px}.viewer-document-scroll{padding:11px}.viewer-document{margin:0}.viewer-pdf-page{min-height:390px}}
+
+  /* Final report-style alignment and responsive layout. */
+  .city-source-viewer{background:#fff;border:1px solid var(--rf-border);border-radius:16px;box-shadow:0 18px 48px rgba(17,24,39,.12)}
+  .viewer-topbar{align-items:center;background:var(--base-black);display:flex;min-height:54px;padding:10px 18px}.viewer-brand{align-items:center;gap:12px}.viewer-brand b{color:#fff;font-size:25px}.viewer-brand span{border-left:1px solid #555b68;color:#d2d7df;font-size:12px;font-weight:600;letter-spacing:0;line-height:1.25;margin:0;padding-left:12px;text-transform:none}
+  .viewer-body{border:0;grid-template-columns:220px minmax(0,1fr) 320px;grid-template-rows:minmax(0,1fr);height:560px;min-width:0}.viewer-sources{background:#fff;border-right:1px solid var(--rf-border);padding:16px 12px}.viewer-source-heading{padding:0 4px}.viewer-source-heading span,.viewer-documents-heading span{color:var(--rf-ink-600);font-size:10px}.viewer-source-heading b{color:var(--rf-ink-500)}.viewer-sources>p{color:var(--rf-ink-600);font-size:11px;margin:9px 4px 13px}.viewer-layer-list{gap:7px}.viewer-layer{background:#fff;border:1px solid var(--rf-border);border-left:1px solid var(--rf-border);border-radius:8px;gap:0;grid-template-columns:minmax(0,1fr);padding:10px 11px}.viewer-layer:hover,.viewer-layer.is-active{background:var(--rf-blue-50);border-color:var(--rf-blue-600);border-left-color:var(--rf-blue-600);box-shadow:0 2px 7px rgba(49,87,246,.12)}.viewer-layer b{color:var(--rf-ink-900);font-size:12px}.viewer-layer small{color:var(--rf-ink-600)}.viewer-layer em{color:var(--rf-ink-500)}
+  .viewer-map{background:var(--rf-surface-100);display:grid;grid-template-rows:66px minmax(0,1fr);min-height:0}.viewer-map-header{background:#fff;border-bottom:1px solid var(--rf-border);box-sizing:border-box;min-height:66px;padding:13px 15px;position:static}.viewer-map-header span{color:var(--rf-ink-600)}.viewer-map-header b{color:var(--rf-ink-900);font-size:12px}.viewer-map-header p{color:var(--rf-ink-600)}.viewer-map-header p>i{background:var(--rf-red-600)}.viewer-map svg{grid-row:2;height:100%;min-height:0}.viewer-parcel-card{border-color:var(--rf-border);border-radius:8px;box-shadow:0 6px 16px rgba(17,24,39,.12)}.viewer-parcel-card span{color:var(--rf-ink-600)}.viewer-parcel-card b{color:var(--rf-ink-900)}.viewer-parcel-card small{color:var(--rf-ink-600)}.viewer-map-legend{background:rgba(255,255,255,.96);border-color:var(--rf-border);color:var(--rf-ink-600)}.viewer-map-legend span:nth-of-type(1){color:var(--rf-ink-700)}
+  .viewer-documents{background:#fff;border-left:1px solid var(--rf-border);grid-template-rows:66px minmax(0,1fr)}.viewer-documents-heading{background:#fff;border-bottom:1px solid var(--rf-border);box-sizing:border-box;min-height:66px;padding:13px 14px}.viewer-documents-heading b{color:var(--rf-ink-900);font-size:12px}.viewer-documents-heading>em{background:#fff;border-color:var(--rf-border);color:var(--rf-ink-600)}.viewer-document-scroll{background:var(--rf-surface-50);padding:12px}.viewer-document{background:#fff;border:1px solid var(--rf-border);border-left:1px solid var(--rf-border);border-radius:8px;gap:9px;padding:13px}.viewer-document:hover,.viewer-document.is-active{border-color:var(--rf-border);box-shadow:0 2px 7px rgba(17,24,39,.07)}.viewer-document-type{color:var(--rf-ink-600);font-size:9px}.viewer-document-type>span{color:var(--rf-ink-500)}.viewer-document h3{color:var(--rf-ink-900);font-size:14px}.viewer-pdf-frame{background:var(--rf-surface-100);border-color:var(--rf-border);height:286px}.viewer-pdf-toolbar{background:#fff;border-color:var(--rf-border);color:var(--rf-ink-600)}.viewer-pdf-toolbar i{color:var(--rf-ink-700)}.viewer-pdf-window{background:var(--rf-surface-100)}.viewer-pdf-window::-webkit-scrollbar-track{background:var(--rf-surface-100)}.viewer-pdf-window::-webkit-scrollbar-thumb{background:var(--rf-ink-500);border-color:var(--rf-surface-100)}.viewer-pdf-page{box-shadow:0 1px 4px rgba(17,24,39,.12);color:#4a4546}.viewer-pdf-kicker{color:var(--rf-ink-600)}.viewer-pdf-page h4,.viewer-pdf-page h5{color:var(--rf-ink-900)}.viewer-pdf-section{border-color:var(--rf-border);color:var(--rf-ink-600)}.viewer-pdf-highlight{background:var(--highlight,#dce8ff);box-decoration-break:clone;box-shadow:5px 0 0 var(--highlight,#dce8ff),-5px 0 0 var(--highlight,#dce8ff);color:var(--highlight-ink,#1d417f)}.viewer-document-tags span{background:var(--rf-surface-100);color:var(--rf-ink-600)}
+  @media(max-width:991px){.viewer-body{grid-template-columns:190px minmax(0,1fr);grid-template-rows:390px 390px;height:auto}.viewer-sources{grid-row:1 / span 2}.viewer-map{min-height:390px}.viewer-documents{border-left:0;border-top:1px solid var(--rf-border);min-height:390px}.viewer-document-scroll{padding:12px}.viewer-document.is-active{height:100%}}
+  @media(max-width:700px){.city-source-viewer{border-radius:14px}.viewer-topbar{min-height:54px;padding:10px 13px}.viewer-brand{min-width:0}.viewer-brand b{font-size:23px;flex:0 0 auto}.viewer-brand span{display:block;font-size:11px;min-width:0;overflow-wrap:anywhere}.viewer-body{display:flex;flex-direction:column;height:auto}.viewer-sources{border-bottom:1px solid var(--rf-border);border-right:0;display:block;overflow:hidden;padding:13px 12px}.viewer-sources>p{display:none}.viewer-layer-list{display:flex;margin-top:10px;overflow-x:auto;padding:1px 0 5px;scroll-snap-type:x proximity}.viewer-layer{flex:0 0 158px;min-height:70px;scroll-snap-align:start}.viewer-map{height:390px;min-height:390px}.viewer-map-header,.viewer-documents-heading{min-height:60px;padding:11px 12px}.viewer-documents{border-top:1px solid var(--rf-border);height:445px;min-height:445px}.viewer-document-scroll{padding:10px}.viewer-document.is-active{height:100%}.viewer-pdf-frame{height:295px}.viewer-parcel-card{bottom:39px;left:12px}.viewer-map-legend{font-size:9px;padding:9px 12px}}
+  @media(max-width:420px){.viewer-topbar{align-items:flex-start}.viewer-brand{align-items:flex-start;flex-wrap:wrap;gap:7px}.viewer-brand span{border-left:0;margin-left:0;padding-left:0;width:100%}}
+  .viewer-brand b{font-weight:600!important;letter-spacing:-.06em!important}.viewer-brand span{letter-spacing:0!important;text-transform:none!important}.viewer-layer,.viewer-layer:hover,.viewer-layer.is-active{border-left-width:1px!important}.viewer-layer.is-active{border:1px solid var(--rf-blue-600)!important}.viewer-document,.viewer-document:hover,.viewer-document.is-active{border-left-width:1px!important;border-left-color:var(--rf-border)!important}.viewer-document.is-active{border:1px solid var(--rf-border)!important}
+
+  /* Match the CRE product-frame treatment while keeping the GIS workspace legible. */
+  .city-source-viewer{border-color:var(--color-border-subtle);border-radius:15px;box-shadow:0 4px 20px rgba(17,24,39,.1),0 10px 42px rgba(17,24,39,.14)}
+  .viewer-body{grid-template-columns:220px minmax(0,1fr) 320px}
+  .viewer-sources{background:var(--rf-surface-50);border-right-color:var(--color-border-subtle);padding:18px 14px}
+  .viewer-sources>p{margin-bottom:14px}
+  .viewer-layer-list{gap:8px}
+  .viewer-layer{border-color:var(--color-border-subtle);padding:11px}
+  .viewer-layer:hover,.viewer-layer.is-active{box-shadow:0 2px 7px rgba(49,87,246,.1)}
+  .viewer-map{grid-template-rows:66px minmax(0,1fr);height:100%}
+  .viewer-map-header{border-bottom-color:var(--color-border-subtle)}
+  .viewer-map svg{align-self:stretch;grid-row:2;height:100%;justify-self:stretch;min-height:0;min-width:0;width:100%}
+  .viewer-map-legend{background:#fff;border-color:var(--color-border-subtle);grid-row:3;position:static}
+  .viewer-parcel-card{background:rgba(255,255,255,.86);backdrop-filter:blur(8px);border-color:var(--color-border-subtle);bottom:16px;box-shadow:0 8px 18px rgba(17,24,39,.14);left:16px;padding:10px 12px}
+  .viewer-documents{border-left-color:var(--color-border-subtle)}
+  .viewer-documents-heading{border-bottom-color:var(--color-border-subtle)}
+  .viewer-document-scroll{align-items:start;background:var(--rf-surface-50);padding:12px}
+  .viewer-document,.viewer-document.is-active{align-content:start;grid-template-rows:auto auto auto;height:auto}
+  .viewer-document,.viewer-document:hover,.viewer-document.is-active{border-color:var(--color-border-subtle)!important}
+  .viewer-pdf-frame{border-color:var(--color-border-subtle)}
+  .viewer-pdf-toolbar{border-color:var(--color-border-subtle)}
+  .viewer-pdf-window{padding:11px 11px 14px}
+  .viewer-pdf-section{border-color:var(--color-border-subtle)}
+  @media(max-width:991px){.viewer-body{grid-template-columns:190px minmax(0,1fr);grid-template-rows:390px 470px}.viewer-documents{border-top-color:var(--color-border-subtle);min-height:470px}.viewer-document.is-active{height:auto}}
+  @media(max-width:700px){.viewer-documents{height:470px;min-height:470px}.viewer-document.is-active{height:auto}.viewer-parcel-card{bottom:16px;left:16px}}
+
+  /* Carry the compact product-panel rhythm of the CRE workspace through the GIS viewer. */
+  .viewer-body{background:var(--rf-surface-100)}
+  .viewer-sources{background:var(--rf-surface-100)}
+  .viewer-layer{box-shadow:0 1px 2px rgba(17,24,39,.03)}
+  .viewer-documents{background:var(--rf-surface-100)}
+  .viewer-documents-heading{background:#fff}
+  .viewer-document-scroll{align-items:stretch;overflow:hidden;padding:12px}
+  .viewer-document{display:none}
+  .viewer-document.is-active{display:grid;grid-template-rows:auto auto minmax(0,1fr);height:100%;min-height:0}
+  .viewer-document{box-shadow:0 2px 8px rgba(17,24,39,.06)}
+  .viewer-pdf-frame{height:100%;min-height:0}
+  .viewer-pdf-window{min-height:0;padding:11px}
+  @media(max-width:991px){.viewer-document.is-active{height:100%}}
+  @media(max-width:700px){.viewer-document-scroll{padding:10px}.viewer-document.is-active{height:100%}}
+  @media(min-width:701px) and (max-width:991px){.viewer-body{grid-template-columns:180px minmax(0,1fr) 255px;grid-template-rows:none;height:560px}.viewer-sources{grid-row:auto}.viewer-map{height:auto;min-height:0}.viewer-documents{border-left:1px solid var(--color-border-subtle);border-top:0;height:auto;min-height:0}.viewer-document-scroll{padding:12px}}
+  @media(min-width:701px) and (max-width:860px){
+    .viewer-body{grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);grid-template-rows:150px 470px;height:620px}
+    .viewer-sources{border-bottom:1px solid var(--color-border-subtle);border-right:0;grid-column:1/-1;grid-row:1;padding:12px}
+    .viewer-sources>p{display:none}
+    .viewer-layer-list{display:flex;gap:7px;margin-top:9px;overflow-x:auto;overscroll-behavior-x:contain;padding:1px 0 5px;scroll-snap-type:x proximity}
+    .viewer-layer{flex:0 0 178px;min-height:82px;padding:9px 10px;scroll-snap-align:start}
+    .viewer-map{grid-column:1;grid-row:2;height:470px;min-height:470px}
+    .viewer-documents{border-left:1px solid var(--color-border-subtle);border-top:0;grid-column:2;grid-row:2;height:470px;min-height:470px}
+    .viewer-document-scroll{padding:10px}
+    .viewer-parcel-card{bottom:14px;left:14px;padding:8px 10px}
+    .viewer-parcel-card b{font-size:11px}
+    .viewer-pdf-page h4{font-size:15px}
+  }
+
+  /* The outer shell stays borderless so this reads as one application view, while the interior keeps its functional dividers. */
+  .city-source-viewer{background:var(--rf-surface-50);border:0;box-shadow:var(--government-canvas-shadow,0 16px 38px rgba(117,80,65,.14),0 4px 12px rgba(83,57,50,.09))}
+  @media(max-width:700px){.city-source-viewer{box-shadow:var(--government-canvas-shadow-compact,0 14px 30px rgba(117,80,65,.13),0 4px 10px rgba(83,57,50,.08))}}
+
+  /* A local text scale keeps this application view visually subordinate to page copy. */
+  .city-source-viewer{--canvas-text-strong:var(--rf-canvas-text-strong);--canvas-text:var(--rf-canvas-text);--canvas-text-muted:var(--rf-canvas-text-muted);--canvas-text-faint:var(--rf-canvas-text-faint);--rf-ink-900:var(--canvas-text-strong);--rf-ink-700:var(--canvas-text);--rf-ink-600:var(--canvas-text-muted);--rf-ink-500:var(--canvas-text-faint);color:var(--canvas-text)}
+  .viewer-pdf-page{color:var(--canvas-text)}
+  .viewer-pdf-page h4,.viewer-pdf-page h5{color:var(--canvas-text-strong)}
+  .viewer-map::after{box-shadow:inset 0 0 18px rgba(42,55,67,.14);content:'';inset:0;pointer-events:none;position:absolute;z-index:1}
+  .viewer-parcel-card{z-index:2}
+
+  /* The source list uses the same fixed-height panel header as the map and document viewer. */
+  .viewer-sources{display:grid;grid-template-rows:66px minmax(0,1fr);overflow:hidden;padding:0}
+  .viewer-sources-header{align-items:center;background:#fff;border-bottom:1px solid var(--color-border-subtle);box-sizing:border-box;display:flex;min-height:66px;padding:13px 14px}
+  .viewer-sources-content{display:flex;flex-direction:column;min-height:0;min-width:0;padding:15px 14px}
+  .viewer-sources-content>p{color:var(--rf-ink-600);font-family:var(--primary-font);font-size:11px;line-height:1.45;margin:0 4px 14px}
+  .viewer-sources-content .viewer-layer-list{display:grid;gap:8px;margin:0}
+  @media(min-width:701px) and (max-width:860px){
+    .viewer-body{grid-template-rows:180px 470px;height:650px}
+    .viewer-sources{grid-template-rows:66px minmax(0,1fr);padding:0}
+    .viewer-sources-header{min-height:66px;padding:13px 14px}
+    .viewer-sources-content{overflow:hidden;padding:8px 12px 10px}
+    .viewer-sources-content>p{display:none}
+    .viewer-sources-content .viewer-layer-list{display:flex;gap:7px;margin:0;overflow-x:auto;overscroll-behavior-x:contain;padding:1px 0 5px;scroll-snap-type:x proximity}
+    .viewer-layer{flex:0 0 178px;min-height:82px;scroll-snap-align:start}
+  }
+  @media(max-width:700px){
+    .viewer-sources{grid-template-rows:66px minmax(0,1fr);padding:0}
+    .viewer-sources-header{min-height:66px;padding:13px 14px}
+    .viewer-sources-content{overflow:hidden;padding:10px 12px 12px}
+    .viewer-sources-content>p{display:none}
+    .viewer-sources-content .viewer-layer-list{display:flex;gap:8px;margin:0;overflow-x:auto;overscroll-behavior-x:contain;padding:1px 0 5px;scroll-snap-type:x proximity}
+  }
+
+  /* Match the reference-state treatment used by citation cards: a neutral stroke,
+     gentle lift, and no change to the blue selected-source state. */
+  .viewer-layer{transition:border-color .18s,box-shadow .18s,transform .18s}
+  .viewer-layer:hover:not(.is-active){border-color:#a9b7c8;box-shadow:0 3px 12px rgba(17,24,39,.06);transform:translateY(-1px)}
+
+  /* Keep the horizontally scrollable source list consistent with the compact canvas scrollbars. */
+  .viewer-sources-content .viewer-layer-list{scrollbar-color:var(--rf-canvas-scrollbar-thumb) transparent;scrollbar-width:thin}
+  .viewer-sources-content .viewer-layer-list::-webkit-scrollbar{height:var(--rf-canvas-scrollbar-size)}
+  .viewer-sources-content .viewer-layer-list::-webkit-scrollbar-track{background:transparent}
+  .viewer-sources-content .viewer-layer-list::-webkit-scrollbar-thumb{background:var(--rf-canvas-scrollbar-thumb);background-clip:padding-box;border:1px solid transparent;border-radius:999px}
+</style>

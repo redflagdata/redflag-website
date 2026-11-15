@@ -1,0 +1,21 @@
+---
+const { content } = Astro.props;
+---
+
+<section class="government-vision">
+  <div class="wrap">
+    <div class="government-vision-head">
+      <p class="eyebrow">{content.eyebrow}</p>
+      <h2>{content.title}</h2>
+      <p>{content.text}</p>
+    </div>
+    <div class="government-vision-grid">
+      {content.items.map((item: { title: string; text: string }) => (
+        <article>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

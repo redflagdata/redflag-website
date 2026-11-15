@@ -1,0 +1,15 @@
+---
+import CityResourceViewer from './CityResourceViewer.astro';
+const { content } = Astro.props;
+---
+
+<section class="band government-resource">
+  <div class="wrap">
+    <div class="resource-head">
+      <p class="eyebrow">{content.eyebrow}</p>
+      <h2>{content.title}</h2>
+      <p>{content.text}</p>
+    </div>
+    <CityResourceViewer />
+  </div>
+</section>

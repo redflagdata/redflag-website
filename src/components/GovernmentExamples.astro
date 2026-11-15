@@ -1,18 +1,221 @@
----
-import CodeCitation from "./CodeCitation.astro";
----
-<section class="band alt" id="inbox"><div class="wrap"><div class="sec-head"><p class="eyebrow">Fewer counter visits</p><h2>Applicants arrive with the right answer and the right section.</h2><p>When the code doesn’t settle it, the question comes to your inbox with the full project context.</p><p class="demo-note">Illustrative requesters, questions and staff replies; citations open real Hemet source documents.</p></div><div class="grid2">
-<div class="answer">
-<div class="eyebrow">Question runner · example</div>
-<p class="qq">What is the minimum front setback in Hemet's single-family zones?</p>
-<p>20 feet in most single-family zones, and 18 feet in the smaller-lot zones <CodeCitation code="s312" label="Art. XI · Development Standards"></CodeCitation>. Eaves, bay windows and similar features may project up to 30 inches into the front setback <CodeCitation code="s1210" label="Art. XI · Projections"></CodeCitation>.</p>
-<div class="cite"><div class="f">article_xi _single_family_residential_zones.pdf · p. 8</div>“Minimum front yard setback (linear ft.) a. Minimum except as provided for in b and c: 20 · 20 · 20 · 20 · 18 · 18 · 18”</div>
-<span class="status s-ok" style="align-self:flex-start">Found in codes</span>
-</div>
-<div class="inbox">
-<div class="item"><div class="requester"><img src="/images/rfi/women-44.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Mei Lin Park</b><span>Development Manager, Copperline Retail Partners</span></div></div><div class="top"><b>1420 W Florida Ave · Drive-through retail</b><span class="status s-wait">Awaiting reply</span></div><p class="q">Q1. The land use matrix lists a bank with drive-through as conditional <CodeCitation code="drive" label="Sec. 90-1423(B)(22)"></CodeCitation>. Does the same CUP path apply to drive-through retail?</p></div>
-<div class="item"><div class="requester"><img src="/images/rfi/men-32.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Marcus Hale</b><span>Principal, Hale &amp; Ortiz Architects</span></div></div><div class="top"><b>255 N State St · Tenant improvement</b><span class="status s-ok">Answered</span></div><p class="q">Q1. The building sits in a flood hazard area. Does a $180k interior remodel count as substantial improvement?</p><p class="a">The building official makes that determination at plan check <CodeCitation code="cfc903" label="CBC [A] 104.2.1"></CodeCitation>. Submit a cost estimate and the assessed structure value with your permit. — Building &amp; Safety</p></div>
-<div class="item"><div class="requester"><img src="/images/rfi/women-68.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Dana Whitfield</b><span>Entitlements Lead, Inland Crest Homes</span></div></div><div class="top"><b>3100 E Stetson Ave · New construction</b><span class="status s-ok">Answered</span></div><p class="q">Q2. When are sewer connection fees due, and where is the schedule?</p><p class="a">Before the connection is made <CodeCitation code="res041" label="Sec. 82-41"></CodeCitation>. The current schedule is set by council and on file with the City Clerk. — Public Works</p></div>
-<div class="item"><div class="requester"><img src="/images/rfi/men-75.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Eli Navarro</b><span>Project Engineer, Navarro Civil Engineering</span></div></div><div class="top"><b>2950 W Devonshire Ave · Residential subdivision</b><span class="status s-ok">Answered</span></div><p class="q">Q1. The parcel is partly in FEMA Zone AE. Can we get a modification to the flood requirements?</p><p class="a">Only with a showing of good and sufficient cause tied to the lot's unique characteristics <CodeCitation code="fp" label="CBC [A] 104.10.1"></CodeCitation>. — Building &amp; Safety</p></div>
-</div>
-</div></div></section>
+<section class="band alt government-review-demo" id="review-demo">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Cited review in action</p>
+      <h2>A review record, not just an answer.</h2>
+      <p>Illustrative scenario: city sources, comparable decisions, reviewer judgment, and the resulting response stay connected in one place.</p>
+    </div>
+
+    <div class="preapp-canvas" data-preapp-canvas>
+      <div class="preapp-canvas-head">
+        <span class="preapp-wordmark">redflag</span>
+        <span>Pre-application response workspace</span>
+      </div>
+
+      <div class="preapp-canvas-grid">
+        <aside class="preapp-inbox" aria-label="Numbered pre-application questions">
+          <header class="preapp-pane-header"><div><span>Pre-app inbox</span><b>5 questions</b></div></header>
+          <div class="preapp-pane-content preapp-inbox-content">
+            <p>Questions span code, interpretation, GIS context, and process.</p>
+            <div class="preapp-question-list" data-question-list></div>
+          </div>
+        </aside>
+
+        <section class="preapp-evidence" id="preapp-evidence" aria-label="Question-specific source evidence">
+          <header class="preapp-pane-header"><div><span>Potential sources</span><b>Evidence dock</b></div></header>
+          <div class="preapp-pane-content preapp-evidence-content">
+            <p>Open the highlighted source language to add it with its citation.</p>
+            <div class="preapp-source-list" data-source-list></div>
+            <div class="preapp-rule"></div>
+            <div class="preapp-section-head"><span>Prior interpretations</span><em>Context only</em></div>
+            <p>Comparable decisions suggest citations and conditions - they do not write the answer.</p>
+            <div class="preapp-precedent-list" data-precedent-list></div>
+          </div>
+        </section>
+
+        <section class="preapp-answer-canvas" aria-label="Email response composer">
+          <header class="preapp-pane-header">
+            <div><span>Response email</span><b>Draft reply</b></div>
+            <em>Staff approval required</em>
+          </header>
+          <div class="preapp-pane-content preapp-answer-content">
+            <div class="preapp-email-composer">
+              <div class="preapp-email-meta"><span>To</span><b>Applicant</b></div>
+              <div class="preapp-email-meta"><span>Subject</span><b data-email-subject></b></div>
+              <div class="preapp-email-message">
+                <span class="preapp-field-label">Message</span>
+                <div class="preapp-draft" data-draft aria-live="polite"></div>
+                <div class="preapp-linked-source" data-linked-source aria-live="polite"></div>
+              </div>
+            </div>
+            <div class="preapp-answer-actions"><button type="button" class="preapp-attach" data-attach disabled>Send response <span aria-hidden="true">↗</span></button><span data-attach-status aria-live="polite"></span></div>
+            <section class="preapp-precedent-panel" aria-label="Prior interpretation reference">
+              <div class="preapp-precedent-panel-head"><span>Precedent reference</span><em>Context only</em></div>
+              <div class="preapp-precedent-viewer preapp-precedent-empty" data-precedent-viewer aria-live="polite">Select a precedent to inspect its conditions and a suggested citation. It will not be inserted into the response.</div>
+            </section>
+            <p class="preapp-final-note">Staff retains final authority over the selected source, interpretation, and answer.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const canvas = document.querySelector('[data-preapp-canvas]');
+
+  if (canvas) {
+    const questions = {
+      drive: {
+        number: '01', title: 'Can a drive-through retail use be considered at 1420 W Florida Ave?', category: 'Code + interpretation',
+        sources: [
+          { id: 'drive-code', type: 'Citywide code', title: 'Title 18 - Development Code', meta: 'Whole city · B-3 Commercial · §18.34.040', quote: 'A drive-through facility may be permitted only with conditional use approval.', answer: 'A drive-through retail use may be considered in the B-3 district only through conditional use approval. Planning staff should confirm circulation, access, and applicable design standards before issuing a final determination.', citation: 'Title 18 §18.34.040' },
+          { id: 'drive-plan', type: 'Specific plan', title: 'Midtown Specific Plan', meta: 'Mapped district · Section 4.3', quote: 'Primary frontage requires a clear pedestrian connection to the principal entrance.', answer: 'The parcel is within the Midtown Specific Plan. Any drive-through proposal should be evaluated for frontage, pedestrian access, and driveway placement under Section 4.3.', citation: 'Midtown Specific Plan §4.3' }
+        ],
+        precedents: [{ id: 'coffee', title: '2025-014 · Coffee kiosk', summary: 'Conditional-use path recommended after separate stacking and loading areas were shown.', detail: 'The site demonstrated that vehicle stacking did not conflict with loading operations.', citation: 'Planning interpretation 2025-014' }]
+      },
+      timing: {
+        number: '02', title: 'How long does an administrative site plan review typically take?', category: 'Process + timing',
+        sources: [
+          { id: 'timing-guide', type: 'Process guide', title: 'Planning Review Service Guide', meta: 'Administrative site plan review · Intake milestones', quote: 'A complete application is routed to initial review after intake and fee verification.', answer: 'Administrative site plan review begins after the application is complete and fees are verified. The actual review path depends on completeness, department routing, and whether corrections are required.', citation: 'Planning Review Service Guide · Administrative review' },
+          { id: 'timing-fees', type: 'Fee schedule', title: 'Planning Application Fee Schedule', meta: 'Whole city · Current application requirements', quote: 'Applications missing required materials are not accepted into the review queue.', answer: 'Required application materials must be complete before the project enters the review queue. Staff can confirm the current submittal requirements and routing for this project type.', citation: 'Planning Application Fee Schedule' }
+        ],
+        precedents: [{ id: 'infill-timing', title: '2024-087 · Infill commercial project', summary: 'A consolidated correction cycle shortened the second review after a complete resubmittal.', detail: 'Routing needs were identified at intake and comments were coordinated before the resubmittal.', citation: 'Planning response 2024-087' }]
+      },
+      flood: {
+        number: '03', title: 'Does the south parking area trigger flood overlay review?', category: 'GIS + code',
+        sources: [
+          { id: 'flood-layer', type: 'GIS layer', title: 'Flood Resilience Overlay', meta: 'Partial parcel area · South edge overlap', quote: 'The selected parcel intersects the mapped drainage corridor along its southern boundary.', answer: 'The south edge of the parcel intersects the Flood Resilience Overlay. Proposed work in the mapped area should be screened for drainage and flood-resilience requirements before site plan finalization.', citation: 'Flood Resilience Overlay map' },
+          { id: 'flood-code', type: 'Overlay regulation', title: 'Title 16 - Drainage and Flood Resilience', meta: 'Whole city · §16.82', quote: 'Grading and impervious surface within the mapped overlay require drainage review.', answer: 'Grading or impervious surface within the mapped overlay requires drainage review. Staff should confirm the proposed work area against the current site plan and drainage information.', citation: 'Title 16 §16.82' }
+        ],
+        precedents: [{ id: 'drainage-survey', title: '2025-006 · Drainage corridor survey', summary: 'Overlay screening was narrowed after a field survey confirmed the work area stayed outside the regulated extent.', detail: 'The survey, not an assumed parcel-wide condition, established the final review boundary.', citation: 'Engineering interpretation 2025-006' }]
+      },
+      contractor: {
+        number: '04', title: 'Do I need a licensed contractor for a tenant electrical upgrade?', category: 'Process question',
+        sources: [
+          { id: 'contractor-code', type: 'Building code', title: 'Building Permit Requirements', meta: 'Whole city · Tenant improvement work', quote: 'Electrical work requiring a permit must be performed by an appropriately licensed contractor unless an owner-builder exception applies.', answer: 'Electrical work that requires a permit must be performed by an appropriately licensed contractor unless an owner-builder exception applies. Building staff can confirm the applicable permit route for this scope of work.', citation: 'Building Permit Requirements · Electrical work' },
+          { id: 'contractor-process', type: 'Process guide', title: 'Tenant Improvement Checklist', meta: 'Permit process · Electrical service changes', quote: 'Service upgrades require a permit application, contractor information, and utility coordination where applicable.', answer: 'For a tenant electrical upgrade, the permit submittal should include contractor information and any needed utility coordination. The exact requirements depend on the service scope.', citation: 'Tenant Improvement Checklist' }
+        ],
+        precedents: [{ id: 'electrical-route', title: '2024-019 · Electrical service upgrade', summary: 'A tenant improvement was routed through permit review because the work altered service capacity.', detail: 'The prior determination depended on the service-capacity change, not the tenant use alone.', citation: 'Building interpretation 2024-019' }]
+      },
+      amendment: {
+        number: '05', title: 'Can an approved site plan be amended administratively?', category: 'Process + precedent',
+        sources: [
+          { id: 'amendment-guide', type: 'Procedure guide', title: 'Administrative Amendment Procedure', meta: 'Planning process · Approved plans', quote: 'Minor modifications may be approved administratively when they do not alter required findings or conditions.', answer: 'An approved site plan may be eligible for administrative amendment when the requested change does not alter required findings, conditions, or the basis of the original approval. Planning staff should review the specific scope before confirming the route.', citation: 'Administrative Amendment Procedure' },
+          { id: 'amendment-code', type: 'Development code', title: 'Title 18 - Permit Administration', meta: 'Whole city · §18.08', quote: 'Changes that materially modify an approved entitlement require review under the applicable permit procedure.', answer: 'Changes that materially modify an approved entitlement require review under the applicable permit procedure. Staff should compare the requested amendment to the original conditions and approved plans.', citation: 'Title 18 §18.08' }
+        ],
+        precedents: [{ id: 'circulation-amendment', title: '2024-032 · Retail conversion', summary: 'An alternate access layout was accepted administratively because it did not change the approved findings.', detail: 'The existing shared driveway and unchanged frontage condition were material to the determination.', citation: 'Planning interpretation 2024-032' }]
+      }
+    };
+
+    const state = { question: 'drive', source: '', precedent: '', attached: false };
+    const questionList = canvas.querySelector('[data-question-list]');
+    const sourceList = canvas.querySelector('[data-source-list]');
+    const precedentList = canvas.querySelector('[data-precedent-list]');
+    const emailSubject = canvas.querySelector('[data-email-subject]');
+    const draft = canvas.querySelector('[data-draft]');
+    const linkedSource = canvas.querySelector('[data-linked-source]');
+    const precedentViewer = canvas.querySelector('[data-precedent-viewer]');
+    const attach = canvas.querySelector('[data-attach]');
+    const attachStatus = canvas.querySelector('[data-attach-status]');
+
+    const createButton = (className, label) => {
+      const node = document.createElement('button');
+      node.className = className;
+      node.type = 'button';
+      node.setAttribute('aria-label', label);
+      return node;
+    };
+
+    const render = () => {
+      const current = questions[state.question];
+      const source = current.sources.find((item) => item.id === state.source);
+      const precedent = current.precedents.find((item) => item.id === state.precedent);
+
+      questionList.replaceChildren();
+      Object.entries(questions).forEach(([key, item]) => {
+        const node = createButton('preapp-question', item.title);
+        node.setAttribute('aria-pressed', String(key === state.question));
+        node.innerHTML = '<span>' + item.number + '</span><b>' + item.title + '</b><small>' + item.category + '</small>';
+        node.addEventListener('click', () => {
+          state.question = key;
+          state.source = '';
+          state.precedent = '';
+          state.attached = false;
+          render();
+        });
+        questionList.appendChild(node);
+      });
+
+      sourceList.replaceChildren();
+      current.sources.forEach((item) => {
+        const node = createButton('preapp-source', 'Open source ' + item.title + ' and add cited language');
+        node.setAttribute('aria-pressed', String(item.id === state.source));
+        node.innerHTML = '<small>' + item.type + '</small><b>' + item.title + ' ↗</b><em>' + item.meta + '</em><mark>' + item.quote + '</mark><span>Open cited passage</span>';
+        node.addEventListener('click', () => {
+          state.source = item.id;
+          state.attached = false;
+          render();
+        });
+        sourceList.appendChild(node);
+      });
+
+      precedentList.replaceChildren();
+      current.precedents.forEach((item) => {
+        const node = createButton('preapp-precedent', 'Inspect prior interpretation ' + item.title);
+        node.setAttribute('aria-pressed', String(item.id === state.precedent));
+        node.innerHTML = '<b>' + item.title + '</b><span>' + item.summary + '</span>';
+        node.addEventListener('click', () => {
+          state.precedent = item.id;
+          render();
+        });
+        precedentList.appendChild(node);
+      });
+
+      emailSubject.textContent = 'Re: ' + current.title;
+      draft.replaceChildren();
+      if (source) {
+        const copy = document.createTextNode(source.answer + ' ');
+        const citation = document.createElement('a');
+        citation.href = '#preapp-evidence';
+        citation.textContent = '[' + source.citation + ']';
+        citation.setAttribute('aria-label', 'View ' + source.citation + ' in the evidence dock');
+        draft.append(copy, citation);
+        draft.classList.remove('is-empty');
+      } else {
+        draft.textContent = 'Select a highlighted source to add source-backed starting language.';
+        draft.classList.add('is-empty');
+      }
+
+      linkedSource.textContent = source ? 'Linked source · ' + source.citation : '';
+      attach.disabled = !source;
+      attach.innerHTML = state.attached ? 'Response sent' : 'Send response <span aria-hidden="true">↗</span>';
+      attachStatus.textContent = state.attached ? 'Response retained with RFI 03 - ready for staff approval.' : '';
+
+      precedentViewer.replaceChildren();
+      if (precedent) {
+        precedentViewer.classList.remove('preapp-precedent-empty');
+        const label = document.createElement('small');
+        const title = document.createElement('b');
+        const detail = document.createElement('p');
+        const citation = document.createElement('span');
+        label.textContent = 'Precedent viewer · context only';
+        title.textContent = precedent.title;
+        detail.textContent = precedent.detail;
+        citation.textContent = 'Suggested citation: ' + precedent.citation;
+        precedentViewer.append(label, title, detail, citation);
+      } else {
+        precedentViewer.classList.add('preapp-precedent-empty');
+        precedentViewer.textContent = 'Select a precedent to inspect its conditions and a suggested citation. It will not be inserted into the response.';
+      }
+    };
+
+    attach.addEventListener('click', () => {
+      if (!state.source) return;
+      state.attached = true;
+      render();
+    });
+
+    render();
+  }
+</script>

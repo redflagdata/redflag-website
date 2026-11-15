@@ -1,0 +1,741 @@
+---
+const cards = [
+  {
+    kind: 'Ground-up feasibility',
+    title: 'Can a neighborhood retail center proceed by right?',
+    answer: 'Yes—retail is permitted by right on this B-3 parcel, assuming the drive-through remains out of scope and the site plan retains the required rear loading buffer.',
+    outcome: 'yes',
+    label: 'Zoning',
+    summary: 'Validate land-use rights, retail use permissions, and site constraints while identifying the municipal requirements that shape a ground-up deal.',
+    citations: [
+      ['B-3 use table', 'Neighborhood retail is permitted by right; a drive-through follows a separate approval path.'],
+      ['Site development standards', 'Rear loading, landscape buffers, and driveway access are subject to the adopted site rules.'],
+    ],
+    factors: [
+      ['Permitted use', 'Retail is allowed by right; drive-through use follows a separate path.'],
+      ['Site envelope', 'Loading, landscape buffer, and frontage circulation shape the final plan.'],
+      ['Entitlement path', 'Retail-only program has no discretionary review identified.'],
+    ],
+    contact: ['Maya Chen', 'Senior planner · land-use confirmation', 'planning@city.gov · (555) 014-2810'],
+  },
+  {
+    kind: 'Commercial reuse',
+    title: 'Can the tenant reuse the existing restrooms for a retail buildout?',
+    answer: 'Partially—the existing restroom core can remain, but the proposed retail program triggers an ADA restroom upgrade. Add one accessible fixture and verify the accessible route, clearances, and door maneuvering.',
+    outcome: 'partial',
+    label: 'Building Code',
+    summary: 'Identify critical compliance gaps in existing conditions, ADA, plumbing, and life-safety standards before a retail build-out reaches plan review.',
+    citations: [
+      ['Existing-building code', 'Altered retail areas must maintain an accessible route and comply with the applicable accessibility provisions.'],
+      ['Plumbing fixture table', 'The retail program must meet the required fixture count and accessible toilet-room provisions.'],
+    ],
+    factors: [
+      ['ADA trigger', 'The retail alteration brings the restroom and its path of travel into accessibility review.'],
+      ['Existing core', 'Retain it only if fixture count, clearances, turning space, and door maneuvering comply.'],
+      ['Upgrade scope', 'Add one accessible fixture and document the compliant route to the restroom.'],
+    ],
+    contact: ['Alex Rivera', 'Plans examiner · existing-building + accessibility', 'planreview@city.gov · (555) 014-2822'],
+  },
+  {
+    kind: 'Permit readiness',
+    title: 'Must a licensed GC be named at submission?',
+    answer: 'No—plan review can start with the owner-authorized application. A locally registered GC is required before the permit can be issued.',
+    outcome: 'no',
+    label: 'Permitting',
+    summary: 'Navigate the path to approval with localized data on application requirements, issuance steps, and direct contacts for key agency officials.',
+    citations: [
+      ['Municipal permit ordinance', 'An owner-authorized application can enter plan review before contractor assignment.'],
+      ['Contractor registration rules', 'A registered GC and current insurance are required before permit issuance.'],
+    ],
+    factors: [
+      ['Plan review', 'Owner-authorized plans may enter review without a contractor.'],
+      ['Issuance gate', 'Registered GC and current insurance release the permit.'],
+      ['Field start', 'Trade permits and inspection sequencing must be set before work.'],
+    ],
+    contact: ['Jordan Lee', 'Permit coordinator · intake + issuance', 'permits@city.gov · (555) 014-2836'],
+  },
+];
+---
+
+<section class="cre-answer-library" aria-labelledby="cre-answer-library-heading">
+  <div class="cre-answer-library__intro">
+    <p class="cre-answer-library__eyebrow">SOURCE-BACKED DECISIONS</p>
+    <h2 id="cre-answer-library-heading">Accurate answers to every question.</h2>
+    <p>Clear determinations, the details that support them, and the next checks the team needs to move forward.</p>
+  </div>
+
+  <div class="cre-answer-library__grid">
+    {cards.map((card, index) => (
+      <article class="cre-answer-card">
+        <div class="cre-answer-card__viewport">
+          <div class="cre-answer-card__screen">
+            <header class="cre-answer-card__header">
+            <span class="cre-answer-card__icon" aria-hidden="true">
+              {index === 0 && <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z"/><path d="M8 4v16M16 4v16M4 9h16M4 15h16"/><path d="M10.5 11.5h3v3h-3z"/></svg>}
+              {index === 1 && <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14v16H5z"/><path d="M9 4v7h6V4M8 16h8M12 12v8"/><circle cx="12" cy="16" r="2.5"/></svg>}
+              {index === 2 && <svg viewBox="0 0 24 24" fill="none"><path d="M6 4h9l3 3v13H6z"/><path d="M15 4v4h4M9 12h6M9 16h6"/><path d="m9 8 1.25 1.25L12.5 6.8"/></svg>}
+            </span>
+            <div>
+              <h3>{card.label}</h3>
+            </div>
+            <p class="cre-answer-card__header-context"><span>Review context</span><b>{card.kind}</b></p>
+            </header>
+
+            <div class="cre-answer-card__body">
+            <p class="cre-answer-card__overline">Question</p>
+            <p class="cre-answer-card__question"><span class="cre-answer-card__question-marker" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M9.5 9a2.5 2.5 0 1 1 4.53 1.47c-.8 1.34-2.03 1.6-2.03 3.53"/><path d="M12 17h.01"/></svg></span><span class="cre-answer-card__copy">{card.title}</span></p>
+            <p class="cre-answer-card__overline">Determination</p>
+            <p class="cre-answer-card__answer"><span class:list={['cre-answer-card__answer-marker', `is-${card.outcome}`]} aria-hidden="true">
+              {card.outcome === 'no' ? <svg viewBox="0 0 24 24" fill="none"><path d="m7.5 7.5 9 9M16.5 7.5l-9 9"/></svg> : <svg viewBox="0 0 24 24" fill="none"><path d="m6.5 12.2 3.7 3.7 7.4-8.1"/></svg>}
+            </span><span class="cre-answer-card__copy">{card.answer}</span></p>
+
+            <div class="cre-answer-card__citations">
+              <p class="cre-answer-card__section-label">Cited details</p>
+              {card.citations.map(([name, detail], citationIndex) => <div class="cre-answer-card__citation">
+                <span aria-hidden="true">{citationIndex + 1}</span>
+                <p><b>{name}</b>{detail}</p>
+              </div>)}
+            </div>
+
+            <div class="cre-answer-card__evidence">
+              <p class="cre-answer-card__section-label">Key factors</p>
+              {card.factors.map(([name, detail]) => <span><b>{name}</b><span class="cre-answer-card__factor-detail">{detail}</span><i aria-hidden="true">↗</i></span>)}
+            </div>
+
+            <div class="cre-answer-card__contact">
+              <span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8"/><path d="M12 10v6M12 7.25v.1"/></svg></span>
+              <p><small>Local contact</small><b>{card.contact[0]}</b><span class="cre-answer-card__contact-role">{card.contact[1]}</span><span class="cre-answer-card__contact-details">{card.contact[2]}</span></p>
+              <i aria-hidden="true">↗</i>
+            </div>
+
+            </div>
+          </div>
+          <span class="cre-answer-card__scrollbar" aria-hidden="true"><i></i></span>
+        </div>
+
+        <div class="cre-answer-card__caption">
+          <h3>{card.label}</h3>
+          <p>{card.summary}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .cre-answer-library {
+    width: calc(100% - 60px);
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: clamp(5.5rem, 9vw, 8.5rem) 0;
+  }
+
+  .cre-answer-library__intro {
+    max-width: 48rem;
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+    text-align: center;
+  }
+
+  .cre-answer-library__eyebrow,
+  .cre-answer-card__overline {
+    margin: 0;
+    color: #ed3f2c;
+    font-size: .69rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .cre-answer-library__intro h2 {
+    max-width: 46rem;
+    margin: .55rem auto 1rem;
+    color: #111a2e;
+    font-size: clamp(2.25rem, 5vw, 4.2rem);
+    font-weight: 800;
+    letter-spacing: -.06em;
+    line-height: .98;
+  }
+
+  .cre-answer-library__intro > p:last-child {
+    margin: 0 auto;
+    color: #526076;
+    font-size: clamp(1rem, 1.7vw, 1.2rem);
+    line-height: 1.55;
+  }
+
+  .cre-answer-library__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2.2vw, 2rem);
+    align-items: stretch;
+  }
+
+  .cre-answer-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+  }
+
+  .cre-answer-card__viewport {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1.5px solid #dce4f0;
+    background: #fff;
+    box-shadow: 0 18px 34px rgba(30, 42, 74, .10), 0 4px 12px rgba(30, 42, 74, .06);
+  }
+
+  .cre-answer-card__screen {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    flex: 1 1 auto;
+    overflow: hidden;
+    flex-direction: column;
+    container-type: inline-size;
+    border-radius: 1rem;
+    background: #fff;
+  }
+
+  .cre-answer-card__scrollbar { display: none; }
+
+  .cre-answer-card__header {
+    display: grid;
+    min-height: 6.85rem;
+    grid-template-columns: 2.35rem minmax(0, 1fr);
+    column-gap: .85rem;
+    row-gap: .45rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem .85rem;
+    color: #fff;
+    background: linear-gradient(130deg, #5f74f7 0%, #3549da 52%, #222ed0 100%);
+  }
+
+  .cre-answer-card__icon {
+    box-sizing: border-box;
+    display: grid;
+    width: 2.35rem;
+    height: 2.35rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: .78rem;
+    background: rgba(255, 255, 255, .14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22);
+  }
+
+  .cre-answer-card__icon svg {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.55;
+  }
+
+  .cre-answer-card__header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(1.6rem, 2.6vw, 2.16rem);
+    font-weight: 800;
+    letter-spacing: -.055em;
+    line-height: .95;
+  }
+
+  .cre-answer-card__header-context {
+    display: flex;
+    grid-column: 1 / -1;
+    gap: .42rem;
+    align-items: center;
+    min-width: 0;
+    margin: 0;
+    padding: .08rem 0 0;
+    color: rgba(255, 255, 255, .89);
+    background: transparent;
+    font-size: .68rem;
+    line-height: 1.2;
+  }
+
+  .cre-answer-card__header-context span {
+    flex: 0 0 auto;
+    color: rgba(255, 255, 255, .67);
+    font-size: .56rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .cre-answer-card__header-context b {
+    overflow: hidden;
+    min-width: 0;
+    font-weight: 750;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .cre-answer-card__body {
+    display: flex;
+    min-width: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1.22rem 1.25rem 1.1rem;
+    --cre-answer-marker: 1.18rem;
+    --cre-answer-guide: calc(var(--cre-answer-marker) + .55rem);
+  }
+
+  .cre-answer-card__question {
+    display: grid;
+    gap: .55rem;
+    grid-template-columns: var(--cre-answer-marker) minmax(0, 1fr);
+    align-items: flex-start;
+    margin: .42rem 0 .84rem;
+    color: #16213a;
+    font-size: 1.02rem;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.18;
+  }
+
+  .cre-answer-card__question-marker,
+  .cre-answer-card__answer-marker {
+    box-sizing: border-box;
+    display: grid;
+    width: var(--cre-answer-marker);
+    height: var(--cre-answer-marker);
+    min-width: var(--cre-answer-marker);
+    min-height: var(--cre-answer-marker);
+    margin-top: .05rem;
+    place-items: center;
+    line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .cre-answer-card__question-marker {
+    border-radius: .24rem;
+    color: #fff;
+    background: #4058e4;
+  }
+
+  .cre-answer-card__question-marker svg,
+  .cre-answer-card__answer-marker svg {
+    display: block;
+    width: .82rem;
+    height: .82rem;
+    overflow: visible;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.5;
+  }
+
+  .cre-answer-card__copy { min-width: 0; }
+
+  .cre-answer-card__answer {
+    display: grid;
+    gap: .55rem;
+    grid-template-columns: var(--cre-answer-marker) minmax(0, 1fr);
+    align-items: flex-start;
+    margin: .48rem 0 .95rem;
+    color: #152039;
+    font-size: .94rem;
+    font-weight: 650;
+    letter-spacing: -.02em;
+    line-height: 1.38;
+  }
+
+  .cre-answer-card__answer-marker {
+    border-radius: .24rem;
+    color: #fff;
+    background: #ed3f2c;
+  }
+
+  .cre-answer-card__answer-marker.is-yes {
+    color: #147c57;
+    background: #e3f7ee;
+    box-shadow: none;
+  }
+
+  .cre-answer-card__answer-marker.is-partial {
+    color: #9e6716;
+    background: #fff0d6;
+    box-shadow: none;
+  }
+
+  .cre-answer-card__section-label {
+    margin: 0 0 .42rem var(--cre-answer-guide);
+    color: #6a78ca;
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .cre-answer-card__citations {
+    display: grid;
+    gap: 0;
+    margin-bottom: .92rem;
+  }
+
+  .cre-answer-card__citation {
+    display: grid;
+    gap: .55rem;
+    grid-template-columns: var(--cre-answer-marker) minmax(0, 1fr);
+    align-items: flex-start;
+    padding: .45rem 0;
+    border-top: 1px solid #e6eaf5;
+  }
+
+  .cre-answer-card__citation:last-child { border-bottom: 1px solid #e6eaf5; }
+
+  .cre-answer-card__citation > span {
+    box-sizing: border-box;
+    display: grid;
+    width: 1.12rem;
+    height: 1.12rem;
+    flex: 0 0 auto;
+    min-width: 1.12rem;
+    min-height: 1.12rem;
+    place-items: center;
+    text-align: center;
+    border-radius: 50%;
+    color: #4158df;
+    background: #e8ecff;
+    font-size: .62rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .cre-answer-card__citation p {
+    margin: 0;
+    color: #57657a;
+    font-size: .68rem;
+    line-height: 1.34;
+  }
+
+  .cre-answer-card__citation b {
+    display: block;
+    margin-bottom: .1rem;
+    color: #263654;
+    font-size: .71rem;
+    font-weight: 800;
+  }
+
+  .cre-answer-card__evidence {
+    display: grid;
+    gap: .38rem;
+    margin-bottom: .82rem;
+  }
+
+  .cre-answer-card__evidence > span {
+    position: relative;
+    display: grid;
+    gap: .33rem;
+    grid-template-columns: 5.2rem minmax(0, 1fr) .75rem;
+    padding: .42rem .48rem .42rem var(--cre-answer-guide);
+    border-radius: .45rem;
+    color: #4f5d73;
+    background: #f5f7fc;
+    font-size: .69rem;
+    line-height: 1.25;
+  }
+
+  .cre-answer-card__evidence > span::before {
+    position: absolute;
+    top: 50%;
+    left: .64rem;
+    width: .17rem;
+    height: .17rem;
+    border-radius: 50%;
+    background: #5a70f1;
+    content: '';
+    transform: translateY(-50%);
+  }
+
+  .cre-answer-card__evidence > span b {
+    color: #263654;
+    font-weight: 800;
+  }
+
+  .cre-answer-card__factor-detail { min-width: 0; }
+
+  .cre-answer-card__evidence i {
+    display: grid;
+    width: .75rem;
+    height: .75rem;
+    align-self: center;
+    color: #8090d7;
+    font-size: .76rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1;
+    place-items: center;
+    text-align: center;
+  }
+
+  @container (min-width: 30rem) {
+    .cre-answer-card__evidence > span {
+      grid-template-columns: 5.65rem minmax(0, 1fr) .8rem;
+      padding-block: .5rem;
+      font-size: .8rem;
+    }
+
+    .cre-answer-card__evidence i { font-size: .86rem; }
+  }
+
+  @container (max-width: 22rem) {
+    .cre-answer-card__evidence > span {
+      grid-template-areas:
+        'label arrow'
+        'detail arrow';
+      grid-template-columns: minmax(0, 1fr) .75rem;
+      gap: .18rem .38rem;
+    }
+
+    .cre-answer-card__evidence > span b { grid-area: label; }
+    .cre-answer-card__factor-detail { grid-area: detail; }
+    .cre-answer-card__evidence i { grid-area: arrow; }
+  }
+
+  .cre-answer-card__sources {
+    display: grid;
+    grid-template-columns: var(--cre-answer-marker) max-content minmax(0, 1fr);
+    gap: .4rem;
+    align-items: center;
+    min-width: 0;
+    margin-top: auto;
+    padding-top: .8rem;
+    border-top: 1px solid #e5eaf6;
+    color: #5a6882;
+    font-size: .64rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .cre-answer-card__contact {
+    display: grid;
+    gap: .55rem;
+    grid-template-columns: var(--cre-answer-marker) minmax(0, 1fr) .75rem;
+    align-items: center;
+    margin-bottom: .82rem;
+    padding: .58rem 0;
+    border-radius: 0;
+    color: #536178;
+    background: transparent;
+    font-size: .68rem;
+    line-height: 1.28;
+  }
+
+  .cre-answer-card__contact > span {
+    box-sizing: border-box;
+    display: grid;
+    width: var(--cre-answer-marker);
+    height: var(--cre-answer-marker);
+    place-items: center;
+    border-radius: 50%;
+    color: #4e65e9;
+    background: #e9edff;
+  }
+
+  .cre-answer-card__contact > span svg {
+    display: block;
+    width: .82rem;
+    height: .82rem;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 1.85;
+  }
+
+  .cre-answer-card__contact p { margin: 0; }
+  .cre-answer-card__contact small,
+  .cre-answer-card__contact b,
+  .cre-answer-card__contact-role,
+  .cre-answer-card__contact-details { display: block; }
+  .cre-answer-card__contact small { margin-bottom: .08rem; color: #7c89a0; font-size: .57rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .cre-answer-card__contact b { margin-bottom: .08rem; color: #283856; font-size: .71rem; font-weight: 800; }
+  .cre-answer-card__contact-role { color: #536178; }
+  .cre-answer-card__contact-details { margin-top: .14rem; color: #6475c6; font-size: .61rem; font-weight: 700; }
+
+  .cre-answer-card__contact i {
+    display: grid;
+    width: .75rem;
+    height: .75rem;
+    align-self: center;
+    color: #8090d7;
+    font-size: .76rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1;
+    place-items: center;
+    text-align: center;
+  }
+
+  .cre-answer-card__source-icon {
+    display: grid;
+    width: var(--cre-answer-marker);
+    height: var(--cre-answer-marker);
+    place-items: center;
+    border-radius: .34rem;
+    color: #4e65e9;
+    background: #edf0ff;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .cre-answer-card__source-names {
+    overflow: hidden;
+    color: #8a96aa;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .cre-answer-card__caption {
+    padding: 1.35rem .1rem 0;
+  }
+
+  .cre-answer-card__caption h3 {
+    margin: 0 0 .55rem;
+    color: #111a2e;
+    font-size: 1.32rem;
+    font-weight: 750;
+    letter-spacing: -.04em;
+    line-height: 1.1;
+  }
+
+  .cre-answer-card__caption p {
+    margin: 0;
+    color: #536178;
+    font-size: .98rem;
+    line-height: 1.55;
+  }
+
+  /* Preserve the primary three-up comparison through compact desktop widths. */
+  @media (max-width: 899px) {
+    .cre-answer-library__grid {
+      max-width: 38rem;
+      margin: 0 auto;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.7rem;
+    }
+
+  }
+
+  @media (min-width: 900px) and (max-width: 1279px) {
+    .cre-answer-library__grid { gap: 1rem; }
+  }
+
+  @media (max-width: 1279px) {
+    .cre-answer-card__header h3 { font-size: 1.75rem; }
+    .cre-answer-card__answer { font-size: 1rem; }
+  }
+
+  @media (min-width: 561px) and (max-width: 1279px) {
+    .cre-answer-card__viewport {
+      max-height: min(42rem, calc(100dvh - 7rem));
+    }
+
+    .cre-answer-card__screen {
+      padding-bottom: 3rem;
+      overflow-y: auto;
+      /* Allow the page to resume scrolling when a card reaches either end. */
+      overscroll-behavior-y: auto;
+      scrollbar-width: none;
+    }
+
+    .cre-answer-card__viewport[data-card-scrollable] .cre-answer-card__scrollbar {
+      display: block;
+      position: absolute;
+      z-index: 3;
+      top: 1.45rem;
+      right: .72rem;
+      bottom: 1.45rem;
+      width: var(--rf-canvas-scrollbar-size);
+      pointer-events: none;
+    }
+
+    .cre-answer-card__scrollbar::before {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: rgba(183, 194, 235, .12);
+      content: '';
+    }
+
+    .cre-answer-card__scrollbar i {
+      position: absolute;
+      z-index: 1;
+      top: calc(var(--cre-card-scroll-progress, 0) * 78%);
+      width: 100%;
+      height: 22%;
+      border-radius: inherit;
+      background: rgba(112, 128, 170, .38);
+      transition: top .12s linear;
+    }
+
+    .cre-answer-card__viewport::after {
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 4.25rem;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .96) 72%, #fff 100%);
+      content: '';
+    }
+
+    .cre-answer-card__screen::-webkit-scrollbar { display: none; width: 0; }
+  }
+
+  @media (max-width: 991px) {
+    .cre-answer-library { width: calc(100% - 48px); }
+  }
+
+  @media (max-width: 560px) {
+    .cre-answer-library { width: calc(100% - 40px); padding: 4.5rem 0; }
+    .cre-answer-library__intro { margin-bottom: 2.25rem; text-align: left; }
+    .cre-answer-library__intro h2 { margin-left: 0; }
+    .cre-answer-card__viewport,
+    .cre-answer-card__screen { border-radius: .88rem; }
+    .cre-answer-card__header { min-height: auto; padding: 1.05rem; }
+    .cre-answer-card__body { padding: 1rem; }
+    .cre-answer-card__header h3 { font-size: 1.65rem; }
+    .cre-answer-card__evidence > span { grid-template-columns: 4.7rem minmax(0, 1fr) .7rem; font-size: .69rem; }
+    .cre-answer-card__source-names { width: auto; margin-left: 0; }
+  }
+</style>
+
+<script>
+  const answerCardScreens = document.querySelectorAll<HTMLElement>('.cre-answer-card__screen');
+
+  const updateCardScrollbar = (screen: HTMLElement) => {
+    const viewport = screen.closest<HTMLElement>('.cre-answer-card__viewport');
+    if (!viewport) return;
+
+    const maximumScroll = screen.scrollHeight - screen.clientHeight;
+    const canScroll = maximumScroll > 1;
+    viewport.toggleAttribute('data-card-scrollable', canScroll);
+    viewport.style.setProperty('--cre-card-scroll-progress', canScroll ? (screen.scrollTop / maximumScroll).toFixed(3) : '0');
+  };
+
+  const refreshCardScrollbars = () => answerCardScreens.forEach(updateCardScrollbar);
+  const cardScrollbarObserver = new ResizeObserver(refreshCardScrollbars);
+
+  answerCardScreens.forEach(screen => {
+    screen.addEventListener('scroll', () => updateCardScrollbar(screen), { passive: true });
+    cardScrollbarObserver.observe(screen);
+  });
+
+  requestAnimationFrame(refreshCardScrollbars);
+  window.addEventListener('load', refreshCardScrollbars, { once: true });
+  window.addEventListener('resize', refreshCardScrollbars, { passive: true });
+</script>

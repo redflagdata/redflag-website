@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Check out deployment tools
         uses: actions/checkout@v4
+        with:
+          path: tools
       - name: Check out production
         uses: actions/checkout@v4
         with:
@@ -41,7 +43,7 @@ jobs:
         run: npm ci && npm run build
       - name: Assemble both sites
         run: |
-          node scripts/prepare-staging.mjs staging/dist
+          node tools/scripts/prepare-staging.mjs staging/dist
           mkdir -p production/dist/stg
           cp -a staging/dist/. production/dist/stg/
       - uses: actions/configure-pages@v5

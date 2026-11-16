@@ -1,4 +1,7 @@
 ---
+import ArrowUpRight from './ArrowUpRight.astro';
+import CheckIcon from './CheckIcon.astro';
+
 const citations = [
   {
     id: 'zoning',
@@ -89,17 +92,17 @@ const comments = [
 
     <section class="cre-review-workspace" data-cre-review-workspace data-active-citation="zoning" aria-label="Illustrative collaborative site review workspace">
       <header class="cre-review-topbar">
-        <a class="cre-review-wordmark" href="#" aria-label="Redflag workspace home">redflag</a>
-        <div class="cre-review-tools" aria-label="Workspace actions">
-          <button type="button" class="cre-icon-button" aria-label="Toggle comments"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v10H9l-4 4V5Z"/><path d="m7 7 10 6M17 7 7 13"/></svg></button>
-          <button type="button" class="cre-icon-button" aria-label="Compare revisions"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/></svg></button>
-          <button type="button" class="cre-icon-button" aria-label="Open source documents"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></button>
+        <span class="cre-review-wordmark">redflag</span>
+        <div class="cre-review-tools" aria-hidden="true">
+          <span class="cre-icon-button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v10H9l-4 4V5Z"/><path d="m7 7 10 6M17 7 7 13"/></svg></span>
+          <span class="cre-icon-button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/></svg></span>
+          <span class="cre-icon-button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span>
           <span class="cre-tool-divider" aria-hidden="true"></span>
-          <button type="button" class="cre-icon-button" aria-label="Invite collaborators"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.8-3.1 2.8-4.7 5.5-4.7s4.7 1.6 5.5 4.7M17 9v6M14 12h6"/></svg></button>
+          <span class="cre-icon-button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.8-3.1 2.8-4.7 5.5-4.7s4.7 1.6 5.5 4.7M17 9v6M14 12h6"/></svg></span>
           <div class="cre-review-tools__primary">
-            <button type="button" class="cre-share-button">Share</button>
-            <button type="button" class="cre-icon-button cre-close-button" aria-label="Close workspace">×</button>
-            <button type="button" class="cre-person-button" aria-label="Open collaborator menu"><span class="cre-person-avatar">CT</span></button>
+            <span class="cre-share-button">Share</span>
+            <span class="cre-icon-button cre-close-button">×</span>
+            <span class="cre-person-button"><span class="cre-person-avatar">CT</span></span>
           </div>
         </div>
       </header>
@@ -115,7 +118,7 @@ const comments = [
           </div>
 
           <div class="cre-review-answer">
-            <p><i aria-hidden="true">✓</i><strong>Answer:</strong><span class="cre-answer-copy">Yes—the proposed single monument sign is allowed on the Main Street frontage. Its 6-foot overall height and 32-square-foot sign face are within the B-3 district’s 8-foot and 48-square-foot limits <button type="button" class="cre-inline-citation" data-citation-target="zoning">1</button>, <button type="button" class="cre-inline-citation" data-citation-target="project">2</button>, <button type="button" class="cre-inline-citation" data-citation-target="definitions">3</button>.</span></p>
+            <p><span class="cre-review-answer-check"><CheckIcon /></span><strong>Answer:</strong><span class="cre-answer-copy">Yes—the proposed single monument sign is allowed on the Main Street frontage. Its 6-foot overall height and 32-square-foot sign face are within the B-3 district’s 8-foot and 48-square-foot limits <button type="button" class="cre-inline-citation" data-citation-target="zoning">1</button>, <button type="button" class="cre-inline-citation" data-citation-target="project">2</button>, <button type="button" class="cre-inline-citation" data-citation-target="definitions">3</button>.</span></p>
             <div class="cre-review-factors">
               <b>Key Factors for Review:</b>
               <ul>
@@ -143,7 +146,7 @@ const comments = [
             <section class="cre-document-panel" aria-label="Selected citation detail">
               <div class="cre-document-toolbar">
                 <label><span class="visually-hidden">Search in document</span><input type="search" placeholder="Search in document..." /></label>
-                <div aria-hidden="true"><span>0 / 0</span><i>↑</i><i>↓</i><i>↗</i><i>⋮</i></div>
+                <div aria-hidden="true"><span>0 / 0</span><i>↑</i><i>↓</i><ArrowUpRight /><i>⋮</i></div>
               </div>
               <div class="cre-document-scroll" tabindex="0" aria-label="Scrollable cited document">
                 {citations.map((citation, index) => (
@@ -252,6 +255,8 @@ const comments = [
   .cre-close-button{background:#606168;color:#fff;font-size:22px;line-height:1}
   .cre-person-button{height:30px;padding:0;width:30px}
   .cre-person-avatar{align-items:center;background:#5d54b7;border-radius:50%;color:#fff;display:inline-flex;font-size:10px;font-weight:700;height:29px;justify-content:center;width:29px}
+  .cre-review-topbar .cre-icon-button,.cre-review-topbar .cre-person-button,.cre-review-topbar .cre-share-button{cursor:default;pointer-events:none}
+  .cre-review-topbar .cre-icon-button:hover{background:transparent;color:#d7dbe2}.cre-review-topbar .cre-share-button:hover{background:var(--color-brand-primary)}
 
   .cre-review-main{display:grid;grid-template-columns:minmax(0,1fr) 246px;height:650px;min-height:0}
   .cre-review-stage{display:grid;grid-template-rows:auto auto minmax(0,1fr);min-height:0;min-width:0}
@@ -261,7 +266,7 @@ const comments = [
   .cre-review-question h2{color:var(--cre-ink);font-family:var(--primary-font);font-size:20px;letter-spacing:-.025em;line-height:1.2;margin:7px 0 0}
   .cre-review-answer{border-bottom:1px solid var(--cre-line);min-width:0;padding:14px 22px 16px}
   .cre-review-answer>p{align-items:flex-start;color:var(--cre-ink);display:flex;font-size:14px;gap:6px;line-height:1.5;margin:0}
-  .cre-review-answer>p>i{align-items:center;background:#e7f6ef;border-radius:50%;color:#14835c;display:inline-flex;flex:0 0 22px;font-size:11px;font-style:normal;font-weight:800;height:22px;justify-content:center;width:22px}.cre-review-answer>p>strong{flex:0 0 auto}.cre-answer-copy{display:block;flex:1 1 auto;min-width:0}
+  .cre-review-answer-check{--rf-check-icon-size:11px;align-items:center;background:#e7f6ef;border-radius:50%;color:#14835c;display:inline-flex;flex:0 0 22px;height:22px;justify-content:center;width:22px}.cre-review-answer>p>strong{flex:0 0 auto}.cre-answer-copy{display:block;flex:1 1 auto;min-width:0}
   .cre-review-factors{border-left:2px solid var(--cre-line);display:grid;gap:8px;margin:14px 0 0 10px;padding-left:15px}
   .cre-review-factors>b{font-size:12px}.cre-review-factors ul{display:grid;gap:7px;list-style:none;margin:0;padding:0}
   .cre-review-factors li{align-items:flex-start;color:var(--cre-muted);display:flex;font-size:12px;gap:8px;line-height:1.45}
@@ -303,7 +308,7 @@ const comments = [
 
   @media(max-width:960px){.cre-review-main{grid-template-columns:1fr}.cre-review-stage{height:650px;min-height:0}.cre-comments-panel{display:none}}
   @media(max-width:960px){.cre-workspace-captions{grid-template-columns:1fr}.cre-workspace-captions article,.cre-workspace-captions article:first-child{border-left:0;border-top:1px solid var(--cre-line);padding:22px 0 24px}.cre-workspace-captions article:first-child{border-top:0}.cre-workspace-captions h3{height:auto;min-height:0}}
-  @media(max-width:700px){.cre-workspace-section{padding:64px 20px}.cre-workspace-section .header-wrapper{margin-bottom:34px}.cre-review-workspace{border-radius:14px;box-shadow:0 18px 44px rgba(128,88,73,.17),0 5px 15px rgba(83,57,50,.1)}.cre-review-topbar{align-items:flex-start;gap:12px;padding:12px 13px}.cre-review-wordmark{flex:0 0 auto;font-size:25px;padding-top:3px;white-space:nowrap}.cre-review-tools{flex:0 1 auto;gap:4px;justify-content:flex-end;max-width:250px;min-width:0}.cre-review-tools .cre-icon-button:nth-of-type(1),.cre-review-tools .cre-icon-button:nth-of-type(2),.cre-tool-divider{display:none}.cre-share-button{padding:0 10px}.cre-person-button{padding-left:2px}.cre-person-button>span:last-child{display:none}.cre-review-main,.cre-review-stage{height:auto;min-height:0}.cre-review-question{padding:15px}.cre-review-answer{padding:13px 15px}.cre-review-answer>p>i{margin-top:1px}.cre-review-evidence{display:none}.cre-workspace-captions{grid-template-columns:1fr}.cre-workspace-captions article,.cre-workspace-captions article:first-child{border-left:0;border-top:1px solid var(--cre-line);padding:22px}.cre-workspace-captions article:first-child{border-top:0}.cre-workspace-captions h3{font-size:19px;min-height:0}}
+  @media(max-width:700px){.cre-workspace-section{padding:64px 20px}.cre-workspace-section .header-wrapper{margin-bottom:34px}.cre-review-workspace{border-radius:14px;box-shadow:0 18px 44px rgba(128,88,73,.17),0 5px 15px rgba(83,57,50,.1)}.cre-review-topbar{align-items:flex-start;gap:12px;padding:12px 13px}.cre-review-wordmark{flex:0 0 auto;font-size:25px;padding-top:3px;white-space:nowrap}.cre-review-tools{flex:0 1 auto;gap:4px;justify-content:flex-end;max-width:250px;min-width:0}.cre-review-tools .cre-icon-button:nth-of-type(1),.cre-review-tools .cre-icon-button:nth-of-type(2),.cre-tool-divider{display:none}.cre-share-button{padding:0 10px}.cre-person-button{padding-left:2px}.cre-person-button>span:last-child{display:none}.cre-review-main,.cre-review-stage{height:auto;min-height:0}.cre-review-question{padding:15px}.cre-review-answer{padding:13px 15px}.cre-review-answer-check{margin-top:1px}.cre-review-evidence{display:none}.cre-workspace-captions{grid-template-columns:1fr}.cre-workspace-captions article,.cre-workspace-captions article:first-child{border-left:0;border-top:1px solid var(--cre-line);padding:22px}.cre-workspace-captions article:first-child{border-top:0}.cre-workspace-captions h3{font-size:19px;min-height:0}}
   @media(max-width:700px){.cre-review-tools__primary{gap:4px}.cre-review-tools .cre-review-tools__primary .cre-close-button{display:inline-flex}.cre-review-tools .cre-review-tools__primary .cre-person-button{padding:0}}
   @media(max-width:420px){.cre-share-button{display:none}.cre-review-tools .cre-close-button{display:none}.cre-review-question-heading{font-size:9px}.cre-review-question h2{font-size:18px}.cre-review-factors{margin-left:0}.cre-document-toolbar>div i:nth-of-type(1),.cre-document-toolbar>div i:nth-of-type(2){display:none}}
 

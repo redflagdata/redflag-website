@@ -1,17 +1,22 @@
 ---
+import ArrowUpRight from './ArrowUpRight.astro';
+import CanvasSourceIcon from './CanvasSourceIcon.astro';
+
 const context = [
-  { icon: '§', label: 'Zoning rules', detail: 'Use, height, setbacks, parking, and overlays' },
-  { icon: '⌖', label: 'Parcel maps + GIS', detail: 'Boundaries, access, constraints, and surroundings' },
-  { icon: '▤', label: 'Title + easements', detail: 'Restrictions, surveys, leases, and property records' },
-  { icon: '✦', label: 'Planning notes + research', detail: 'Consultant findings, assumptions, and project files' },
+  { icon: 'rules', label: 'Zoning rules', detail: 'Use, height, setbacks, parking, and overlays' },
+  { icon: 'map', label: 'Parcel maps + GIS', detail: 'Boundaries, access, constraints, and surroundings' },
+  { icon: 'document', label: 'Title + easements', detail: 'Restrictions, surveys, leases, and property records' },
+  { icon: 'knowledge', label: 'Planning notes + research', detail: 'Consultant findings, assumptions, and project files' },
 ];
 
 const workflow = [
-  { icon: '◈', label: 'Utilities + environment', detail: 'Capacity, drainage, and site conditions' },
-  { icon: '↗', label: 'Automated AHJ outreach', detail: 'Questions, correspondence, and agency replies', status: 'Outreach active' },
-  { icon: '✓', label: 'Permit tracking', detail: 'Milestones, comments, status, and next steps', status: 'Tracking live' },
-  { icon: '◫', label: 'Team collaboration', detail: 'Assignments, decisions, markups, and review history', status: 'Shared live' },
+  { icon: 'utilities', label: 'Utilities + environment', detail: 'Capacity, drainage, and site conditions' },
+  { icon: 'coordination', label: 'Automated AHJ outreach', detail: 'Questions, correspondence, and agency replies', status: 'Outreach active' },
+  { icon: 'approval', label: 'Permit tracking', detail: 'Milestones, comments, status, and next steps', status: 'Tracking live' },
+  { icon: 'collaboration', label: 'Team collaboration', detail: 'Assignments, decisions, markups, and review history', status: 'Shared live' },
 ];
+
+const railIcons = ['home', 'document', 'map', 'collaboration', 'knowledge'] as const;
 ---
 
 <figure class="cre-project-canvas" aria-label="Illustrative Redflag project workspace connecting site sources to coordination and approvals">
@@ -24,7 +29,7 @@ const workflow = [
       <p class="cre-project-side-label"><span>Site + source context</span>What informs the diligence</p>
       {context.map((item) => (
         <article class={`cre-project-source${item.status ? ' has-status' : ''}`}>
-          <span class="cre-project-source-icon" aria-hidden="true">{item.icon}</span>
+          <span class="cre-project-source-icon" aria-hidden="true"><CanvasSourceIcon name={item.icon} /></span>
           <div><b>{item.label}</b><span>{item.detail}</span>{item.status && <small class="cre-project-source-status"><i aria-hidden="true"></i>{item.status}</small>}</div>
         </article>
       ))}
@@ -37,7 +42,7 @@ const workflow = [
       </div>
 
       <div class="cre-project-hub-body">
-        <aside class="cre-project-hub-rail" aria-hidden="true"><span class="is-active">⌂</span><span>▤</span><span>⌖</span><span>◫</span><span>◌</span></aside>
+        <aside class="cre-project-hub-rail" aria-hidden="true">{railIcons.map((icon, index) => <span class={index === 0 ? 'is-active' : undefined}><CanvasSourceIcon name={icon} /></span>)}</aside>
 
         <div class="cre-project-hub-main">
           <div class="cre-project-hub-summary"><span>CONNECTED SITE CONTEXT</span></div>
@@ -59,8 +64,8 @@ const workflow = [
 
         <aside class="cre-project-work-panel">
           <p>Project workflow</p>
-          <div class="cre-project-work-card"><small>Active question</small><a href="#">Can the proposed use proceed by right? ↗</a><mark>Review zoning + title constraints</mark></div>
-          <span class="cre-project-action">Open project brief <span aria-hidden="true">↗</span></span>
+          <div class="cre-project-work-card"><small>Active question</small><span class="cre-project-work-link">Can the proposed use proceed by right? <ArrowUpRight /></span><mark>Review zoning + title constraints</mark></div>
+          <span class="cre-project-action">Open report <ArrowUpRight /></span>
         </aside>
       </div>
     </section>
@@ -69,7 +74,7 @@ const workflow = [
       <p class="cre-project-side-label"><span>Coordination + delivery</span>How teams advance the site</p>
       {workflow.map((item) => (
         <article class={`cre-project-source${item.status ? ' has-status' : ''}`}>
-          <span class="cre-project-source-icon" aria-hidden="true">{item.icon}</span>
+          <span class="cre-project-source-icon" aria-hidden="true"><CanvasSourceIcon name={item.icon} /></span>
           <div><b>{item.label}</b><span>{item.detail}</span>{item.status && <small class="cre-project-source-status"><i aria-hidden="true"></i>{item.status}</small>}</div>
         </article>
       ))}
@@ -85,7 +90,7 @@ const workflow = [
   .cre-project-stage{align-items:center;display:grid;gap:clamp(28px,4.4vw,68px);grid-template-columns:minmax(165px,.72fr) minmax(390px,1.65fr) minmax(165px,.72fr);padding:38px 40px 30px;position:relative}.cre-project-source-column{display:grid;gap:13px;min-width:0}.cre-project-side-label{color:#526176;display:grid;font-size:10px;font-weight:600;gap:4px;letter-spacing:.015em;line-height:1.3;margin:0 0 1px}.cre-project-side-label span{color:var(--color-brand-primary);font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.cre-project-source-column-right .cre-project-side-label{text-align:right}.cre-project-source{align-items:center;background:#fff;border:1px solid #dbe3ee;border-radius:12px;box-shadow:0 7px 18px rgba(24,35,59,.06);display:grid;gap:10px;grid-template-columns:34px minmax(0,1fr);min-height:71px;padding:12px;position:relative}.cre-project-source-icon{align-items:center;background:#fff2ef;border-radius:10px;color:var(--color-brand-primary);display:flex;font-size:17px;font-weight:700;height:34px;justify-content:center;line-height:1;width:34px}.cre-project-source div{display:grid;gap:3px;min-width:0}.cre-project-source b{color:var(--cre-ink);font-size:12px;line-height:1.25;overflow-wrap:anywhere}.cre-project-source div span{color:var(--cre-muted);font-size:10px;line-height:1.35;overflow-wrap:anywhere}
   .cre-project-source-column-left .cre-project-source::after,.cre-project-source-column-right .cre-project-source::before{border-top:1px dashed var(--rf-red-400);content:"";opacity:.85;position:absolute;top:50%;width:clamp(30px,3.6vw,54px)}.cre-project-source-column-left .cre-project-source::after{right:calc(clamp(30px,3.6vw,54px) * -1)}.cre-project-source-column-right .cre-project-source::before{left:calc(clamp(30px,3.6vw,54px) * -1)}.cre-project-source-column-left .cre-project-source::before,.cre-project-source-column-right .cre-project-source::after{background:var(--rf-red-400);border:0;border-radius:50%;box-shadow:none;content:"";height:5px;position:absolute;top:calc(50% - 2.5px);width:5px}.cre-project-source-column-left .cre-project-source::before{right:calc(clamp(30px,3.6vw,54px) * -1 - 2.5px)}.cre-project-source-column-right .cre-project-source::after{left:calc(clamp(30px,3.6vw,54px) * -1 - 2.5px)}
   .cre-project-hub{background:#fff;border:1px solid #ffd4cb;border-radius:15px;box-shadow:0 13px 30px rgba(24,35,59,.1);min-width:0;overflow:hidden;position:relative}.cre-project-hub-top,.cre-project-hub-body{position:relative;z-index:1}.cre-project-hub-top{align-items:center;border-bottom:1px solid #dbe3ee;display:flex;gap:12px;justify-content:space-between;padding:13px 15px}.cre-project-hub-top>div{display:grid;gap:3px;min-width:0}.cre-project-hub-top b{font-size:13px;overflow-wrap:anywhere}.cre-project-hub-top span{color:var(--cre-muted);font-size:10px;overflow-wrap:anywhere}.cre-project-hub-top em{align-items:center;background:#e8f7ef;border-radius:999px;color:#19764f;display:flex;font-size:10px;font-style:normal;font-weight:700;gap:6px;padding:7px 9px;white-space:nowrap}.cre-project-hub-top em i{background:#1aa66c;border-radius:50%;height:5px;width:5px}.cre-project-hub-body{display:grid;grid-template-columns:45px minmax(0,1fr) minmax(127px,.62fr);min-height:289px}.cre-project-hub-rail{align-items:center;background:var(--rf-red-600);display:flex;flex-direction:column;gap:7px;padding-top:14px}.cre-project-hub-rail span{align-items:center;border-radius:8px;color:#ffe7e1;display:flex;font-size:14px;height:28px;justify-content:center;width:28px}.cre-project-hub-rail .is-active{background:#fff;color:var(--rf-red-600);box-shadow:0 3px 8px rgba(134,32,14,.2)}.cre-project-hub-main{display:grid;gap:9px;min-width:0;padding:13px}.cre-project-hub-summary{display:grid;gap:2px}.cre-project-hub-summary span{color:#657388;font-size:10px;font-weight:800;letter-spacing:.07em}.cre-project-map{background:var(--rf-red-50);border:1px solid var(--rf-red-100);min-height:142px;overflow:hidden;position:relative}.cre-project-map svg{display:block;height:100%;min-height:142px;width:100%}.cre-project-map-base{fill:#fffaf8}.cre-project-map-grid{stroke:#ffe8e3;stroke-width:1}.cre-project-map-blocks rect{fill:#ffe8e3;stroke:#ffd5cd;stroke-width:1}.cre-project-map-road{fill:none;stroke:#fffdfc;stroke-width:11}.cre-project-map-road-secondary{stroke-width:9}.cre-project-map-boundary{fill:var(--rf-red-400);fill-opacity:.2;stroke:var(--rf-red-600);stroke-dasharray:6 4;stroke-width:2.5}.cre-project-map-parcel{fill:var(--rf-red-500);stroke:var(--rf-red-700);stroke-width:3}.cre-project-map-marker{fill:var(--rf-red-600);stroke:#fffdfc;stroke-width:3}.cre-project-map-marker-plus{fill:none;stroke:#fffdfc;stroke-linecap:round}.cre-project-hub-cards{display:grid;gap:6px;grid-template-columns:repeat(3,minmax(0,1fr))}.cre-project-hub-cards span{background:#f7f9fc;border:1px solid #e1e7ef;color:#657388;font-size:8px;line-height:1.25;padding:6px}
-  .cre-project-work-panel{background:var(--rf-red-50);border-left:1px solid var(--rf-red-100);display:flex;flex-direction:column;gap:7px;min-width:0;padding:14px 11px}.cre-project-work-panel>p{color:#a75c51;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.cre-project-work-card{background:#fff;border:1px solid var(--rf-red-100);border-radius:8px;display:grid;gap:5px;margin-top:4px;padding:8px}.cre-project-work-card small{color:#a75c51;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.cre-project-work-card a{color:var(--rf-red-600);font-size:10px;font-weight:700;line-height:1.35;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:2px}.cre-project-work-card mark{background:var(--rf-red-100);color:#7a261c;font-size:9px;line-height:1.35;overflow-wrap:anywhere;padding:3px}.cre-project-action{align-items:center;background:var(--rf-red-600);border:1px solid var(--rf-red-600);border-radius:7px;color:#fff;cursor:pointer;display:inline-flex;font-family:inherit;font-size:10px;font-weight:700;gap:6px;justify-content:center;line-height:1;margin-top:auto;padding:9px 10px}.cre-project-action:hover{background:var(--rf-red-700);border-color:var(--rf-red-700)}
+  .cre-project-work-panel{background:var(--rf-red-50);border-left:1px solid var(--rf-red-100);display:flex;flex-direction:column;gap:7px;min-width:0;padding:14px 11px}.cre-project-work-panel>p{color:#a75c51;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.cre-project-work-card{background:#fff;border:1px solid var(--rf-red-100);border-radius:8px;display:grid;gap:5px;margin-top:4px;padding:8px}.cre-project-work-card small{color:#a75c51;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.cre-project-work-link{color:var(--rf-red-600);font-size:10px;font-weight:700;line-height:1.35;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:2px}.cre-project-work-card mark{background:var(--rf-red-100);color:#7a261c;font-size:9px;line-height:1.35;overflow-wrap:anywhere;padding:3px}.cre-project-action{align-items:center;background:var(--rf-red-600);border:1px solid var(--rf-red-600);border-radius:7px;color:#fff;cursor:pointer;display:inline-flex;font-family:inherit;font-size:10px;font-weight:700;gap:6px;justify-content:center;line-height:1;margin-top:auto;padding:9px 10px}.cre-project-action:hover{background:var(--rf-red-700);border-color:var(--rf-red-700)}
   .cre-project-canvas figcaption{align-items:center;display:flex;justify-content:center;padding:0 28px 31px;position:relative;text-align:center}.cre-project-canvas figcaption div{display:grid;gap:3px}.cre-project-canvas figcaption b{color:var(--cre-ink);font-family:var(--font-display);font-size:19px;letter-spacing:-.03em}.cre-project-canvas figcaption span{color:var(--cre-muted);font-size:12px;line-height:1.4}
   @media(max-width:1040px){.cre-project-stage{gap:24px;grid-template-columns:minmax(150px,.62fr) minmax(380px,1.5fr) minmax(150px,.62fr);padding-inline:24px}.cre-project-source{gap:8px;grid-template-columns:30px minmax(0,1fr);padding:10px}.cre-project-source-icon{height:30px;width:30px}.cre-project-source b{font-size:11px}.cre-project-source div span{font-size:9px}.cre-project-source-column-left .cre-project-source::after,.cre-project-source-column-right .cre-project-source::before{width:24px}.cre-project-source-column-left .cre-project-source::after{right:-24px}.cre-project-source-column-right .cre-project-source::before{left:-24px}.cre-project-source-column-left .cre-project-source::before{right:-26px}.cre-project-source-column-right .cre-project-source::after{left:-26px}}
   @media(max-width:880px){.cre-project-stage{grid-template-columns:repeat(2,minmax(0,1fr));padding:24px}.cre-project-hub{grid-column:1/-1;grid-row:1}.cre-project-source-column{grid-template-columns:repeat(2,minmax(0,1fr))}.cre-project-source-column-left{grid-column:1;grid-row:2}.cre-project-source-column-right{grid-column:2;grid-row:2}.cre-project-side-label{grid-column:1/-1}.cre-project-source-column-left .cre-project-source::after,.cre-project-source-column-right .cre-project-source::before,.cre-project-source-column-left .cre-project-source::before,.cre-project-source-column-right .cre-project-source::after{display:none}}
@@ -110,15 +115,22 @@ const workflow = [
   .cre-project-hub-top{background:#fff9f8;border-bottom-color:var(--project-hub-line)}.cre-project-hub-top b{color:var(--project-hub-ink)}.cre-project-hub-top span{color:var(--project-hub-muted)}.cre-project-hub-top em{background:#ffe8e3;color:#bd4d3b}.cre-project-hub-top em i{background:var(--project-hub-accent)}
   .cre-project-hub-body,.cre-project-hub-main{background:var(--project-hub-surface)}.cre-project-hub-rail{background:var(--project-hub-accent)}.cre-project-hub-rail span{color:#fff3f0}.cre-project-hub-rail .is-active{background:#fffafa;color:var(--project-hub-accent-dark);box-shadow:0 3px 8px rgba(186,60,40,.15)}.cre-project-hub-summary span{color:#b65c4d}
   .cre-project-map{background:#ffede8;border-color:#f1c8bf}.cre-project-map-base{fill:#fff8f6}.cre-project-map-grid{stroke:#f9d8d1}.cre-project-map-blocks rect{fill:#f7ded7;stroke:#efc7bd}.cre-project-map-road{stroke:#fffdfc}.cre-project-map-boundary{fill:#e68473;fill-opacity:.25;stroke:#df5d49}.cre-project-map-parcel{fill:#e5654f;stroke:#bd4332}.cre-project-map-marker{fill:#e4543c;stroke:#fffdfc}.cre-project-map-marker-plus{stroke:#fffdfc}
-  .cre-project-hub-cards span{background:#fff0ec;border-color:#f4cdc4;color:#8e4a40}.cre-project-work-panel{background:#fff0ed;border-left-color:#f2cac1}.cre-project-work-panel>p,.cre-project-work-card small{color:#b55a4b}.cre-project-work-card{background:#fff9f7;border-color:#f2cbc3}.cre-project-work-card a{color:#bf4433}.cre-project-work-card mark{background:#f9d2c8;color:#752a1f}.cre-project-action{background:#dc5844;border-color:#dc5844}.cre-project-action:hover{background:#c84936;border-color:#c84936}
+  .cre-project-hub-cards span{background:#fff0ec;border-color:#f4cdc4;color:#8e4a40}.cre-project-work-panel{background:#fff0ed;border-left-color:#f2cac1}.cre-project-work-panel>p,.cre-project-work-card small{color:#b55a4b}.cre-project-work-link{color:#bf4433}.cre-project-work-card mark{background:#f9d2c8;color:#752a1f}.cre-project-action{background:#dc5844;border-color:#dc5844}.cre-project-action:hover{background:#c84936;border-color:#c84936}
 
   /* Product canvases use a restrained four-step text scale, separate from page typography. */
   .cre-project-canvas{--canvas-text-strong:var(--rf-canvas-text-strong);--canvas-text:var(--rf-canvas-text);--canvas-text-muted:var(--rf-canvas-text-muted);--canvas-text-faint:var(--rf-canvas-text-faint);--cre-ink:var(--canvas-text-strong);--cre-muted:var(--canvas-text-muted);color:var(--canvas-text)}
   .cre-project-side-label{color:var(--canvas-text)}
   .cre-project-hub{--project-hub-ink:var(--rf-red-600);--project-hub-muted:var(--rf-red-600)}
   .cre-project-hub-summary span,.cre-project-hub-cards span{color:var(--rf-red-600)}
-  .cre-project-work-panel>p,.cre-project-work-card small,.cre-project-work-card a,.cre-project-work-card mark{color:var(--rf-red-600)}
+  .cre-project-work-panel>p,.cre-project-work-card small,.cre-project-work-link,.cre-project-work-card mark{color:var(--rf-red-600)}
+  .cre-project-work-link{cursor:default}
   .cre-project-action{cursor:default}.cre-project-action:hover{background:#dc5844;border-color:#dc5844}
+
+  /* Source tiles share the Cities canvas's fixed icon geometry and SVG scale. */
+  .cre-project-source-icon{--canvas-source-icon-glyph-size:16px;box-sizing:border-box;display:grid;flex:0 0 34px;place-items:center}
+  @media(max-width:1040px){.cre-project-source-icon{--canvas-source-icon-glyph-size:15px;flex-basis:30px}}
+  .cre-project-hub-rail span{--canvas-source-icon-glyph-size:14px}
+  @media(max-width:600px){.cre-project-hub-rail span{--canvas-source-icon-glyph-size:12px}}
 </style>
 
 <script>

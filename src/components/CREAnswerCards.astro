@@ -1,4 +1,6 @@
 ---
+import ArrowUpRight from './ArrowUpRight.astro';
+
 const cards = [
   {
     kind: 'Ground-up feasibility',
@@ -99,13 +101,13 @@ const cards = [
 
             <div class="cre-answer-card__evidence">
               <p class="cre-answer-card__section-label">Key factors</p>
-              {card.factors.map(([name, detail]) => <span><b>{name}</b><span class="cre-answer-card__factor-detail">{detail}</span><i aria-hidden="true">↗</i></span>)}
+              {card.factors.map(([name, detail]) => <span><b>{name}</b><span class="cre-answer-card__factor-detail">{detail}</span><ArrowUpRight class="cre-answer-card__arrow" /></span>)}
             </div>
 
             <div class="cre-answer-card__contact">
               <span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8"/><path d="M12 10v6M12 7.25v.1"/></svg></span>
               <p><small>Local contact</small><b>{card.contact[0]}</b><span class="cre-answer-card__contact-role">{card.contact[1]}</span><span class="cre-answer-card__contact-details">{card.contact[2]}</span></p>
-              <i aria-hidden="true">↗</i>
+              <ArrowUpRight class="cre-answer-card__arrow" />
             </div>
 
             </div>
@@ -287,6 +289,7 @@ const cards = [
     padding: 1.22rem 1.25rem 1.1rem;
     --cre-answer-marker: 1.18rem;
     --cre-answer-guide: calc(var(--cre-answer-marker) + .55rem);
+    --cre-answer-arrow-size: .75rem;
   }
 
   .cre-answer-card__question {
@@ -353,7 +356,7 @@ const cards = [
   .cre-answer-card__answer-marker {
     border-radius: .24rem;
     color: #fff;
-    background: #ed3f2c;
+    background: #f16d5a;
   }
 
   .cre-answer-card__answer-marker.is-yes {
@@ -439,7 +442,7 @@ const cards = [
     position: relative;
     display: grid;
     gap: .33rem;
-    grid-template-columns: 5.2rem minmax(0, 1fr) .75rem;
+    grid-template-columns: 5.2rem minmax(0, 1fr) var(--cre-answer-arrow-size);
     padding: .42rem .48rem .42rem var(--cre-answer-guide);
     border-radius: .45rem;
     color: #4f5d73;
@@ -467,42 +470,30 @@ const cards = [
 
   .cre-answer-card__factor-detail { min-width: 0; }
 
-  .cre-answer-card__evidence i {
-    display: grid;
-    width: .75rem;
-    height: .75rem;
-    align-self: center;
-    color: #8090d7;
-    font-size: .76rem;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 1;
-    place-items: center;
-    text-align: center;
-  }
-
   @container (min-width: 30rem) {
+    .cre-answer-card__body { --cre-answer-arrow-size: .86rem; }
     .cre-answer-card__evidence > span {
-      grid-template-columns: 5.65rem minmax(0, 1fr) .8rem;
+      grid-template-columns: 5.65rem minmax(0, 1fr) var(--cre-answer-arrow-size);
       padding-block: .5rem;
       font-size: .8rem;
     }
-
-    .cre-answer-card__evidence i { font-size: .86rem; }
   }
 
+  /* At compact card widths, keep the label and supporting text together.
+     The arrow stays in its own trailing column rather than consuming a
+     portion of the copy's available width. */
   @container (max-width: 22rem) {
     .cre-answer-card__evidence > span {
       grid-template-areas:
         'label arrow'
         'detail arrow';
-      grid-template-columns: minmax(0, 1fr) .75rem;
-      gap: .18rem .38rem;
+      grid-template-columns: minmax(0, 1fr) var(--cre-answer-arrow-size);
+      gap: .18rem .5rem;
+      padding-block: .5rem;
     }
 
     .cre-answer-card__evidence > span b { grid-area: label; }
     .cre-answer-card__factor-detail { grid-area: detail; }
-    .cre-answer-card__evidence i { grid-area: arrow; }
   }
 
   .cre-answer-card__sources {
@@ -523,10 +514,10 @@ const cards = [
   .cre-answer-card__contact {
     display: grid;
     gap: .55rem;
-    grid-template-columns: var(--cre-answer-marker) minmax(0, 1fr) .75rem;
+    grid-template-columns: var(--cre-answer-marker) minmax(0, 1fr) var(--cre-answer-arrow-size);
     align-items: center;
     margin-bottom: .82rem;
-    padding: .58rem 0;
+    padding: .58rem .48rem .58rem 0;
     border-radius: 0;
     color: #536178;
     background: transparent;
@@ -563,20 +554,6 @@ const cards = [
   .cre-answer-card__contact b { margin-bottom: .08rem; color: #283856; font-size: .71rem; font-weight: 800; }
   .cre-answer-card__contact-role { color: #536178; }
   .cre-answer-card__contact-details { margin-top: .14rem; color: #6475c6; font-size: .61rem; font-weight: 700; }
-
-  .cre-answer-card__contact i {
-    display: grid;
-    width: .75rem;
-    height: .75rem;
-    align-self: center;
-    color: #8090d7;
-    font-size: .76rem;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 1;
-    place-items: center;
-    text-align: center;
-  }
 
   .cre-answer-card__source-icon {
     display: grid;
@@ -709,8 +686,30 @@ const cards = [
     .cre-answer-card__header { min-height: auto; padding: 1.05rem; }
     .cre-answer-card__body { padding: 1rem; }
     .cre-answer-card__header h3 { font-size: 1.65rem; }
-    .cre-answer-card__evidence > span { grid-template-columns: 4.7rem minmax(0, 1fr) .7rem; font-size: .69rem; }
+    .cre-answer-card__evidence > span { font-size: .75rem; }
     .cre-answer-card__source-names { width: auto; margin-left: 0; }
+  }
+</style>
+
+<!-- ArrowUpRight is a child component, so its matching layout rules need to be global. -->
+<style is:global>
+  .cre-answer-card__arrow {
+    --rf-arrow-size: var(--cre-answer-arrow-size);
+    align-self: center;
+    color: #8090d7;
+    display: grid;
+    font-size: .76rem;
+    font-style: normal;
+    font-weight: 800;
+    height: var(--cre-answer-arrow-size);
+    line-height: 1;
+    place-items: center;
+    text-align: center;
+    width: var(--cre-answer-arrow-size);
+  }
+
+  @container (max-width: 22rem) {
+    .cre-answer-card__evidence .cre-answer-card__arrow { grid-area: arrow; }
   }
 </style>
 

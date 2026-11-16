@@ -48,7 +48,7 @@
                 <div class="preapp-linked-source" data-linked-source aria-live="polite"></div>
               </div>
             </div>
-            <div class="preapp-answer-actions"><button type="button" class="preapp-attach" data-attach disabled>Send response <span aria-hidden="true">↗</span></button><span data-attach-status aria-live="polite"></span></div>
+            <div class="preapp-answer-actions"><button type="button" class="preapp-attach" data-attach disabled>Send response</button><span data-attach-status aria-live="polite"></span></div>
             <section class="preapp-precedent-panel" aria-label="Prior interpretation reference">
               <div class="preapp-precedent-panel-head"><span>Precedent reference</span><em>Context only</em></div>
               <div class="preapp-precedent-viewer preapp-precedent-empty" data-precedent-viewer aria-live="polite">Select a precedent to inspect its conditions and a suggested citation. It will not be inserted into the response.</div>
@@ -151,7 +151,7 @@
       current.sources.forEach((item) => {
         const node = createButton('preapp-source', 'Open source ' + item.title + ' and add cited language');
         node.setAttribute('aria-pressed', String(item.id === state.source));
-        node.innerHTML = '<small>' + item.type + '</small><b>' + item.title + ' ↗</b><em>' + item.meta + '</em><mark>' + item.quote + '</mark><span>Open cited passage</span>';
+        node.innerHTML = '<small>' + item.type + '</small><b>' + item.title + '</b><em>' + item.meta + '</em><mark>' + item.quote + '</mark>';
         node.addEventListener('click', () => {
           state.source = item.id;
           state.attached = false;
@@ -189,7 +189,7 @@
 
       linkedSource.textContent = source ? 'Linked source · ' + source.citation : '';
       attach.disabled = !source;
-      attach.innerHTML = state.attached ? 'Response sent' : 'Send response <span aria-hidden="true">↗</span>';
+      attach.textContent = state.attached ? 'Response sent' : 'Send response';
       attachStatus.textContent = state.attached ? 'Response retained with RFI 03 - ready for staff approval.' : '';
 
       precedentViewer.replaceChildren();

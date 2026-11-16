@@ -1,0 +1,32 @@
+---
+interface Props {
+  name: 'home' | 'rules' | 'map' | 'document' | 'knowledge' | 'message' | 'coordination' | 'approval' | 'utilities' | 'collaboration';
+}
+
+const { name } = Astro.props;
+---
+
+<svg class="canvas-source-icon-svg" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
+  {name === 'home' && <><path d="m3.5 9 6.5-5.5L16.5 9" /><path d="M5.5 8.5v8h9v-8M8.5 16.5v-4h3v4" /></>}
+  {name === 'rules' && <><rect x="4.5" y="3" width="11" height="14" rx="1.5" /><path d="M7.5 7h5M7.5 10h5M7.5 13h3.5" /></>}
+  {name === 'map' && <><circle cx="10" cy="10" r="4" /><path d="M10 2.5v3M10 14.5v3M2.5 10h3M14.5 10h3" /></>}
+  {name === 'document' && <><rect x="4.5" y="3" width="11" height="14" rx="1.5" /><path d="M7.5 7h5M7.5 10h5M7.5 13h5" /></>}
+  {name === 'knowledge' && <path d="m10 2.5 1.8 5.7 5.7 1.8-5.7 1.8-1.8 5.7-1.8-5.7-5.7-1.8 5.7-1.8L10 2.5Z" />}
+  {name === 'message' && <><rect x="3.5" y="5" width="13" height="10" rx="1.5" /><path d="m4.5 6 5.5 4 5.5-4" /></>}
+  {name === 'coordination' && <><path d="M4 16 16 4M9 4h7v7" /></>}
+  {name === 'approval' && <path d="m4.5 10.2 3.4 3.5 7.7-8" />}
+  {name === 'utilities' && <><path d="m10 3.5 6.5 6.5-6.5 6.5L3.5 10 10 3.5Z" /><path d="m10 7.5 2.5 2.5-2.5 2.5-2.5-2.5L10 7.5Z" /></>}
+  {name === 'collaboration' && <><rect x="4" y="4" width="5" height="12" rx="1" /><rect x="11" y="4" width="5" height="12" rx="1" /></>}
+</svg>
+
+<style is:global>
+  .canvas-source-icon-svg {
+    display: block;
+    height: var(--canvas-source-icon-glyph-size, 16px);
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
+    width: var(--canvas-source-icon-glyph-size, 16px);
+  }
+</style>

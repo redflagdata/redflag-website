@@ -82,13 +82,12 @@
 .government-page .preapp-source>small{color:#617187;display:block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .government-page .preapp-source b{color:#175bc8;margin-top:4px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 .government-page .preapp-source mark{background:var(--highlight);color:var(--highlight-ink);display:block;font-family:var(--primary-font);font-size:11px;line-height:1.45;margin-top:9px;padding:2px 3px}
-.government-page .preapp-source>span{color:#175bc8;display:block;font-size:11px;font-weight:700;margin-top:9px}.government-page .preapp-source>span::after{content:' ↗'}
 .government-page .preapp-rule{border-top:1px solid var(--border);margin:18px 0}
 .government-page .preapp-precedent{padding:11px}.government-page .preapp-precedent>span{margin-top:4px}
 .government-page .preapp-answer-head>div{display:grid;gap:5px}.government-page .preapp-answer-head b{font-family:var(--primary-font);font-size:15px;line-height:1.35}.government-page .preapp-answer-head em{background:#ffe4de;color:#a52f1f}
 .government-page .preapp-email-composer{background:#fff;border:1px solid #dbe3ee;border-radius:10px;overflow:hidden}.government-page .preapp-email-meta{align-items:baseline;border-bottom:1px solid #e5ebf3;display:grid;gap:10px;grid-template-columns:54px minmax(0,1fr);padding:9px 13px}.government-page .preapp-email-meta span{color:#68778b;font-family:var(--primary-font);font-size:11px}.government-page .preapp-email-meta b{color:var(--ink);font-family:var(--primary-font);font-size:12px;font-weight:600;line-height:1.35;overflow-wrap:anywhere}.government-page .preapp-email-message{display:grid;gap:9px;grid-template-columns:minmax(0,1fr);min-width:0;padding:13px}.government-page .preapp-draft{border-radius:7px;color:var(--ink);font-family:var(--primary-font);font-size:13px;line-height:1.58;min-height:152px;min-width:0;overflow-wrap:anywhere;padding:2px 0}.government-page .preapp-draft.is-empty{color:#8190a3}.government-page .preapp-draft a{color:#175bc8;font-weight:700;overflow-wrap:anywhere;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 .government-page .preapp-linked-source{color:var(--highlight-ink);font-family:var(--primary-font);font-size:11px;line-height:1.35;min-height:16px;min-width:0;overflow-wrap:anywhere}.government-page .preapp-linked-source:not(:empty){background:var(--highlight-surface);border:1px solid #d5e1fa;border-radius:6px;max-width:100%;padding:7px 9px;width:fit-content}
-.government-page .preapp-answer-actions{align-items:center;display:flex;flex-wrap:wrap;gap:10px}.government-page .preapp-attach{background:var(--red);border:1px solid var(--red);border-radius:8px;color:#fff;font-family:var(--primary-font);font-size:12px;font-weight:700;line-height:1;padding:10px 13px}.government-page .preapp-attach:disabled{background:#dbe2eb;border-color:#dbe2eb;color:#7d8b9d;cursor:not-allowed}.government-page .preapp-answer-actions>span{color:#15764d;font-family:var(--primary-font);font-size:11px;line-height:1.35}
+.government-page .preapp-answer-actions{align-items:center;display:flex;flex-wrap:wrap;gap:10px}.government-page .preapp-attach{align-items:center;background:var(--red);border:1px solid var(--red);border-radius:8px;color:#fff;display:inline-flex;font-family:var(--primary-font);font-size:12px;font-weight:700;gap:6px;line-height:1;padding:10px 13px}.government-page .preapp-attach:disabled{background:#dbe2eb;border-color:#dbe2eb;color:#7d8b9d;cursor:not-allowed}.government-page .preapp-answer-actions>span{color:#15764d;font-family:var(--primary-font);font-size:11px;line-height:1.35}
 .government-page .preapp-precedent-panel{background:var(--surface);border:1px dashed #cad6e8;border-radius:10px;padding:11px}.government-page .preapp-precedent-panel-head{align-items:center;display:flex;justify-content:space-between;gap:8px;margin-bottom:8px}.government-page .preapp-precedent-panel-head>span{color:#526176;font-family:var(--primary-font);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.government-page .preapp-precedent-panel-head em{background:#e9eef6;border-radius:999px;color:#617187;font-family:var(--primary-font);font-size:10px;font-style:normal;font-weight:600;padding:5px 7px}.government-page .preapp-precedent-viewer{background:#fff;border:1px solid #dbe3ee;border-radius:7px;display:grid;gap:7px;padding:11px}.government-page .preapp-precedent-viewer small{color:#526176;font-family:var(--primary-font);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.government-page .preapp-precedent-viewer b{font-family:var(--primary-font);font-size:13px;line-height:1.35}.government-page .preapp-precedent-viewer p{font-family:var(--primary-font);font-size:12px;line-height:1.45}.government-page .preapp-precedent-viewer>span{background:#eaf7ef;color:#15764d;font-family:var(--primary-font);font-size:11px;line-height:1.4;padding:8px}.government-page .preapp-precedent-empty{color:#68778b;font-family:var(--primary-font);font-size:12px;line-height:1.45}
 .government-page .preapp-final-note{color:#68778b;font-family:var(--primary-font);font-size:11px;line-height:1.4;margin-top:auto}
 @media(max-width:990px){.government-page .preapp-canvas-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}.government-page .preapp-inbox{border-bottom:1px solid var(--border);border-right:0;grid-column:1/-1}.government-page .preapp-question-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -512,12 +511,13 @@
 .government-page .city-system-hub-cards span{color:var(--rf-red-600)}
 .government-page .city-system-review-panel>p,
 .government-page .city-system-citation small,
-.government-page .city-system-citation a,
+.government-page .city-system-citation-link,
 .government-page .city-system-citation mark{color:var(--rf-red-600)}
 .government-page .city-system-response-button{cursor:default}
 .government-page .city-system-review-panel>.city-system-response-button,
 .government-page .city-system-response-button span{color:#fff}
 .government-page .city-system-response-button:hover{background:#dc5844;border-color:#dc5844}
+.government-page .city-system-citation-link{color:var(--rf-red-600);cursor:default;font-family:var(--primary-font);font-size:10px;font-weight:700;line-height:1.35;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:2px}
 
 .government-page .preapp-canvas{
   --ink:var(--canvas-text-strong);
@@ -531,3 +531,14 @@
 .government-page .preapp-source em,
 .government-page .preapp-precedent>span,
 .government-page .preapp-final-note{color:var(--canvas-text-muted)}
+
+/* Fixed vector proof checks avoid emoji fallback and preserve the existing grid rhythm. */
+.government-page .check{--rf-check-icon-size:14px;align-self:.1em;display:block}
+
+/* Match the CRE canvas: every source icon sits on the same fixed tile and SVG grid. */
+.government-page .city-system-source-icon{--canvas-source-icon-glyph-size:16px;box-sizing:border-box;display:grid;flex:0 0 34px;place-items:center}
+@media(max-width:1040px){.government-page .city-system-source-icon{--canvas-source-icon-glyph-size:15px;flex-basis:30px}}
+
+/* The City workspace rail uses the same shared SVG marks and sizing as CRE. */
+.government-page .city-system-hub-rail span{--canvas-source-icon-glyph-size:14px}
+@media(max-width:600px){.government-page .city-system-hub-rail span{--canvas-source-icon-glyph-size:12px}}

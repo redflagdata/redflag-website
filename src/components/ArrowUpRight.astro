@@ -1,0 +1,27 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg class:list={['rf-arrow-up-right', className]} viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+  <path d="M3 13 13 3M6 3h7v7" />
+</svg>
+
+<style is:global>
+  .rf-arrow-up-right {
+    box-sizing: border-box;
+    display: inline-block;
+    width: var(--rf-arrow-size, 1em);
+    height: var(--rf-arrow-size, 1em);
+    flex: 0 0 auto;
+    vertical-align: -.12em;
+    fill: none;
+    stroke: var(--rf-arrow-color, currentColor);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+  }
+</style>

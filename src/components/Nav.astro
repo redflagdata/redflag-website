@@ -4,6 +4,7 @@ const toggle = `<nav class="audience-switch" aria-label="Audience"><a href="/" d
 const mark = '<img class="navbar-mark" src="/images/webclip.png" width="32" height="32" alt="Redflag" />';
 const nav = markup
   .replace(/(<div class="navbar-wrapper">)/, `$1${toggle}`)
+  .replace(/(<a class="navbar-brand w-nav-brand"[^>]*?) href="[^"]*"/, '$1 href="/"')
   .replace(/(<a class="navbar-brand w-nav-brand"[^>]*>)/, `$1${mark}`)
   .replace(/>see a demo</g, '>book a demo<');
 ---

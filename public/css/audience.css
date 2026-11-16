@@ -73,7 +73,7 @@
 .modal-wrapper.early-access .rf-select__option{align-items:center;background:transparent;border:0;border-radius:7px;color:var(--rf-ink-900,#111827);cursor:pointer;display:flex;font-family:var(--primary-font,Inter,sans-serif);font-size:14px;line-height:1.25;min-height:38px;padding:9px 34px 9px 10px;position:relative;text-align:left;width:100%}
 .modal-wrapper.early-access .rf-select__option:hover,.modal-wrapper.early-access .rf-select__option:focus-visible{background:#fff3f0;color:#bd321f;outline:0}
 .modal-wrapper.early-access .rf-select__option.is-selected{background:#fff6f3;color:#bd321f;font-weight:650}
-.modal-wrapper.early-access .rf-select__option.is-selected::after{color:var(--rf-red-600,#e9361f);content:'✓';font-weight:800;position:absolute;right:11px}
+.modal-wrapper.early-access .rf-select__option.is-selected::after{border-bottom:2px solid var(--rf-red-600,#e9361f);border-left:2px solid var(--rf-red-600,#e9361f);content:'';height:5px;position:absolute;right:12px;top:50%;transform:translateY(-60%) rotate(-45deg);width:9px}
 .modal-wrapper.early-access .rf-select__option.is-placeholder{display:none}
 .modal-wrapper.early-access .genbutton.cta-button-main{background:var(--rf-red-600,#e9361f);border:1px solid var(--rf-red-600,#e9361f);border-radius:999px;box-shadow:0 10px 24px rgba(233,54,31,.18);color:#fff;flex:1 1 100%;font-family:var(--primary-font,Inter,sans-serif);font-size:15px;font-weight:700;letter-spacing:0;margin-top:4px;min-height:48px;padding:0 20px}
 .modal-wrapper.early-access .genbutton.cta-button-main:hover{background:var(--rf-red-700,#c92d1a);color:#fff}
